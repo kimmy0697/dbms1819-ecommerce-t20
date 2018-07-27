@@ -1,0 +1,35 @@
+<style>
+	.table{
+		margin-top: 20%;
+	}
+</style>
+<body>
+<!--Table from DB-->
+<div class="container text-center table-sm">
+<table class="table table-bordered">
+{{#rows}}
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+			<th>TYPE</th>
+			<th>DESCRIPTION</th>
+			<th>BRAND</th>
+			<th>BRAND</th>
+			<th>PRICE</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{id}}</td>
+			<td>{{name}}</td>
+			<td>{{type}}</td>
+			<td>{{description}}</td>
+			<td>{{brand}}</td>
+			<td>{{price}}</td>
+		</tr>
+	</tbody>
+{{/rows}}
+</table>
+</body>
+
