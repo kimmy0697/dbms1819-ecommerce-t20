@@ -56,6 +56,29 @@ app.get('/products',(req,res)=>{
 	});
 });
 
+app.get('/member/20/carlo',function(req,res) {
+	res.render('member', {
+		name: "Carlo",
+		full_name: "Carlo S. Punzalan",
+		email: "carlo10punzalan@gmail.com",
+		phone: '09976897678',
+		imageUrl: 'https://thumbs.dreamstime.com/b/boy-cartoon-backpacks-illustration-45759680.jpg',
+		hobbies: ['Playing games', 'Sleeping']
+	})
+});
+
+app.get('/member/20/kim',function(req,res) {
+	res.render('member', {
+		name: "Kim",
+		full_name: "Kim Leslie B. Faina",
+		email: "kimlesliefaina.klf@gmail.com",
+		phone: '09169783384',
+		imageUrl: 'https://easydrawingguides-7512.kxcdn.com/wp-content/uploads/2017/02/How-to-draw-a-cartoon-girl-20.png',
+		hobbies: ['Reading', 'Watching KPOP']
+	})
+});
+
+
 //Server
 app.listen(app.get('port'), function() {
 	console.log('Server started at port 3000');
