@@ -1,4 +1,3 @@
-<!--<style>
   	@import url('https://fonts.googleapis.com/css?family=Homemade Apple');
 	@import url('https://fonts.googleapis.com/css?family=Poppins');
 
@@ -42,17 +41,7 @@
 		margin-bottom: 5%;
 		font-family: 'Poppins', sans-serif;
 	}
-</style>-->
 
-<body style="background: url(https://wallpapertag.com/wallpaper/full/2/9/8/465801-best-pink-purple-and-blue-backgrounds-1920x1080-hd.jpg) no-repeat 50% 50%;">
-<h1 class="text-center">DBMS Homework 2</h1>
-<!--Landing-->
-<section class="intro">
-<div class="inner">
-	<div class="content">
-		<h2>"The joy of dressing is an art"</h2>
-		<h1>- John Galliano</h1>
-		<a href="/products"><button class="btn">Shop Now</button></a>
-</div>
-</body>
-
+	.table{
+		margin-top: 20%;
+	}
