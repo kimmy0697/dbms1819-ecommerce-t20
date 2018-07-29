@@ -3,18 +3,18 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const { Client } = require('pg');
 const client = new Client({
-	 database: 'MyDatabase',
-	 user: 'postgres',
-	 password: 'kimkim669977',
-	 host: 'localhost',
-	 port: 5432
+	 // database: 'MyDatabase',
+	 // user: 'postgres',
+	 // password: 'kimkim669977',
+	 // host: 'localhost',
+	 // port: 5432
 
-	// database: 'ec2-54-204-23-228.compute-1.amazonaws.com',
-	// user: 'nyhwiqhxjnmsqx',
-	// password: '74e9e4de45586285106edf7ce7c0f8d155d3c2f42c7e6876185bb0e34aaae7c4',
-	// host: 'ec2-54-204-23-228.compute-1.amazonaws.com',
-	// port: 5432,
-	// ssl: true
+	database: 'dd8kc2u4cu7i9d',
+	user: 'ffvgqavajynjjs',
+	password: 'fcd02fa73b5ebb0764264b3f00ddf5e09d6240e9ea64c7b3d5852eb8c74b1a45',
+	host: 'ec2-23-21-216-174.compute-1.amazonaws.com',
+	port: 5432,
+	ssl: true
 });
 
 client.connect()
