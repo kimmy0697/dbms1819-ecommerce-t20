@@ -43,18 +43,46 @@ app.get('/', function(req, res) {
 
 // connect to database
 app.get('/products',(req,res)=>{
-	return client.query('SELECT * FROM Products;')
+	
+	client.query('SELECT * FROM Products;', (req,data)=>{
 
-	.then((results)=>{
-		console.log('results[2]', results);
-		res.render('products', results);
+		var list = [];
 
-	})
-	.catch((err)=>{
-		console.log('error', err);
-		res.send('Error!');
+		for (var i=0; i< data.rows.length; i++){
+			list.push(data.rows[i]);
+		}
+		res.render('products',{
+			data: list,
+			title: 'Most Popular Shoes'
+		});
 	});
 });
+
+app.get('/products/:id', (req,res)=>{
+	var id = req.params.id;
+	client.query('SELECT * FROM Products', (req, data)=>{
+		var list = [];
+		for (var i = 0; i < data.rows.length+1; i++) {
+			if (i==id) {
+				list.push(data.rows[i-1]);
+			}
+		}
+		res.render('product-details',{
+			data: list
+		});
+	});
+});
+
+	// .then((results)=>{
+	// 	console.log('results[2]', results);
+	// 	res.render('products', results);
+
+	// })
+	// .catch((err)=>{
+	// 	console.log('error', err);
+	// 	res.send('Error!');
+	// });
+// });
 
 //Server
 app.listen(app.get('port'), function() {

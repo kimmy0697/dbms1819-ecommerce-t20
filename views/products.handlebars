@@ -1,11 +1,12 @@
-<style>
+<!--<style>
 	.table{
 		margin-top: 20%;
 	}
 </style>
 
 <body>
-<!--Table from DB-->
+
+<!Table from DB>
 <div class="container text-center table-sm">
 <table class="table table-bordered">
 	<thead>
@@ -33,5 +34,25 @@
 	</tbody>
 {{/rows}}
 </table>
-</body>
+</body>-->
 
+<div class="container">
+	<div class="jumbotron mt-2">
+		<h1 class="mt-0 mb-5 text-center">{{title}}</h1>
+		<div class="row mx-4">
+			{{#each data}}
+			<div class="col-lg-4 col-md-4 col-sm-12 mb-4 mx-auto">
+				<div class="card bg-secondary text-light center">
+					<a href="/products/{{this.id}}" class="text-light">
+						<img class="card-img-top" src="{{this.picture}}">
+						<!-- style="object-fit: cover;" height="100em" -->
+						<div class="">
+								<h6 class="card-title text-center my-3">{{this.brand}} {{this.name}}</h5>
+						</div>
+					</a>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
