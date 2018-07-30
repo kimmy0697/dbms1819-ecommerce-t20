@@ -107,7 +107,7 @@ app.post('/products/:id/send', function(req, res) {
 
 	//nodemailer
 	let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+        host: 'smtp.mail.yahoo.com',
         port: 465,
         secure: true,
         auth: {
@@ -117,7 +117,7 @@ app.post('/products/:id/send', function(req, res) {
     });
 
     let mailOptions = {
-        from: '"Adidas Mailer" <team20module1@gmail.com>',
+        from: '"Adidas Mailer" <team20module1@yahoo.com>',
         to: 'carlo10punzalan@gmail.com, kimlesliefaina.klf@gmail.com',
         subject: 'Adidas Shoes Contact Request',
         //text: req.body.name,
