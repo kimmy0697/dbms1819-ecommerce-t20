@@ -111,8 +111,8 @@ app.post('/products/:id/send', function(req, res) {
         port: 465,
         secure: true,
         auth: {
-            user: 'team20module1@gmail.com', 
-            pass: 'team20-module1' 
+            user: 'team20module1@yahoo.com', 
+            pass: 'dbms1819-ecommerce-t20' 
         }
     });
 
