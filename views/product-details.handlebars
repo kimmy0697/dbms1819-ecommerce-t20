@@ -68,6 +68,7 @@
 	<div class="jumbotron mt-2 jumbotron-design">
 		{{#each data}}
 		<h1 class="mt-3 text-center">{{this.name}}</h1>
+				<h4>{{msg}}</h4>
 			<div class="col-lg-8 col-md-8 col-sm-8 mb-0 mx-auto">
 				<div class="card center">
 					<img class="card-img-top" src="{{this.picture}}" alt="{{this.name}}">
@@ -99,7 +100,6 @@
 			</div>
 
 			<div class="modal-body body-design">
-				<h4>{{msg}}</h4>
 				{{#each data}}
 				<form method="POST" action="{{this.id}}/send">
 					<div class="controls">
