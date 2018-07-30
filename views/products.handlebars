@@ -44,7 +44,21 @@
 	color: #fff;
 	text-shadow: 0px 0px 300px #000;
 	margin-bottom: 5%;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Khand', sans-serif;
+}
+
+.text-box{
+
+	background-color: #8600b3;
+}
+
+.text-box h6:hover{
+	color: white;
+	text-decoration: none;
+}
+
+.text-box h6{
+	color: #f2ccff;
 }
 
 </style>
@@ -60,9 +74,8 @@
 				<div class="card bg-secondary text-light center">
 					<a href="/products/{{this.id}}" class="text-light">
 						<img class="card-img-top" src="{{this.picture}}">
-						<!-- style="object-fit: cover;" height="100em" -->
-						<div class="">
-								<h6 class="card-title text-center my-3">{{this.brand}} {{this.name}}</h5>
+						<div class="text-box">
+								<h5 class="card-title text-center my-3">{{this.brand}} {{this.name}}</h5>
 						</div>
 					</a>
 				</div>
