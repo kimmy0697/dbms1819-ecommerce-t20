@@ -19,6 +19,19 @@
 	color: white;
 }
 
+.header-design{
+
+	background-color: #8600b3;
+	color: white;
+	font-style: bold;
+
+}
+
+.body-design{
+
+	background: linear-gradient(#c61aff, #f9e6ff);
+}
+
 </style>
 
 <div class="container">
@@ -46,32 +59,32 @@
 	<div class="modal-dialog" role="document">
 
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header header-design">
 				<h4 class="modal-title">CONTACT FORM</h4>
 				<button type="button" class="close" data-dismiss="modal">&times;
 				</button>
 			</div>
 
-			<div class="modal-body">
+			<div class="modal-body body-design">
 				{{#each data}}
 				<form method="POST" action="{{this.id}}/send">
 					<div class="controls">
 						<div class="form-group">
-							<label class="control-label" for="name">Name *</label>
+							<label class="control-label" for="name">Name</label>
 							<div>
 								<input id="name" name="name" type="text" placeholder="Juan Dela Cruz" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="phone">Phone *</label>
+							<label class="control-label" for="phone">Phone</label>
 							<div>
 								<input id="phone" name="phone" type="number" placeholder="09976897678" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="email">Email *</label>
+							<label class="control-label" for="email">Email</label>
 							<div>
-								<input id="email" name="email" type="text" placeholder="jdelacruz@gmail.com" class="form-control" required="">
+								<input id="email" name="email" type="email" placeholder="jdelacruz@gmail.com" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
@@ -81,7 +94,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="quantity">Quantity *</label>
+							<label class="control-label" for="quantity">Quantity</label>
 							<div>
 								<input id="quantity" name="quantity" type="number" placeholder="10" class="form-control" required="">
 							</div>
