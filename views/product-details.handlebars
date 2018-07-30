@@ -32,6 +32,24 @@
 	background: linear-gradient(#c61aff, #f9e6ff);
 }
 
+.btn-design{
+	background-color: none;
+	border-color: #8600b3;
+	color: #c61aff;
+}
+
+.btn-design:hover{
+	background-color: #8600b3;
+	border-color: #c61aff;
+	color: white;
+}
+
+.lbl-text{
+	color:white;
+	font-style: bold;
+	text-transform: capitalize;
+}
+
 </style>
 
 <div class="container">
@@ -70,41 +88,41 @@
 				<form method="POST" action="{{this.id}}/send">
 					<div class="controls">
 						<div class="form-group">
-							<label class="control-label" for="name">Name</label>
+							<label class="control-label lbl-text" for="name">Name</label>
 							<div>
 								<input id="name" name="name" type="text" placeholder="Juan Dela Cruz" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="phone">Phone</label>
+							<label class="control-label lbl-text" for="phone">Phone</label>
 							<div>
 								<input id="phone" name="phone" type="number" placeholder="09976897678" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="email">Email</label>
+							<label class="control-label lbl-text" for="email">Email</label>
 							<div>
 								<input id="email" name="email" type="email" placeholder="jdelacruz@gmail.com" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="productid">Product ID</label>
+							<label class="control-label lbl-text" for="productid">Product ID</label>
 							<div>
 								<input id="productid" name="productid" type="text" value="{{this.id}}" class="form-control" required="" readonly="">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="quantity">Quantity</label>
+							<label class="control-label lbl-text" for="quantity">Quantity</label>
 							<div>
 								<input id="quantity" name="quantity" type="number" placeholder="10" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="text-center">
-								<button type="submit" class="btn btn-primary btn-lg" title="Submit contact form">
+								<button type="submit" class="btn btn-lg btn-design" title="Submit contact form">
 								Submit
 								</button>
-				          		<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
+				          		<button type="button" class="btn btn-lg btn-design" data-dismiss="modal">Close</button>
 							</div>
 						</div>
 					</div>
