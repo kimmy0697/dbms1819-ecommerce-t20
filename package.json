@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "nodemailer": "^4.6.7",
     "express": "*",
     "express-handlebars": "*",
+    "handlebars": "^4.0.11",
     "jquery": "^3.3.1",
     "pg": "^7.4.3"
   },
@@ -14,6 +17,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Carlo Punzalan",
   "license": "ISC"
 }

@@ -31,10 +31,37 @@
 					<div class="card-body">
 						<h4 class="card-title">{{this.brand}} - {{this.type}}</h4>
 						<h5 class="card-title">₱ {{this.price}}.00</h5>
-						<h7 class="card-title">{{this.description}}</h7>
+						<h7 class="card-title">{{this.description}}
+							<button type="button" data-toggle="modal" data-target="#orderModal">Order Now!</button></h7>
 					</div>
 				</div>
 			</div>
 		{{/each}}
+	</div>
+</div>
+
+<!--Order Modal-->
+
+<div class="modal-fade" id="orderModal" role="dialog">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;
+				</button>
+				<h4 class="modal-title text-center">CONTACT FORM</h4>
+			</div>
+
+			<div class="modal-body">
+				<form method="POST" action="{{this.id}}/send">
+
+			</div>
+			<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          		<button type="submit">Submit
+          		</button>
+        	</div>
+
+		</div>
 	</div>
 </div>
