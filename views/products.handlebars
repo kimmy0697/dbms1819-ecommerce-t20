@@ -47,22 +47,20 @@
 	font-family: 'Khand', sans-serif;
 }
 
-.card-title{
+.card{
 
 	background-color: #8600b3;
 }
 
-.text-box h6:hover{
-	color: white;
+h5{
+	color: #f2ccff;
 }
 
-a h5:hover {
+h5:hover{
+	color: white;
 	text-decoration: none;
 }
 
-.text-box h6{
-	color: #f2ccff;
-}
 
 </style>
 
@@ -74,7 +72,7 @@ a h5:hover {
 		<div class="row mx-4">
 			{{#each data}}
 			<div class="col-lg-4 col-md-4 col-sm-12 mb-4 mx-auto">
-				<div class="card bg-secondary text-light center">
+				<div class="card center">
 					<a href="/products/{{this.id}}" class="text-light">
 						<img class="card-img-top" src="{{this.picture}}">
 						<div class="text-box">
