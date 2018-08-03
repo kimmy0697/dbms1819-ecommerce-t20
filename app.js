@@ -3,21 +3,23 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const config = require('./config.js');
 const { Client } = require('pg');
-const client = new Client({
-	 // database: 'MyDatabase',
-	 // user: 'postgres',
-	 // password: 'kimkim669977',
-	 // host: 'localhost',
-	 // port: 5432
+console.log('config db', config.db);
+const client = new Client(config.db);
+// 	 database: 'MyDatabase',
+// 	 user: 'postgres',
+// 	 password: 'kimkim669977',
+// 	 host: 'localhost',
+// 	 port: 5432
 
-	database: 'dd8kc2u4cu7i9d',
-	user: 'ffvgqavajynjjs',
-	password: 'fcd02fa73b5ebb0764264b3f00ddf5e09d6240e9ea64c7b3d5852eb8c74b1a45',
-	host: 'ec2-23-21-216-174.compute-1.amazonaws.com',
-	port: 5432,
-	ssl: true
-});
+// 	database: 'dd8kc2u4cu7i9d',
+// 	user: 'ffvgqavajynjjs',
+// 	password: 'fcd02fa73b5ebb0764264b3f00ddf5e09d6240e9ea64c7b3d5852eb8c74b1a45',
+// 	host: 'ec2-23-21-216-174.compute-1.amazonaws.com',
+// 	port: 5432,
+// 	ssl: true
+// });
 
 client.connect()
 	.then(function(){
@@ -43,7 +45,6 @@ app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
 	res.render('home',{
-
 	});
 });
 
@@ -66,7 +67,7 @@ app.get('/products',(req,res)=>{
 
 app.get('/products/:id', (req,res)=>{
 	var id = req.params.id;
-	client.query('SELECT * FROM Products', (req, data)=>{
+	client.query('SELECT * FROM Products;', (req, data)=>{
 		var list = [];
 		for (var i = 0; i < data.rows.length+1; i++) {
 			if (i==id) {
