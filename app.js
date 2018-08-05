@@ -42,7 +42,6 @@ app.use(express.static(path.join(__dirname, 'static1')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 app.get('/', function(req, res) {
 	res.render('home',{
 	});
@@ -62,6 +61,38 @@ app.get('/products',(req,res)=>{
 			data: list,
 			title: 'Most Popular Shoes'
 		});
+	});
+});
+
+app.get('/brand/create', function(req,res){
+	res.render('create-brand', {
+	});
+});
+
+app.post('/brand/create', function(req,res){
+	res.render('brands', {
+	});
+});
+
+
+app.get('/brands', (req,res)=>{
+	res.render('brands', {
+	});
+});
+
+app.get('/category/create', (req,res)=>{
+	res.render('create-category',{
+	});
+});
+
+app.get('/categories', (req,res)=>{
+	res.render('categories',{
+	});
+});
+
+app.get('/product/create',(req,res)=>{
+	res.render('create-product',{
+
 	});
 });
 
