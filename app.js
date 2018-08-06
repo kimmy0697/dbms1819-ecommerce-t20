@@ -7,19 +7,6 @@ const config = require('./config.js');
 const { Client } = require('pg');
 console.log('config db', config.db);
 const client = new Client(config.db);
-// 	 database: 'MyDatabase',
-// 	 user: 'postgres',
-// 	 password: 'kimkim669977',
-// 	 host: 'localhost',
-// 	 port: 5432
-
-// 	database: 'dd8kc2u4cu7i9d',
-// 	user: 'ffvgqavajynjjs',
-// 	password: 'fcd02fa73b5ebb0764264b3f00ddf5e09d6240e9ea64c7b3d5852eb8c74b1a45',
-// 	host: 'ec2-23-21-216-174.compute-1.amazonaws.com',
-// 	port: 5432,
-// 	ssl: true
-// });
 
 client.connect()
 	.then(function(){
@@ -69,25 +56,36 @@ app.get('/brand/create', function(req,res){
 	});
 });
 
-app.post('/brand/create', function(req,res){
-	res.render('brands', {
-	});
-});
-
-
 app.get('/brands', (req,res)=>{
 	res.render('brands', {
 	});
 });
+
+app.post('/brands', function(req,res){
+	console.log(req.body)
+	// addBrand(data);
+	res.render('brands', req.body); // getListBrand());
+});
+
+// function addBrand(data) {
+	// INSERT query function or array??
+	// this.list.push(data);
+// }
+
+// function getListBrand() {
+	// SELECT query and format to JSON
+	// return JSON format of List of all brands currently on the list
+	// return JSON.stringify(this.list);
+// }
 
 app.get('/category/create', (req,res)=>{
 	res.render('create-category',{
 	});
 });
 
-app.get('/categories', (req,res)=>{
-	res.render('categories',{
-	});
+app.post('/categories', (req,res)=>{
+	console.log(req.body)
+	res.render('categories', req.body);
 });
 
 app.get('/product/create',(req,res)=>{
@@ -111,16 +109,6 @@ app.get('/products/:id', (req,res)=>{
 	});
 });
 
-	// .then((results)=>{
-	// 	console.log('results[2]', results);
-	// 	res.render('products', results);
-
-	// })
-	// .catch((err)=>{
-	// 	console.log('error', err);
-	// 	res.send('Error!');
-	// });
-// });
 
 app.post('/products/:id/send', function(req, res) {
 	console.log(req.body);
@@ -152,7 +140,6 @@ app.post('/products/:id/send', function(req, res) {
         from: '"Adidas Mailer" <team20module1@gmail.com>',
         to: 'carlo10punzalan@gmail.com, kimlesliefaina.klf@gmail.com',
         subject: 'Adidas Shoes Contact Request',
-        //text: req.body.name,
         html: output
     };
 
