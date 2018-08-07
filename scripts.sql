@@ -12,7 +12,7 @@ CREATE TABLE "customers" (
 
 CREATE TABLE "products_category" (
   "id" SERIAL PRIMARY KEY,
-  "name" VARCHAR(80)
+  "product_category_name" VARCHAR(80)
 );
 
 CREATE TABLE "brands" (
@@ -23,13 +23,14 @@ CREATE TABLE "brands" (
 
 CREATE TABLE "products" (
   "id" SERIAL PRIMARY KEY,
-  "name" VARCHAR(80),
-  "description" VARCHAR(1000),
-  "tagline" VARCHAR(150),
+  "name" VARCHAR(100),
+  "description" VARCHAR(5000),
+  "tagline" VARCHAR(1000),
   "price" FLOAT(2),
   "warranty" INT,
   "brand_id" INT REFERENCES brands(id),
-  "category_id" INT REFERENCES products_category(id)
+  "category_id" INT REFERENCES products_category(id),
+  "image" VARCHAR(5000)
 );
 
 
