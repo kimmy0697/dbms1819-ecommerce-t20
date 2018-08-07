@@ -108,14 +108,14 @@ app.post('/categories', function(req, res) {
 app.post('/insert_products', function(req, res) {	
 	client.query("INSERT INTO products (name,description,tagline,price,warranty,brand_id,category_id,image) VALUES ('" + req.body.name + "', '" + req.body.description + "', '" + req.body.tagline + "', '" + req.body.price + "', '" + req.body.warranty + "', '" + req.body.brand_id + "', '" + req.body.category_id + "','" + req.body.image + "')")
 	.then((results)=>{
-	    console.log('results?', results);
-		res.render('products', results);
+	    // console.log('results?', results);
+		res.redirect('/products');
+		// res.render('products', results);
 	})
 	.catch((err) => {
 		console.log('error',err);
 		res.send('Error!');
 	});	
-	res.redirect('/products');
 });
 
 app.post('/updateproduct/:id', function(req, res) {
@@ -233,7 +233,7 @@ app.get('/products/:id', function(req, res) {
     	tagline: results.rows[0].products_tagline,
 		price: results.rows[0].products_price,
 		warranty: results.rows[0].products_warranty,
-		img: results.rows[0].products_image,
+		image: results.rows[0].products_image,
 		brandname: results.rows[0].brand_name,
 		branddesc: results.rows[0].brand_description,
 		category: results.rows[0].category_name,
