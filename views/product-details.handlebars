@@ -104,8 +104,7 @@
 			<div class="jumbotron jumbotron-design">
 				<div class="modal-body">
 					<h5>{{name}} - {{brandname}}</h5>
-					<h6><i>{{category}}</i>
-					<a class="go-back" href="/products">&laquo;&ensp;Go back to products page</a><h6>
+					<h6><i>{{category}}</i></h6>
 					<hr>
 					<ul>
 						<li style="text-decoration:none">Name: {{name}}</li>
@@ -117,10 +116,10 @@
 						<li style="text-decoration:none">Category: {{category}}</li>
 					</ul>
 				</div>
-				<hr>
 				<div class="modal-footer">
 					<button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design" data-toggle="modal" data-target="#orderModal">Order Now!</button>
 					<button type="button" style="float:right; margin-right:20px;" href="/product/update/{{this.id}}" class="btn btn-md btn-design">Update Product</button>&ensp;&ensp;
+					<button type="button" style="float:right; margin-right20px;" href="/products" class="btn btn-md btn-design">&laquo;&ensp;Go back to products page</button>
 				</div>
 			</div>
 		</div>
