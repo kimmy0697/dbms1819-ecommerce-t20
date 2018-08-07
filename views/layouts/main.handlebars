@@ -11,10 +11,9 @@
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
  	<body>
- 		{{{body}}}
- 			<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #e6ccff;">
+ 			<nav class="navbar navbar-expand-md navbar-light" style="background-color: #e6ccff;">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/" style="font-family: 'Khand'; font-size: 30px;">Module 1</a>
+					<a class="navbar-brand" href="/" style="font-family: 'Khand'; font-size: 30px;">Module 2</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -23,18 +22,31 @@
 							<li class="nav-item">
 								<a class="nav-link" href="/">Home</a>
 							</li>							
-							<li class="nav-item">
-								<a class="nav-link" href="/products">Products</a>
+							<li class="nav-item dropdown">
+								<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Products<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a class="nav-link" href="/product/create">Create Product</a></li>
+									<li><a class="nav-link" href="/products">Products List</a></li>
+								</ul>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="/brand/create">Brands</a>
+							<li class="nav-item dropdown">
+								<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Brands<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a class="nav-link" href="/brand/create">Create Brand</a></li>
+									<li><a class="nav-link" href="/brands">Brands List</a></li>
+								</ul>								
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="/category/create">Categories</a>
+							<li class="nav-item dropdown">
+								<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a class="nav-link" href="/category/create">Create Category</a></li>
+									<li><a class="nav-link" href="/categories">Categories List</a></li>
+								</ul>								
 							</li>														
 						</ul>
 					</div>
 				</div>
 			</nav>
+		{{{body}}}
  	</body>
  </html> 

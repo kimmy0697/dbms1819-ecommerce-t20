@@ -1,11 +1,38 @@
-<div class="container">
-	<div class="jumbotron mt-2 jumbotron-design">
-		<form method="POST" action="/brands">
-			<label for="brand">What brand do you want?</label>
-			<input type="text" name="brand_name" value="">
-			<label for="brand_description">What description do you want?</label>
-			<input type="textarea" name="brand_description" value="">
-			<input type="submit" value="submit">
-		</form>
+<style>
+
+.btn-design {
+
+	background-color: white;
+	border-color: #c61aff;
+	color: #c61aff;
+
+}
+
+.btn-design:hover{
+	
+	background-color: #c61aff;
+	border-color: white;
+	color: white;
+}
+
+</style>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="modal-body">
+			<form method="POST" action="/brands">
+				<div class="form-group">
+					<label for="brand_name">Brand Name:</label><br>
+					<input type="text" class="form-control" name="brand_name" value="" placeholder="e.g. Adidas" required=""><br>
+				</div>
+				<div class="form-group">
+					<label for="brand_description">Brand Description:</label><br>
+					<input type="text" class="form-control" name="brand_description" value="" placeholder="e.g. Adidas Product" required=""><br><hr>
+					<input type="submit" name="submit" value="Submit" class="btn btn-design" style="float:right">
+				</div>
+			</form>
+			</div>
+		</div>
 	</div>
 </div>

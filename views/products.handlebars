@@ -1,40 +1,3 @@
-<!--<style>
-	.table{
-		margin-top: 20%;
-	}
-</style>
-
-<body>
-
-<!Table from DB>
-<div class="container text-center table-sm">
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>NAME</th>
-			<th>TYPE</th>
-			<th>DESCRIPTION</th>
-			<th>BRAND</th>
-			<th>PRICE</th>
-			<th>PICTURE</th>
-		</tr>
-	</thead>
-{{#rows}}
-	<tbody>
-		<tr>
-			<td>{{id}}</td>
-			<td>{{name}}</td>
-			<td>{{type}}</td>
-			<td>{{description}}</td>
-			<td>{{brand}}</td>
-			<td>{{price}}</td>
-			<td><img src="{{picture}}" style="height: 100px; width:100px"></td>
-		</tr>
-	</tbody>
-{{/rows}}
-</table>
-</body>-->
 <style>
   	@import url('https://fonts.googleapis.com/css?family=Homemade Apple');
 	@import url('https://fonts.googleapis.com/css?family=Poppins');
@@ -84,7 +47,7 @@ a:hover{
 			<div class="col-lg-4 col-md-4 col-sm-12 mb-4 mx-auto">
 				<div class="card center">
 					<a href="/products/{{this.id}}">
-						<img class="card-img-top" src="{{this.picture}}">
+						<img class="card-img-top" src="{{this.image}}">
 						<div class="text-box">
 								<h5 class="card-title text-center my-3">{{this.brand}} {{this.name}}</h5>
 						</div>
