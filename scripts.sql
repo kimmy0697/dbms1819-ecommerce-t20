@@ -46,6 +46,6 @@ CREATE TABLE "orders" (
 CREATE TABLE "customer_favorite_products" (
   "id" SERIAL PRIMARY KEY,
   "customer_id" INT REFERENCES customers(id),
-  "product_id" INT REFERENCES products(id),
+  "product_id" INT REFERENCES products(id)
 );
 
