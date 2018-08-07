@@ -208,43 +208,43 @@ app.get('/product/update/:id', function(req, res) {
 
 	});
 
-// app.get('/products/:id', (req,res)=>{
-// 	var id = req.params.id;
-// 	client.query('SELECT * FROM Products;', (req, data)=>{
-// 		var list = [];
-// 		for (var i = 0; i < data.rows.length+1; i++) {
-// 			if (i==id) {
-// 				list.push(data.rows[i-1]);
-// 			}
-// 		}
-// 		res.render('product-details',{
-// 			data: list
-// 		});
-// 	});
-// });
-
-app.get('/products/:id', function(req, res) {
-	 client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = '+req.params.id+'; ')
-	.then((results)=>{
-		console.log ('results?',results);
+app.get('/products/:id', (req,res)=>{
+	var id = req.params.id;
+	client.query('SELECT * FROM Products;', (req, data)=>{
+		var list = [];
+		for (var i = 0; i < data.rows.length+1; i++) {
+			if (i==id) {
+				list.push(data.rows[i-1]);
+			}
+		}
 		res.render('product-details',{
-		name: results.rows[0].products_name,
-		description: results.rows[0].products_description,
-    	tagline: results.rows[0].products_tagline,
-		price: results.rows[0].products_price,
-		warranty: results.rows[0].products_warranty,
-		image: results.rows[0].products_image,
-		brandname: results.rows[0].brand_name,
-		branddesc: results.rows[0].brand_description,
-		category: results.rows[0].category_name,
-		id: results.rows[0].products_id
-	})
-	})
-	.catch((err) => {
-		console.log('error',err);
-		res.send('Error!');
+			data: list
+		});
 	});
 });
+
+// app.get('/products/:id', function(req, res) {
+// 	 client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = '+req.params.id+'; ')
+// 	.then((results)=>{
+// 		console.log ('results?',results);
+// 		res.render('product-details',{
+// 		name: results.rows[0].products_name,
+// 		description: results.rows[0].products_description,
+//     	tagline: results.rows[0].products_tagline,
+// 		price: results.rows[0].products_price,
+// 		warranty: results.rows[0].products_warranty,
+// 		image: results.rows[0].products_image,
+// 		brandname: results.rows[0].brand_name,
+// 		branddesc: results.rows[0].brand_description,
+// 		category: results.rows[0].category_name,
+// 		id: results.rows[0].products_id
+// 	})
+// 	})
+// 	.catch((err) => {
+// 		console.log('error',err);
+// 		res.send('Error!');
+// 	});
+// });
 
 
 app.post('/products/:id/send', function(req, res) {
