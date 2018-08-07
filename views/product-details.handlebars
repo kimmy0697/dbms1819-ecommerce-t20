@@ -100,8 +100,8 @@
 			</div>
 
 			<div class="modal-body body-design">
-				{{#each data}}
-				<form method="POST" action="{{this.id}}/send">
+				{{!-- {{#each data}} --}}
+				<form method="POST" action="{{id}}/send">
 					<div class="controls">
 						<div class="form-group">
 							<label class="control-label lbl-text" for="name">Name</label>
@@ -124,7 +124,7 @@
 						<div class="form-group">
 							<label class="control-label lbl-text" for="productid">Product ID</label>
 							<div>
-								<input id="productid" name="productid" type="text" value="{{this.id}}" class="form-control" required="" readonly="">
+								<input id="productid" name="productid" type="text" value="{{id}}" class="form-control" required="" readonly="">
 							</div>
 						</div>
 						<div class="form-group">
@@ -143,7 +143,7 @@
 						</div>
 					</div>
 				</form>
-				{{/each}}
+				{{!-- {{/each}} --}}
 			</div>
 {{!-- 			<div class="modal-footer">
           		<button type="submit" class="btn btn-primary btn-lg">Submit
