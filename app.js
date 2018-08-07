@@ -119,7 +119,7 @@ app.post('/insert_products', function(req, res) {
 });
 
 app.post('/updateproduct/:id', function(req, res) {
-	client.query("UPDATE products SET name = '" +req.body.productsname+"', descriptions = '"+req.body.productsdesc+"', tagline = '"+req.body.productstag+"', price = '"+req.body.productsprice+"', warranty = '"+req.body.productswarranty+"',category_id = '"+req.body.category+"', brand_id = '"+req.body.brand+"', img = '"+req.body.productsimg+"'WHERE id = '"+req.params.id+"' ;");
+	client.query("UPDATE products SET name = '" +req.body.products_name+"', descriptions = '"+req.body.products_description+"', tagline = '"+req.body.products_tagline+"', price = '"+req.body.products_price+"', warranty = '"+req.body.products_warranty+"',category_id = '"+req.body.category_name+"', brand_id = '"+req.body.brand_name+"', img = '"+req.body.products_image+"'WHERE id = '"+req.params.id+"' ;");
 	client.query("UPDATE brands SET description = '"+req.body.brand_description+"' WHERE id ='"+req.params.id+"';");
 	
 	res.redirect('/products');
@@ -196,7 +196,7 @@ app.get('/product/update/:id', function(req, res) {
 	});
 	 client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = '+req.params.id+'; ')
 	.then((result)=>{
-		res.render('update-product', {
+		res.render('update-products', {
 			rows: result.rows[0],
 			brand: both
 		});
