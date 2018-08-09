@@ -68,31 +68,6 @@ hr {
 
 </style>
 
-{{!-- <div class="container">
-	<div class="jumbotron mt-2 jumbotron-design">
-		{{#each data}}
-		<h1 class="mt-3 text-center">{{name}}</h1>
-			<div class="col-lg-8 col-md-8 col-sm-8 mb-0 mx-auto">
-				<div class="card center">
-					<img class="card-img-top" src="{{image}}" alt="{{brandname}}">
-					<div class="card-body">
-						<h4 class="card-title">{{brandname}}</h4>
-						<h5 class="card-title">₱ {{price}}.00</h5>
-						<h7 class="card-title">{{description}}</h7><br>
-						<button type="button" style="float:right" class="btn btn-md btn-design" data-toggle="modal" data-target="#orderModal">Order Now!</button>
-						<button type="button" style="float:right" class="btn btn-md btn-design" href="/product/update/{{id}}">Update Product</button>
-					</div>
-				</div>
-			</div>
-		{{/each}}
-		<div class="go-back">
-			<h4>{{msg}}</h4>
-			<a href="/products"><h5>&laquo;&ensp;Go back to products page</h5></a>
-		</div>
-	</div>
-</div> --}}
-
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-0 mx-auto">
@@ -122,7 +97,7 @@ hr {
 				</div>
 				<hr>
 				<div class="modal-footer">
-					<button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design" data-toggle="modal" data-target="#orderModal">Order Now!</button>
+					<button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design" data-toggle="modal" data-target="#orderModal">Order Product</button>
 					<button type="button" style="float:right; margin-right:20px;" href="/product/update/{{this.id}}" class="btn btn-md btn-design">Update Product</button>&ensp;&ensp;
 					<a href="/product/update/{{this.id}}">Update Product</a>
 				</div>
@@ -138,7 +113,7 @@ hr {
 
 		<div class="modal-content">
 			<div class="modal-header header-design">
-				<h4 class="modal-title">CONTACT FORM</h4>
+				<h4 class="modal-title">ORDER REQUEST FORM <br> {{name}}</h4>
 				<button type="button" class="close" data-dismiss="modal">&times;
 				</button>
 			</div>
@@ -148,52 +123,77 @@ hr {
 				<form method="POST" action="{{id}}/send">
 					<div class="controls">
 						<div class="form-group">
-							<label class="control-label lbl-text" for="name">Name</label>
-							<div>
-								<input id="name" name="name" type="text" placeholder="e.g. Juan Dela Cruz" class="form-control" required="">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label lbl-text" for="phone">Phone</label>
-							<div>
-								<input id="phone" name="phone" type="number" placeholder="e.g. 09976897678" class="form-control" required="">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label lbl-text" for="email">Email</label>
-							<div>
-								<input id="email" name="email" type="email" placeholder="e.g. jdelacruz@gmail.com" class="form-control" required="">
-							</div>
-						</div>
-						<div class="form-group">
 							<label class="control-label lbl-text" for="productid">Product ID</label>
 							<div>
 								<input id="productid" name="productid" type="text" value="{{id}}" class="form-control" required="" readonly="">
 							</div>
+						</div>						
+						<div class="form-group">
+							<label class="control-label lbl-text" for="name">Quantity</label>
+							<div>
+								<input id="quantity" name="quantity" type="number" placeholder="Enter Quantity" class="form-control" required="">
+							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label lbl-text" for="quantity">Quantity</label>
+							<label class="control-label lbl-text" for="phone">Email</label>
 							<div>
-								<input id="quantity" name="quantity" type="number" placeholder="10" class="form-control" required="">
+								<input id="email" name="email" type="email" placeholder="Enter Email" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="email">First Name</label>
+							<div>
+								<input id="first_name" name="first_name" type="text" placeholder="Enter First Name" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="email">Middle Name</label>
+							<div>
+								<input id="middle_name" name="middle_name" type="text" placeholder="Enter Middle Name" class="form-control" required="">
+							</div>
+						</div>						
+						<div class="form-group">
+							<label class="control-label lbl-text" for="productid">Last Name</label>
+							<div>
+								<input id="last_name" name="last_name" type="text" value="" class="form-control" placeholder="Enter Last Name" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="quantity">State</label>
+							<div>
+								<input id="state" name="state" type="text" placeholder="Enter State" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="quantity">City</label>
+							<div>
+								<input id="city" name="city" type="text" placeholder="Enter City" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="quantity">Street</label>
+							<div>
+								<input id="street" name="street" type="text" placeholder="Enter Street" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="quantity">Zipcode</label>
+							<div>
+								<input id="zipcode" name="zipcode" type="number" placeholder="Enter Zipcode" class="form-control" required="">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="text-center">
-								<button type="submit" class="btn btn-lg btn-design" title="Submit contact form">
-								Submit
+								<button style="float:left" type="submit" class="btn btn-lg btn-design" title="Submit contact form">
+								Order Product
 								</button>
-				          		<button type="button" class="btn btn-lg btn-design" data-dismiss="modal">Close</button>
+				          		<button style="float:right" type="button" class="btn btn-lg btn-design" data-dismiss="modal">Close</button>
 							</div>
 						</div>
 					</div>
 				</form>
 				{{!-- {{/each}} --}}
 			</div>
-{{!-- 			<div class="modal-footer">
-          		<button type="submit" class="btn btn-primary btn-lg">Submit
-          		</button>
-          		<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
-        	</div> --}}
 		</div>
 	</div>
 </div>
