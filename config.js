@@ -13,11 +13,11 @@ const config = {
 	},
 	production: {
 		db: {
-			database: process.env.DB_DATABASE,
-			user: process.env.DB_USER,
-			password: process.env.DB_PW,
-			host: process.env.DB_HOST,
-			port: process.env.DB_PORT,
+			database: 'dd8kc2u4cu7i9d',
+			user: 'ffvgqavajynjjs',
+			password: 'fcd02fa73b5ebb0764264b3f00ddf5e09d6240e9ea64c7b3d5852eb8c74b1a45',
+			host: 'ec2-23-21-216-174.compute-1.amazonaws.com',
+			port: 5432,
 			ssl: true
 		},
 		nodemailer: {
