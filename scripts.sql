@@ -48,4 +48,3 @@ CREATE TABLE "customer_favorite_products" (
   "customer_id" INT REFERENCES customers(id),
   "product_id" INT REFERENCES products(id)
 );
-
