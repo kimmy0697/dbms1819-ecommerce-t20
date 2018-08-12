@@ -103,9 +103,8 @@ app.post('/insert_products', function(req, res) {
 	});	
 });
 
-app.post('/products/:id/send', function(req,res) {
+app.post('/products/:id/send', function(req, res) {
 	client.query("INSERT INTO customers (email, first_name, middle_name, last_name, state, city, street, zipcode) VALUES ('" + req.body.email + "', '" + req.body.first_name + "', '" + req.body.middle_name + "', '" + req.body.last_name + "', '" + req.body.state + "', '" + req.body.city + "', '" + req.body.street + "', '" + req.body.zipcode + "') ON CONFLICT (email) DO UPDATE SET first_name = ('" + req.body.first_name + "'), middle_name = ('" + req.body.middle_name + "'), last_name = ('" + req.body.last_name + "'), state = ('"+req.body.state+"'), city = ('"+req.body.city+"'), street = ('"+req.body.street+"'), zipcode = ('"+req.body.zipcode+"') WHERE customers.email ='"+req.body.email+"';");
-	console.log(req.body);
 	client.query("SELECT id FROM customers WHERE email = '" + req.body.email + "';")
 	.then((results)=>{
 		var id = results.rows[0].id;
@@ -172,6 +171,7 @@ app.post('/products/:id/send', function(req,res) {
     	res.send('Error!');
     });
 });
+
 
 app.post('/updateproduct/:id', function(req, res) {
 	client.query("UPDATE products SET name = '" +req.body.products_name+"', description = '"+req.body.products_description+"', tagline = '"+req.body.products_tagline+"', price = '"+req.body.products_price+"', warranty = '"+req.body.products_warranty+"',brand_id = '"+req.body.brand_name+"', category_id = '"+req.body.category_name+"', image = '"+req.body.products_image+"'WHERE id = '"+req.params.id+"' ;");
