@@ -107,7 +107,8 @@ app.post('/products/:id/send', function(req,res) {
 	client.query("INSERT INTO customers (email, first_name, middle_name, last_name, state, city, street, zipcode) VALUES ('" + req.body.email + "', '" + req.body.first_name + "', '" + req.body.middle_name + "', '" + req.body.last_name + "', '" + req.body.state + "', '" + req.body.city + "', '" + req.body.street + "', '" + req.body.zipcode + "') ON CONFLICT (email) DO UPDATE SET first_name = ('" + req.body.first_name + "'), middle_name = ('" + req.body.middle_name + "'), last_name = ('" + req.body.last_name + "'), state = ('"+req.body.state+"'), city = ('"+req.body.city+"'), street = ('"+req.body.street+"'), zipcode = ('"+req.body.zipcode+"') WHERE customers.email ='"+req.body.email+"';");
 	client.query("SELECT id FROM customers WHERE email = '" + req.body.email + "';")
 	.then((results)=>{
-		var id = results.rows[0].id;
+		var data = req.body;
+		var id = data.id;
 		console.log(id);
 		client.query("INSERT INTO orders (product_id, customer_id, quantity) VALUES ('" + req.body.products_id + "', '" + id + "', '" + req.body.quantity + "')")
 		
