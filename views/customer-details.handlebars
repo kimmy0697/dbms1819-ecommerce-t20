@@ -1,0 +1,68 @@
+<style>
+
+
+
+</style>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<p>CUSTOMER DETAILS:</p>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-design">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Middle Name</th>
+							<th>Last Name</th>
+							<th>Email Address</th>
+							<th>State</th>
+							<th>City</th>
+							<th>Street</th>
+							<th>Zipcode</th>
+						</tr>
+					</thead>
+					{{!-- {{#each rows}} --}}
+					<tbody>
+						<tr>
+							<td>{{rows.0.first_name}}</td>
+							<td>{{rows.0.middle_name}}</td>
+							<td>{{rows.0.last_name}}</td>
+							<td>{{rows.0.email}}</td>
+							<td>{{rows.0.state}}</td>
+							<td>{{rows.0.city}}</td>
+							<td>{{rows.0.street}}</td>
+							<td>{{rows.0.zipcode}}</td>							
+						</tr>
+					</tbody>
+					{{!-- {{/each}} --}}
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<p>ORDER DETAILS:</p>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-design">
+					<thead>
+						<tr>
+							<th>Ordered Products</th>
+							<th>Quantity</th>
+							<th>Order Date</th>
+						</tr>
+					</thead>
+					{{#each rows}}
+					<tbody>
+						<tr>
+							<td>{{this.product_name}}</td>
+							<td>{{this.quantity}}</td>
+							<td>{{this.purchase_date}}</td>						
+						</tr>
+					</tbody>
+					{{/each}}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
