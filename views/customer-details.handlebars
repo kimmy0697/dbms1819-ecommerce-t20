@@ -22,20 +22,20 @@
 							<th>Zipcode</th>
 						</tr>
 					</thead>
-					{{!-- {{#each rows}} --}}
+					{{#each rows}}
 					<tbody>
 						<tr>
-							<td>{{rows.0.first_name}}</td>
-							<td>{{rows.0.middle_name}}</td>
-							<td>{{rows.0.last_name}}</td>
-							<td>{{rows.0.email}}</td>
-							<td>{{rows.0.state}}</td>
-							<td>{{rows.0.city}}</td>
-							<td>{{rows.0.street}}</td>
-							<td>{{rows.0.zipcode}}</td>							
+							<td>{{this.first_name}}</td>
+							<td>{{this.middle_name}}</td>
+							<td>{{this.last_name}}</td>
+							<td>{{this.email}}</td>
+							<td>{{this.state}}</td>
+							<td>{{this.city}}</td>
+							<td>{{this.street}}</td>
+							<td>{{this.zipcode}}</td>							
 						</tr>
 					</tbody>
-					{{!-- {{/each}} --}}
+					{{/each}}
 				</table>
 			</div>
 		</div>
