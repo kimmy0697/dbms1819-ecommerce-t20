@@ -108,8 +108,7 @@ app.post('/products/:id/send', function(req,res) {
 	console.log(req.body);
 	client.query("SELECT id FROM customers WHERE email = '" + req.body.email + "';")
 	.then((results)=>{
-		var data = req.body;
-		var id = data.id;
+		var id = results.rows[0].id;
 		console.log(id);
 		client.query("INSERT INTO orders (product_id, customer_id, quantity) VALUES ('" + req.body.products_id + "', '" + id + "', '" + req.body.quantity + "')")
 		
