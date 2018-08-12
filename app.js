@@ -234,20 +234,29 @@ app.get('/customers', function(req, res) {
 		res.send('Error!');
 	});
 
-	});
+});
 
 app.get('/customers/:id', function(req, res) {
 	client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customer.id = '" + req.params.id + "' ORDER DATE BY purchase_date DESC;")
 	.then((result)=>{
 	    console.log('results?', result);
-		res.render('customer-details', result);
+		res.render('customer-details',{
+			first_name: results.rows[0].first_name,
+			middle_name: results.rows[0].middle_name,
+			last_name: results.rows[0].last_name,
+			email: results.rows[0].email,
+			state: results.rows[0].state,
+			city: results.rows[0].city,
+			street: results.rows[0].street,
+			zipcode: results.rows[0].zipcode
+		})
 	})
 	.catch((err) => {
 		console.log('error',err);
 		res.send('Error!');
 	});
 
-	});
+});
 
 app.get('/orders', function(req, res) {
 	 client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;")
@@ -260,7 +269,7 @@ app.get('/orders', function(req, res) {
 		res.send('Error!');
 	});
 
-	});
+});
 
 app.get('/product/update/:id', function(req, res) {
   	var category = []; 
@@ -307,17 +316,17 @@ app.get('/products/:id', function(req, res) {
 	.then((results)=>{
 		console.log ('results?',results);
 		res.render('product-details',{
-		name: results.rows[0].products_name,
-		description: results.rows[0].products_description,
-    	tagline: results.rows[0].products_tagline,
-		price: results.rows[0].products_price,
-		warranty: results.rows[0].products_warranty,
-		image: results.rows[0].products_image,
-		brandname: results.rows[0].brand_name,
-		branddescription: results.rows[0].brand_description,
-		category: results.rows[0].category_name,
-		id: results.rows[0].products_id
-	})
+			name: results.rows[0].products_name,
+			description: results.rows[0].products_description,
+	    	tagline: results.rows[0].products_tagline,
+			price: results.rows[0].products_price,
+			warranty: results.rows[0].products_warranty,
+			image: results.rows[0].products_image,
+			brandname: results.rows[0].brand_name,
+			branddescription: results.rows[0].brand_description,
+			category: results.rows[0].category_name,
+			id: results.rows[0].products_id
+		})
 	})
 	.catch((err) => {
 		console.log('error',err);
