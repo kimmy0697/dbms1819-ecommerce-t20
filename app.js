@@ -114,7 +114,7 @@ app.post('/products/:id/send', function(req,res) {
 		client.query("INSERT INTO orders (product_id, customer_id, quantity) VALUES ('" + req.body.products_id + "', '" + id + "', '" + req.body.quantity + "')")
 		
 		.then((results)=>{
-			var maillist = ['team20module1@gmail.com', 'carlo10punzalan@gmail.com', 'kimlesliefaina.klf@gmail.com', req.body.email];
+			var maillist = ['team20module1@gmail.com', req.body.email];
 			var transporter = nodemailer.createTransport({
 		        host: 'smtp.gmail.com',
 		        port: 465,
