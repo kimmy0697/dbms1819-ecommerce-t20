@@ -81,12 +81,12 @@ app.get('/product/create', function(req, res) {
 
 app.post('/brands', function(req,res){
 	console.log(req.body)
-	client.query("INSERT INTO brands (brand_name,brand_description) VALUES ('" + req.body.brand_name + "','" + req.body.brand_description + "')")
+	client.query("INSERT INTO brands (brand_name,brand_description) VALUES ('" + req.body.brand_name + "','" + req.body.brand_description + "')");
 	res.redirect('/brands');
 });
 
 app.post('/categories', function(req, res) {
-	client.query("INSERT INTO products_category (product_category_name) VALUES ('" + req.body.product_category_name + "')")
+	client.query("INSERT INTO products_category (product_category_name) VALUES ('" + req.body.product_category_name + "')");
 	
 	res.redirect('/categories');
 });
@@ -103,11 +103,9 @@ app.post('/insert_products', function(req, res) {
 	});	
 });
 
-app.post('/products/:id/send', function(req,res){
-	
-	client.query("INSERT INTO customers (email, first_name, middle_name, last_name, state, city, street, zipcode) VALUES ('" + req.body.email + "', '" + req.body.first_name + "' + '" + req.body.middle_name + "', '" + req.body.last_name + "', '" + req.body.state + "', '" + req.body.city + "', '" + req.body.street + "', '" + req.body.zipcode + "') ON CONFLICT (email) DO UPDATE SET first_name = ('" + req.body.first_name + "'), middle_name = ('" + req.body.middle_name + "'), last_name = ('" + req.body.last_name + "'), state = ('"+req.body.state+"'), city = ('"+req.body.city+"'), street = ('"+req.body.street+"'), zipcode = ('"+req.body.zipcode+"') WHERE customers.email ='"+req.body.email+"';")
+app.post('/products/:id/send', function(req,res) {
+	client.query("INSERT INTO customers (email, first_name, middle_name, last_name, state, city, street, zipcode) VALUES ('" + req.body.email + "', '" + req.body.first_name + "', '" + req.body.middle_name + "', '" + req.body.last_name + "', '" + req.body.state + "', '" + req.body.city + "', '" + req.body.street + "', '" + req.body.zipcode + "') ON CONFLICT (email) DO UPDATE SET first_name = ('" + req.body.first_name + "'), middle_name = ('" + req.body.middle_name + "'), last_name = ('" + req.body.last_name + "'), state = ('"+req.body.state+"'), city = ('"+req.body.city+"'), street = ('"+req.body.street+"'), zipcode = ('"+req.body.zipcode+"') WHERE customers.email ='"+req.body.email+"';");
 	client.query("SELECT id FROM customers WHERE email = '" + req.body.email + "';")
-
 	.then((results)=>{
 		var id = results.rows[0].id;
 		console.log(id);
@@ -175,8 +173,8 @@ app.post('/products/:id/send', function(req,res){
 });
 
 app.post('/updateproduct/:id', function(req, res) {
-	client.query("UPDATE products SET name = '" +req.body.products_name+"', description = '"+req.body.products_description+"', tagline = '"+req.body.products_tagline+"', price = '"+req.body.products_price+"', warranty = '"+req.body.products_warranty+"',brand_id = '"+req.body.brand_name+"', category_id = '"+req.body.category_name+"', image = '"+req.body.products_image+"'WHERE id = '"+req.params.id+"' ;")
-	client.query("UPDATE brands SET brand_description = '"+req.body.brand_description+"' WHERE id ='"+req.params.id+"';")
+	client.query("UPDATE products SET name = '" +req.body.products_name+"', description = '"+req.body.products_description+"', tagline = '"+req.body.products_tagline+"', price = '"+req.body.products_price+"', warranty = '"+req.body.products_warranty+"',brand_id = '"+req.body.brand_name+"', category_id = '"+req.body.category_name+"', image = '"+req.body.products_image+"'WHERE id = '"+req.params.id+"' ;");
+	client.query("UPDATE brands SET brand_description = '"+req.body.brand_description+"' WHERE id ='"+req.params.id+"';");
 	
 	res.redirect('/products');
 });
@@ -201,7 +199,7 @@ app.get('/products',(req,res)=>{
 });
 
 app.get('/brands', function(req, res) {
-		 client.query('SELECT * FROM brands')
+	 client.query('SELECT * FROM brands')
 	.then((result)=>{
 	    console.log('results?', result);
 		res.render('brands', result);
@@ -214,7 +212,7 @@ app.get('/brands', function(req, res) {
 	});
 
 app.get('/categories', function(req, res) {
-		 client.query('SELECT * FROM products_category')
+	 client.query('SELECT * FROM products_category')
 	.then((result)=>{
 	    console.log('results?', result);
 		res.render('categories', result);
@@ -227,7 +225,7 @@ app.get('/categories', function(req, res) {
 	});
 
 app.get('/customers', function(req, res) {
-	client.query('SELECT * FROM customers')
+	client.query('SELECT * FROM customers ORDER BY id DESC')
 	.then((result)=>{
 	    console.log('results?', result);
 		res.render('customers', result);
@@ -240,7 +238,7 @@ app.get('/customers', function(req, res) {
 	});
 
 app.get('/customers/:id', function(req, res) {
-	client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id ORDER DATE BY purchase_date DESC;')
+	client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customer.id = '" + req.params.id + "' ORDER DATE BY purchase_date DESC;")
 	.then((result)=>{
 	    console.log('results?', result);
 		res.render('customer-details', result);
@@ -253,7 +251,7 @@ app.get('/customers/:id', function(req, res) {
 	});
 
 app.get('/orders', function(req, res) {
-	 client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS orders_quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;')
+	 client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS orders_quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;")
 	.then((result)=>{
 	    console.log('results?', result);
 		res.render('orders', result);
