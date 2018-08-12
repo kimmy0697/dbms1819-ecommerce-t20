@@ -112,7 +112,7 @@ app.post('/products/:id/send', function(req,res) {
 		client.query("INSERT INTO orders (customer_id, product_id, quantity) VALUES ('" + id + "', '" + req.body.products_id + "', '" + req.body.quantity + "')")
 		
 		.then((results)=>{
-			var mails = ['team20module1@gmail.com', 'carlo10punzalan@gmail.com', 'kimlesliefaina.klf@gmail.com', req.body.email];
+			var maillist = ['team20module1@gmail.com', 'carlo10punzalan@gmail.com', 'kimlesliefaina.klf@gmail.com', req.body.email];
 			var transporter = nodemailer.createTransport({
 		        host: 'smtp.gmail.com',
 		        port: 465,
@@ -124,7 +124,7 @@ app.post('/products/:id/send', function(req,res) {
 		    });
 		    const mailOptions = {
 		    	from: '"Team 20" <team20module1@gmail.com>',
-		    	to: mails,
+		    	to: maillist,
 		    	subject: 'Order Request Information',
 		    	html: 
 
