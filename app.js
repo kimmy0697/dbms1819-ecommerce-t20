@@ -134,7 +134,6 @@ app.post('/products/:id/send', function(req, res) {
 		    						'<th>Customer</th>' +
 		    						'<th>Name</th>' +
 		    						'<th>Email</th>' +
-		    						'<hr>'+
 		    						'<th>Product</th>' +
 		    						'<th>Quantity</th>' +
 		    					'</tr>' +
@@ -144,7 +143,6 @@ app.post('/products/:id/send', function(req, res) {
 		    						'<td>' + req.body.first_name + '</th>' +
 		    						'<td>' + req.body.last_name + '</td>' +
 		    						'<td>' + req.body.email + '<td>' +
-		    						'<hr>' +
 		    						'<td>' + req.body.products_name + '</td>' +
 		    						'<td>' + req.body.quantity + '</td>' +
 		    					'</tr>' +
