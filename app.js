@@ -119,8 +119,8 @@ app.post('/insert_products', function(req, res) {
 });
 
 app.post('/updateproduct/:id', function(req, res) {
-	client.query("UPDATE products SET name = '" +req.body.products_name+"', descriptions = '"+req.body.products_description+"', tagline = '"+req.body.products_tagline+"', price = '"+req.body.products_price+"', warranty = '"+req.body.products_warranty+"',category_id = '"+req.body.category_name+"', brand_id = '"+req.body.brand_name+"', img = '"+req.body.products_image+"'WHERE id = '"+req.params.id+"' ;");
-	client.query("UPDATE brands SET description = '"+req.body.brand_description+"' WHERE id ='"+req.params.id+"';");
+	client.query("UPDATE products SET name = '" +req.body.products_name+"', description = '"+req.body.products_description+"', tagline = '"+req.body.products_tagline+"', price = '"+req.body.products_price+"', warranty = '"+req.body.products_warranty+"',brand_id = '"+req.body.brand_name+"', category_id = '"+req.body.category_name+"', image = '"+req.body.products_image+"'WHERE id = '"+req.params.id+"' ;");
+	client.query("UPDATE brands SET brand_description = '"+req.body.brand_description+"' WHERE id ='"+req.params.id+"';");
 	
 	res.redirect('/products');
 });
@@ -247,7 +247,7 @@ app.get('/products/:id', function(req, res) {
 		warranty: results.rows[0].products_warranty,
 		image: results.rows[0].products_image,
 		brandname: results.rows[0].brand_name,
-		branddesc: results.rows[0].brand_description,
+		branddescription: results.rows[0].brand_description,
 		category: results.rows[0].category_name,
 		id: results.rows[0].products_id
 	})
