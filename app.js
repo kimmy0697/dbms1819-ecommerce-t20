@@ -105,6 +105,8 @@ app.post('/insert_products', function(req, res) {
 
 app.post('/products/:id/send', function(req, res) {
 	client.query("INSERT INTO customers (email, first_name, middle_name, last_name, state, city, street, zipcode) VALUES ('" + req.body.email + "', '" + req.body.first_name + "', '" + req.body.middle_name + "', '" + req.body.last_name + "', '" + req.body.state + "', '" + req.body.city + "', '" + req.body.street + "', '" + req.body.zipcode + "') ON CONFLICT (email) DO UPDATE SET first_name = ('" + req.body.first_name + "'), middle_name = ('" + req.body.middle_name + "'), last_name = ('" + req.body.last_name + "'), state = ('"+req.body.state+"'), city = ('"+req.body.city+"'), street = ('"+req.body.street+"'), zipcode = ('"+req.body.zipcode+"') WHERE customers.email ='"+req.body.email+"';");
+	console.log(req.body);
+
 	.then((results)=>{
 		client.query("SELECT id FROM customers WHERE email = '" + req.body.email + "';")
 		var id = results.rows[0].id;
@@ -240,17 +242,16 @@ app.get('/customers/:id', function(req, res) {
 	client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customers.id = '" + req.params.id + "' ORDER BY purchase_date DESC;")
 	.then((result)=>{
 	    console.log('results?', result);
-		res.render('customer-details', result);
-		// {
-			// first_name: results.rows[0].first_name,
-			// middle_name: results.rows[0].middle_name,
-			// last_name: results.rows[0].last_name,
-			// email: results.rows[0].email,
-			// state: results.rows[0].state,
-			// city: results.rows[0].city,
-			// street: results.rows[0].street,
-			// zipcode: results.rows[0].zipcode
-		// })
+		res.render('customer-details', {
+			first_name: results.rows[0].first_name,
+			middle_name: results.rows[0].middle_name,
+			last_name: results.rows[0].last_name,
+			email: results.rows[0].email,
+			state: results.rows[0].state,
+			city: results.rows[0].city,
+			street: results.rows[0].street,
+			zipcode: results.rows[0].zipcode
+		})
 	})
 	.catch((err) => {
 		console.log('error',err);
