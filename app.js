@@ -109,7 +109,7 @@ app.post('/products/:id/send', function(req, res) {
 	.then((results)=>{
 		var id = results.rows[0].id;
 		console.log(id);
-		client.query("INSERT INTO orders (product_id, customer_id, quantity) VALUES ('" + req.body.products_id + "', '" + id + "', '" + req.body.quantity + "')")
+		client.query("INSERT INTO orders (product_id,customer_id,quantity) VALUES ('" + req.body.products_id + "', '" + id + "', '" + req.body.quantity + "')")
 		
 		.then((results)=>{
 			var maillist = ['team20module1@gmail.com', req.body.email];
