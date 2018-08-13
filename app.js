@@ -240,16 +240,17 @@ app.get('/customers/:id', function(req, res) {
 	client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customers.id = '" + req.params.id + "' ORDER DATE BY purchase_date DESC;")
 	.then((result)=>{
 	    console.log('results?', result);
-		res.render('customer-details',{
-			first_name: results.rows[0].first_name,
-			middle_name: results.rows[0].middle_name,
-			last_name: results.rows[0].last_name,
-			email: results.rows[0].email,
-			state: results.rows[0].state,
-			city: results.rows[0].city,
-			street: results.rows[0].street,
-			zipcode: results.rows[0].zipcode
-		})
+		res.render('customer-details', result);
+		// {
+			// first_name: results.rows[0].first_name,
+			// middle_name: results.rows[0].middle_name,
+			// last_name: results.rows[0].last_name,
+			// email: results.rows[0].email,
+			// state: results.rows[0].state,
+			// city: results.rows[0].city,
+			// street: results.rows[0].street,
+			// zipcode: results.rows[0].zipcode
+		// })
 	})
 	.catch((err) => {
 		console.log('error',err);
