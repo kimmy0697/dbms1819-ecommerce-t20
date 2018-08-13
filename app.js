@@ -128,7 +128,7 @@ app.post('/products/:id/send', function(req, res) {
 		    	subject: 'Order Request Information',
 		    	html: 
 
-		    			'<table>' +
+		    			'<table>' +	
 		    				'<thead>' +
 		    					'<tr>' +
 		    						'<th>Customer</th>' +
