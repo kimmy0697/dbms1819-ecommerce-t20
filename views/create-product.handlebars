@@ -1,0 +1,71 @@
+<style>
+
+.btn-design {
+
+	background-color: white;
+	border-color: #c61aff;
+	color: #c61aff;
+
+}
+
+.btn-design:hover{
+	
+	background-color: #c61aff;
+	border-color: white;
+	color: white;
+}
+
+</style>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="modal-body">
+				<form method="POST" action="/insert_products">
+					<div class="form-group">
+						<label for="name">Name:</label><br>
+						<input type="text" name="name" class="form-control" value="" required="" placeholder="Enter Product Name">
+					</div>
+					<div class="form-group">
+						<label for="description">Description:</label><br>
+						<input type="text" name="description" class="form-control" value="" required="" placeholder="Enter Product Description">
+					</div>
+					<div class="form-group">
+						<label for="tagline">Tagline:</label><br>
+						<input type="text" name="tagline" class="form-control" value="" required="" placeholder="Enter Product Tagline">
+					</div>
+					<div class="form-group">
+						<label for="price">Price:</label><br>
+						<input type="number" name="price" class="form-control" value="" required="" placeholder="Enter Product Price">
+					</div>
+					<div class="form-group">
+						<label for="warranty">Warranty (In years):</label><br>
+						<input type="number" name="warranty" class="form-control" value="" required="" placeholder="Enter Warranty (in years)">
+					</div>
+					<div class="form-group">
+						<label for="brand_id">Brand:</label><br>
+						<select class="form-control" name="brand_id" required="">
+							{{#each rows.[0]}}
+								<option value="{{this.id}}">{{this.brand_name}}</option>
+							{{/each}}
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="category_id">Category:</label><br>
+						<select class="form-control" name="category_id" required="">
+							{{#each rows.[1]}}
+								<option value="{{this.id}}">{{this.product_category_name}}</option>
+							{{/each}}
+						</select><br>
+					<div class="form-group">
+						<label for="image">Image URL:</label><br>
+						<input type="text" name="image" class="form-control" value="" required="" placeholder="Enter Product Image URL"><br><hr>
+					</div>
+					<div class="form-group">
+						<input type="submit" name="submit" value="Submit" class="btn btn-design" style="float:right; margin-bottom:20px;">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

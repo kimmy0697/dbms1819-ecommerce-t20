@@ -1,0 +1,34 @@
+<style>
+
+.btn-design {
+
+	background-color: white;
+	border-color: #c61aff;
+	color: #c61aff;
+
+}
+
+.btn-design:hover{
+	
+	background-color: #c61aff;
+	border-color: white;
+	color: white;
+}
+
+</style>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="modal-body">
+			<form method="POST" action="/categories">
+				<div class="form-group">
+					<label for="product_category_name">Category Name:</label><br>
+					<input type="text" class="form-control" name="product_category_name" value="" placeholder="e.g. Shoes" required=""><br><br><hr>
+					<input type="submit" name="submit" value="Submit" class="btn btn-design" style="float:right">
+				</div>				
+			</form>
+			</div>
+		</div>
+	</div>
+</div>

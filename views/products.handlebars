@@ -1,0 +1,60 @@
+<style>
+  	@import url('https://fonts.googleapis.com/css?family=Homemade Apple');
+	@import url('https://fonts.googleapis.com/css?family=Poppins');
+	@import url('https://fonts.googleapis.com/css?family=Khand');
+
+
+.h1{
+	font-size: 125%;
+	color: #fff;
+	text-shadow: 0px 0px 300px #000;
+	margin-bottom: 5%;
+	font-family: 'Khand', sans-serif;
+}
+
+.card{
+
+	background-color: #8600b3;
+}
+
+.text-box{
+	background-color: #8600b3;
+}
+
+h5{
+	font-style: bold;
+	color: #e699ff;
+}
+
+h5:hover{
+	color: white;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+
+</style>
+
+
+
+<div class="container">
+	<div class="jumbotron mt-2">
+		<h1 class="mt-0 mb-5 text-center">{{title}}</h1>
+		<div class="row mx-4">
+			{{#each data}}
+			<div class="col-lg-4 col-md-4 col-sm-12 mb-4 mx-auto">
+				<div class="card center">
+					<a href="/products/{{this.id}}">
+						<img class="card-img-top" src="{{this.image}}">
+						<div class="text-box">
+								<h5 class="card-title text-center my-3">{{this.brand}} {{this.name}}</h5>
+						</div>
+					</a>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

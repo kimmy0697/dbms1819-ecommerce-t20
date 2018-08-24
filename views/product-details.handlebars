@@ -1,0 +1,197 @@
+<style>
+  	@import url('https://fonts.googleapis.com/css?family=Homemade Apple');
+	@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+.header1{
+	font-size: 125%;
+	color: black;
+	text-shadow: 300px 300px 300px #f9e6ff;
+	margin-bottom: 5%;
+	font-family: 'Poppins', sans-serif;
+}
+
+.card{
+
+	background: linear-gradient(to right, #c61aff, #f9e6ff);
+
+}
+
+.card-body{
+	color: white;
+}
+
+.header-design{
+
+	background-color: #8600b3;
+	color: white;
+	font-style: bold;
+
+}
+
+.body-design{
+
+	background: linear-gradient(#c61aff, #f9e6ff);
+}
+
+.btn-design{
+	background-color: none;
+	border-color: #8600b3;
+	color: #c61aff;
+}
+
+.btn-design:hover{
+	background-color: #8600b3;
+	border-color: #c61aff;
+	color: white;
+}
+
+.lbl-text{
+	color:white;
+	font-style: bold;
+	text-transform: capitalize;
+}
+
+.go-back {
+	display: block;
+	float: right;
+	margin-top: 20px;
+}
+
+.go-back a{
+	text-decoration: none !important;
+	color:black;
+}
+
+hr {
+	height: 3px;
+}
+
+</style>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-0 mx-auto">
+			<div class="card center">
+				<img class="card-img-top" src="{{image}}" alt="{{name}}">
+				<div class="card-body">
+					<h4 class="card-title">{{name}}</h4>
+					<h5 class="card-title">{{brandname}} Shoes</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mb-0 mx-auto">
+			<div class="jumbotron jumbotron-design">
+				<div class="modal-body">
+					<h5>{{name}} - {{brandname}} (P{{price}}.00)</h5>
+					<h6><i>{{category}}</i></h6>
+					<hr>
+					<ul>
+						<li style="text-decoration:none">Name: {{name}}</li>
+						<li style="text-decoration:none">Description: {{description}}</li>
+						<li style="text-decoration:none">Brand Name: {{brandname}}</li>
+						<li style="text-decoration:none">Brand Description: {{branddescription}}</li>
+						<li style="text-decoration:none">Tagline: {{tagline}}</li>
+						<li style="text-decoration:none">Warranty (in years): {{warranty}}</li>
+						<li style="text-decoration:none">Category: {{category}}</li>
+					</ul>
+				</div>
+				<hr>
+				<div class="modal-footer">
+					<button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design" data-toggle="modal" data-target="#orderModal">Order Product</button>
+					<a href="/product/update/{{this.id}}"><button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design">Update Product</button></a>&ensp;&ensp;
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Order Modal-->
+
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+
+		<div class="modal-content">
+			<div class="modal-header header-design">
+				<h4 class="modal-title">ORDER REQUEST FORM <br> {{name}}</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;
+				</button>
+			</div>
+
+			<div class="modal-body body-design">
+				{{!-- {{#each data}} --}}
+				<form method="POST" action="{{this.id}}/send">
+					<div class="controls">
+       			<input type="hidden" class="form-control" name="products_name" value="{{name}}" />	
+						<div class="form-group">
+							<label class="control-label lbl-text" for="producs_id">Product ID:</label>
+							<div>
+								<input id="products_id" name="products_id" type="number" value="{{this.id}}" class="form-control" required="" readonly="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="quantity">Quantity</label>
+							<div>
+								<input id="quantity" name="quantity" type="number" placeholder="Enter Quantity" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="email">Email</label>
+							<div>
+								<input id="email" name="email" type="email" placeholder="Enter Email" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="first_name">First Name</label>
+							<div>
+								<input id="first_name" name="first_name" type="text" placeholder="Enter First Name" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="middle_name">Middle Name</label>
+							<div>
+								<input id="middle_name" name="middle_name" type="text" placeholder="Enter Middle Name" class="form-control" required="">
+							</div>
+						</div>						
+						<div class="form-group">
+							<label class="control-label lbl-text" for="last_name">Last Name</label>
+							<div>
+								<input id="last_name" name="last_name" type="text" value="" class="form-control" placeholder="Enter Last Name" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="state">State</label>
+							<div>
+								<input id="state" name="state" type="text" placeholder="Enter State" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="city">City</label>
+							<div>
+								<input id="city" name="city" type="text" placeholder="Enter City" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="street">Street</label>
+							<div>
+								<input id="street" name="street" type="text" placeholder="Enter Street" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label lbl-text" for="zipcode">Zipcode</label>
+							<div>
+								<input id="zipcode" name="zipcode" type="text" placeholder="Enter Zipcode" class="form-control" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="text-center">
+								<input style="float:left" type="submit" class="btn btn-md btn-design" value="Order Product">
+          			<button style="float:right" type="button" class="btn btn-md btn-design" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				{{!-- {{/each}} --}}
+			</div>
+		</div>
+	</div>
+</div>

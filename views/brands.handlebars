@@ -1,0 +1,33 @@
+{{!-- <div class="container">
+	<div class="jumbotron mt-2 jumbotron-design">
+		<p>Your brand is {{brand_name}}</p>
+		<p>Your description is {{brand_description}}</p>
+	</div>
+</div> --}}
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+			<div class="modal-header">
+				<h5>Brand Names</h5>
+			</div>
+			<div class="modal-body">
+				{{#each rows}}
+					<li>{{this.brand_name}}</li>
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+			<div class="modal-header">
+				<h5>Brand Description</h5>
+			</div>
+			<div class="modal-body">
+				{{#each rows}}
+					<li>{{this.brand_description}}</li>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>

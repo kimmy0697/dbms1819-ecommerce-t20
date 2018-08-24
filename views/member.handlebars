@@ -1,0 +1,103 @@
+
+<link href='https://fonts.googleapis.com/css?family=Khand' rel='stylesheet'>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	h1{
+		color: white;
+		font-family: 'Khand';
+	}
+	.bg{
+		background-color:  #ff4d4d;
+	}
+	div.box{
+		text-align: center;
+	}
+	.bgg{
+		background-color: #ffcccc;
+	}
+	.card{
+		padding: 0;
+		line-height: 0;
+	}
+	.card-body{
+		font-family: 'Khand';
+	}
+	.btn2{
+		background-color: #ff4d4d;
+		color: white;
+	}
+</style>
+<br>
+	<div class="container-fluid">
+	    <div class="row">
+	     	<div class="col-sm-9 col-md-6 col-lg-8 col-xl-9 bg">
+	        	<img src="https://scontent.fmnl5-1.fna.fbcdn.net/v/t1.15752-9/37327799_2021504054535999_422709139379060736_n.png?_nc_cat=0&oh=012766710ff0409a971c86f606bb29d1&oe=5BD8F343" width="100%" height="100%">
+	        	<br>
+	      	</div>
+	      	<div class="col-sm-3 col-md-6 col-lg-4 col-xl-3 bgg text-center">
+	        	<div class="box">
+	        		<br>
+	        	<img src="{{imgUrl}}" class="rounded-circle" width="100" height="100">
+	        	</div>
+	        	<br>
+	        	<br>
+	        		<div class="card bg text-white">
+					    <div class="card-body">Full Name</div>
+					</div>
+					<div class="card">
+					    <div class="card-body"><strong>{{full_name}}</strong></div>
+					</div>
+					<div class="card bg text-white">
+					    <div class="card-body">Nickname</div>
+					</div>
+					<div class="card">
+					    <div class="card-body"><strong>{{name}}</strong></div>
+					</div>
+					<div class="card bg text-white">
+					    <div class="card-body">Email Address</div>
+					</div>
+					<div class="card">
+					    <div class="card-body"><strong>{{email}}</strong></div>
+					</div>
+					<div class="card bg text-white">
+					    <div class="card-body">Contact Information</div>
+					</div>
+					<div class="card">
+					    <div class="card-body"><strong>{{phone}}</strong</div>
+					</div>
+					<div class="card bg text-white">
+					    <div class="card-body">Hobbies</div>
+					</div>
+					<div class="card">
+					    <div class="card-body">
+					    	{{#each hobbies}}
+									<p><strong>{{this}}</strong></p>
+							{{/each}}</div>
+					</div>
+	      	</div>
+	      	<br>
+			<div class="container-fluid">
+		    <div class="row">
+		        <div class="col-xl-12 col-m-6 text-center"> 
+		          <a href="/member/20/carlo" target="_self"><button class="btn btn2">  Carlo's Profile  </button></a>
+		          <a href="/member/20/kim" target="_self"><button class="btn btn2">  Kim's Profile  </button></a>
+		        </div>
+		    </div>
+			</div>
+			<br>
+	    </div>
+	</div>
+
+
+
+
+
+
+
+
+		  
+		
+	
