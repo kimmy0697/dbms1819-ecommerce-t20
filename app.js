@@ -38,6 +38,11 @@ app.get('/', function (req, res) {
 
 // Creating products, brands and categories
 
+app.get('/admin', function (req, res) {
+  res.render('admin', {
+  });
+});
+
 app.get('/brand/create', function (req, res) {
   res.render('create-brand', {
   });
