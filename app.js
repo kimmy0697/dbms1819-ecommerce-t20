@@ -43,6 +43,11 @@ app.get('/admin', function (req, res) {
   });
 });
 
+app.get('/developers', function (req, res) {
+  res.render('developers', {
+  });
+});
+
 app.get('/brand/create', function (req, res) {
   res.render('create-brand', {
   });

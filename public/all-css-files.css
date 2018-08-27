@@ -1,0 +1,228 @@
+/***************************HOME.HANDLEBARS CSS*************************************/
+
+  @import url('https://fonts.googleapis.com/css?family=Homemade Apple');
+  @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+  html, body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+  }
+  .intro{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: table;
+    top: 0;
+  }
+  .intro .inner{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;
+  }
+  .content{
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    top: 10%;
+  }
+  .content h2{
+    font-family: 'Homemade Apple', sans-serif;
+    color: #fff;
+    text-shadow: 0px 0px 300px #000;
+    font-size: 250%;
+    margin-bottom: 0;
+    display: block;
+  }
+  .content h1{
+    font-size: 125%;
+    color: #fff;
+    text-shadow: 0px 0px 300px #000;
+    margin-bottom: 5%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+/***************************PRODUCTS CSS*************************************/
+
+.header1{
+  font-size: 125%;
+  color: black;
+  text-shadow: 300px 300px 300px #f9e6ff;
+  margin-bottom: 5%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card{
+
+  background: linear-gradient(to right, #c61aff, #f9e6ff);
+
+}
+
+.card-body{
+  color: white;
+}
+
+.header-design{
+
+  background-color: #8600b3;
+  color: white;
+  font-style: bold;
+
+}
+
+.btn-design{
+  background-color: none;
+  border-color: #8600b3;
+  color: #c61aff;
+  float:right;
+  margin:20px;
+  padding: 10px 20px;
+}
+
+.btn-design:hover{
+  background-color: #8600b3;
+  border-color: #c61aff;
+  color: white;
+}
+
+.lbl-text{
+  color:white;
+  font-style: bold;
+  text-transform: capitalize;
+}
+
+.go-back {
+  display: block;
+  float: right;
+  margin-top: 20px;
+}
+
+.go-back a{
+  text-decoration: none !important;
+  color:black;
+}
+
+hr {
+  height: 3px;
+}
+
+/******************************************************************************/
+
+.my-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    margin: auto;
+}
+
+.my-footer-text {
+  color: #5c00b3;
+  font-size: 20px;
+}
+
+/***************************ADMIN SIDE CSS*************************************/
+
+/*****INTERFACE*****/
+
+.background {
+  background: #f3e6ff;
+}
+
+
+h4 {
+  text-align: center;
+  color: #a94dff;
+  font-family: sans-serif;
+  margin-top: -30px;
+}
+
+.team-title h1 {
+  font-family: 'Khand', sans-serif;
+  font-size: 450%;
+  color: #a94dff;
+  text-align: center;
+}
+
+.admins a {
+  text-align: center;
+  color: #a94dff;
+  font-family: sans-serif;
+  margin-top: 50px;
+  text-decoration: none;
+}
+
+.admins a:hover {
+  color: #5c00b3;
+}
+
+.admins img:hover {
+  border: 2px solid #5c00b3;
+}
+
+.admins img {
+  height: 250px;
+  width: 250px;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 2px solid #a94dff;
+}
+
+/*****SIDE-NAV*****/
+
+.sidenav {
+    height: 100%;
+    width: 300px;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding: 20px 20px 20px 0px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #a94dff;
+    display: block;
+    font-family: 
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.main-side {
+    margin-left: 300px;
+    font-size: 28px;
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.img-icons img {
+  height: 25px;
+  width: 25px;
+}
