@@ -1,25 +1,36 @@
 <body class="background">
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-			<div class="modal-header">
-				<h5>Brand Names</h5>
-			</div>
-			<div class="modal-body">
-				{{#each rows}}
-					<li>{{this.brand_name}}</li>
-				{{/each}}
-			</div>
-		</div>
-
-		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-			<div class="modal-header">
-				<h5>Brand Description</h5>
-			</div>
-			<div class="modal-body">
-				{{#each rows}}
-					<li>{{this.brand_description}}</li>
-				{{/each}}
+		<div class="col-md-3">
+      <div class="sidenav img-icons">
+        <a href="/admin"><h5>DELISHOES ADMIN</h5></a>
+        <hr>
+        <a href="/developers"><img src="/about.png">&ensp;About Developers</a>
+        <a href="/products"><img src="/products.png">&ensp;Products</a>
+        <a href="/categories"><img src="/category.png">&ensp;Categories</a>
+        <a href="/brands"><img src="/brand.png">&ensp;Brands</a>
+        <a href="/orders"><img src="/order.png">&ensp;Orders</a>
+        <a href="/customers"><img src="/customer.png">&ensp;Customers</a>
+      </div>
+    </div>
+		<div class="col-md-9">
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-design">
+					<thead>
+						<tr>			
+							<th>Brand Name</th>
+							<th>Brand Description</th>
+						</tr>
+					</thead>
+					{{#each rows}}
+					<tbody>
+						<tr>
+							<td>{{this.brand_name}}</td>
+							<td>{{this.brand_description}}</td>
+						</tr>
+					</tbody>
+					{{/each}}
+				</table>
 			</div>
 		</div>
 	</div>
