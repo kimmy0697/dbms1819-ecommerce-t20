@@ -63,7 +63,7 @@ hr {
 }
 
 </style>
-
+<body class="background">
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-0 mx-auto">
@@ -76,31 +76,29 @@ hr {
 			</div>
 		</div>
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mb-0 mx-auto">
-			<div class="jumbotron jumbotron-design">
-				<div class="modal-body">
-					<h5>{{name}} - {{brandname}} (P{{price}}.00)</h5>
-					<h6><i>{{category}}</i></h6>
-					<hr>
-					<ul>
-						<li style="text-decoration:none">Name: {{name}}</li>
-						<li style="text-decoration:none">Description: {{description}}</li>
-						<li style="text-decoration:none">Brand Name: {{brandname}}</li>
-						<li style="text-decoration:none">Brand Description: {{branddescription}}</li>
-						<li style="text-decoration:none">Tagline: {{tagline}}</li>
-						<li style="text-decoration:none">Warranty (in years): {{warranty}}</li>
-						<li style="text-decoration:none">Category: {{category}}</li>
-					</ul>
-				</div>
+			<div class="modal-body">
+				<h5>{{name}} - {{brandname}} (P{{price}}.00)</h5>
+				<h6><i>{{category}}</i></h6>
 				<hr>
-				<div class="modal-footer">
-					<button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design" data-toggle="modal" data-target="#orderModal">Order Product</button>
-					<a href="/product/update/{{this.id}}"><button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design">Update Product</button></a>&ensp;&ensp;
-				</div>
+				<ul>
+					<li style="text-decoration:none">Name: {{name}}</li>
+					<li style="text-decoration:none">Description: {{description}}</li>
+					<li style="text-decoration:none">Brand Name: {{brandname}}</li>
+					<li style="text-decoration:none">Brand Description: {{branddescription}}</li>
+					<li style="text-decoration:none">Tagline: {{tagline}}</li>
+					<li style="text-decoration:none">Warranty (in years): {{warranty}}</li>
+					<li style="text-decoration:none">Category: {{category}}</li>
+				</ul>
+			</div>
+			<hr>
+			<div class="modal-footer">
+				<button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design" data-toggle="modal" data-target="#orderModal">Order Product</button>
+				<a href="/product/update/{{this.id}}"><button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design">Update Product</button></a>&ensp;&ensp;
 			</div>
 		</div>
 	</div>
 </div>
-
+</body>
 <!--Order Modal-->
 
 <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
