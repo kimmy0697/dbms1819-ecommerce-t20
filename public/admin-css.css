@@ -1,3 +1,19 @@
+.my-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    margin: auto;
+}
+
+.my-footer-text {
+  color: #5c00b3;
+  font-size: 20px;
+}
+
 /***************************ADMIN SIDE CSS*************************************/
 
 /*****INTERFACE*****/
