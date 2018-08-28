@@ -308,22 +308,22 @@ app.get('/brand/create', function (req, res) {
 
 // Brands List Page
 app.get('/brands', function (req, res) {
-  client.query('SELECT * FROM brands')
-    .then((result) => {
-      console.log('results?', result);
-      res.render('brands', result);
-    })
-    .catch((err) => {
-      console.log('error', err);
-      res.send('Error!');
-    });
-});
-//   Brand.list(client, {}, function (brands) {
-//     res.render('brands', {
-//       brands: brands
+//   client.query('SELECT * FROM brands')
+//     .then((result) => {
+//       console.log('results?', result);
+//       res.render('brands', result);
+//     })
+//     .catch((err) => {
+//       console.log('error', err);
+//       res.send('Error!');
 //     });
-//   });
 // });
+  Brand.list(client, {}, function (brands) {
+    res.render('brands', {
+      brands: brands
+    });
+  });
+});
 
 // Create Brand Form
 app.post('/brands', function (req, res) {
