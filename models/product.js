@@ -34,7 +34,6 @@ var Product = {
   },
 
   list: (client, filter, callback) => {
-    console.log(req);
     const productListQuery = `
       SELECT
         products.id AS products_id,
@@ -51,7 +50,7 @@ var Product = {
       INNER JOIN products_category ON products.category_id = products_category.id
     `;
     client.query(productListQuery, (req, data) => {
-      console.log(req);
+      console.log(data.rows);
       callback(data.rows);
     });
   }

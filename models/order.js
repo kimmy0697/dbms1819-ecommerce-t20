@@ -1,6 +1,5 @@
 var Order = {
   list: (client, filter, callback) => {
-    console.log(data.rows);
     const orderListQuery = `
       SELECT
         customers.first_name AS first_name,

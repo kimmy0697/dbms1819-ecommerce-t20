@@ -38,7 +38,6 @@ var Customer = {
   },
 
   list: (client, filter, callback) => {
-    console.log(data.rows);
     const customerListQuery = `
       SELECT * FROM customers
       ORDER BY id DESC

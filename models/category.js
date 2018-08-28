@@ -1,6 +1,5 @@
 var Category = {
   list: (client, filter, callback) => {
-    console.log(req);
     const categoryListQuery = `
       SELECT * FROM products_category
       `;
