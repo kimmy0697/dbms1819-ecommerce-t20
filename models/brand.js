@@ -1,4 +1,4 @@
-var Brand {
+var Brand = {
   list: (client, filter, callback) => {
     console.log(req);
     const brandListQuery = `

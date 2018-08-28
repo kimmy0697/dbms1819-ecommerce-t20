@@ -53,12 +53,6 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/sample', function (req, res) {
-  res.render('sample', {
-  });
-});
-
-
 /*********************Admin Side***************************/
 
 app.get('/admin', function (req, res) {
@@ -314,22 +308,22 @@ app.get('/brand/create', function (req, res) {
 
 // Brands List Page
 app.get('/brands', function (req, res) {
-//   client.query('SELECT * FROM brands')
-//     .then((result) => {
-//       console.log('results?', result);
-//       res.render('brands', result);
-//     })
-//     .catch((err) => {
-//       console.log('error', err);
-//       res.send('Error!');
-//     });
-// });
-  Brand.list(client, {}, function (brands) {
-    res.render('brands', {
-      brands: brands
+  client.query('SELECT * FROM brands')
+    .then((result) => {
+      console.log('results?', result);
+      res.render('brands', result);
+    })
+    .catch((err) => {
+      console.log('error', err);
+      res.send('Error!');
     });
-  });
 });
+//   Brand.list(client, {}, function (brands) {
+//     res.render('brands', {
+//       brands: brands
+//     });
+//   });
+// });
 
 // Create Brand Form
 app.post('/brands', function (req, res) {
@@ -350,22 +344,22 @@ app.get('/category/create', (req, res) => {
 
 // Categories List Page
 app.get('/categories', function (req, res) {
-//   client.query('SELECT * FROM products_category')
-//     .then((result) => {
-//       console.log('results?', result);
-//       res.render('categories', result);
-//     })
-//     .catch((err) => {
-//       console.log('error', err);
-//       res.send('Error!');
-//     });
-// });
-  Category.list(client, {}, function (products_category) {
-    res.render('categories', {
-      products_category: products_category
+  client.query('SELECT * FROM products_category')
+    .then((result) => {
+      console.log('results?', result);
+      res.render('categories', result);
+    })
+    .catch((err) => {
+      console.log('error', err);
+      res.send('Error!');
     });
-  });
 });
+//   Category.list(client, {}, function (products_category) {
+//     res.render('categories', {
+//       products_category: products_category
+//     });
+//   });
+// });
 
 // Create Category Form
 app.post('/categories', function (req, res) {
@@ -379,22 +373,22 @@ app.post('/categories', function (req, res) {
 
 // Orders List Page
 app.get('/orders', function (req, res) {
-//   client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;')
-//     .then((result) => {
-//       console.log('results?', result);
-//       res.render('orders', result);
-//     })
-//     .catch((err) => {
-//       console.log('error', err);
-//       res.send('Error!');
-//     });
-// });
-  Order.list(client, {}, function (orders) {
-    res.render('categories', {
-      orders: orders
+  client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;')
+    .then((result) => {
+      console.log('results?', result);
+      res.render('orders', result);
+    })
+    .catch((err) => {
+      console.log('error', err);
+      res.send('Error!');
     });
-  });
 });
+//   Order.list(client, {}, function (orders) {
+//     res.render('categories', {
+//       orders: orders
+//     });
+//   });
+// });
 
 /*********************Customers***************************/
 
@@ -411,7 +405,12 @@ app.get('/customers', function (req, res) {
       res.send('Error!');
     });
 });
-
+//   Customer.list(client, {}, function (customers) {
+//     res.render('customers', {
+//       customers: customers
+//     });
+//   });
+// });
 
 // Customer Details Page
 app.get('/customers/:id', function (req, res) {
@@ -425,7 +424,10 @@ app.get('/customers/:id', function (req, res) {
       res.send('Error!');
     });
 });
-
+//   Customer.getById(client, req.params.id, function (customerData) {
+//     res.render('customer-details', customerData);
+//   });
+// });
 
 /*********************Server***************************/
 

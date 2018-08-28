@@ -1,4 +1,4 @@
-var Category {
+var Category = {
   list: (client, filter, callback) => {
     console.log(req);
     const categoryListQuery = `
