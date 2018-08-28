@@ -49,19 +49,19 @@ app.use(bodyParser.json());
 /*********************Home***************************/
 
 app.get('/', function (req, res) {
-  res.render('home', {
+  res.render('client/home', {
   });
 });
 
 /*********************Admin Side***************************/
 
 app.get('/admin', function (req, res) {
-  res.render('admin', {
+  res.render('admin/home', {
   });
 });
 
-app.get('/developers', function (req, res) {
-  res.render('developers', {
+app.get('/admin/developers', function (req, res) {
+  res.render('admin/developers', {
   });
 });
 
@@ -69,7 +69,7 @@ app.get('/admin/products', function (req, res) {
   client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = ' + req.params.id + '; ')
     .then((results) => {
       console.log('results?', results);
-      res.render('admin-products', {
+      res.render('admin/admin-products', {
         name: results.rows[0].products_name,
         description: results.rows[0].products_description,
         tagline: results.rows[0].products_tagline,
@@ -105,7 +105,7 @@ app.get('/products', function (req, res) {
     for (var i = 0; i < data.rows.length; i++) {
       list.push(data.rows[i]);
     }
-    res.render('products', {
+    res.render('client/products', {
       data: list,
       title: 'Most Popular Shoes'
     });
@@ -117,7 +117,7 @@ app.get('/products/:id', function (req, res) {
   client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = ' + req.params.id + '; ')
     .then((results) => {
       console.log('results?', results);
-      res.render('product-details', {
+      res.render('client/product-details', {
         name: results.rows[0].products_name,
         description: results.rows[0].products_description,
         tagline: results.rows[0].products_tagline,
@@ -141,7 +141,7 @@ app.get('/products/:id', function (req, res) {
 // });
 
 // Create Product Page
-app.get('/product/create', function (req, res) {
+app.get('/admin/product/create', function (req, res) {
   var category = [];
   var brand = [];
   var both = [];
@@ -161,7 +161,7 @@ app.get('/product/create', function (req, res) {
       both.push(category);
       console.log(category);
       console.log(both);
-      res.render('create-product', {
+      res.render('admin/create-product', {
         rows: both
       });
     })
@@ -176,7 +176,7 @@ app.post('/insert_products', function (req, res) {
   client.query("INSERT INTO products (name,description,tagline,price,warranty,brand_id,category_id,image) VALUES ('" + req.body.name + "', '" + req.body.description + "', '" + req.body.tagline + "', '" + req.body.price + "', '" + req.body.warranty + "', '" + req.body.brand_id + "', '" + req.body.category_id + "','" + req.body.image + "')")
     .then((results) => {
       console.log('results?', results);
-      res.redirect('/products');
+      res.redirect('admin/admin-products');
     })
     .catch((err) => {
       console.log('error', err);
@@ -237,7 +237,7 @@ app.post('/products/:id/send', function (req, res) {
               return console.log(error);
             }
             console.log('Message %s sent: %s', info.messageId, info.response);
-            res.redirect('/products');
+            res.redirect('client/products');
           });
         })
         .catch((err) => {
@@ -255,11 +255,11 @@ app.post('/updateproduct/:id', function (req, res) {
   client.query("UPDATE products SET name = '" + req.body.products_name + "', description = '" + req.body.products_description + "', tagline = '" + req.body.products_tagline + "', price = '" + req.body.products_price + "', warranty = '" + req.body.products_warranty + "',brand_id = '" + req.body.brand_name + "', category_id = '" + req.body.category_name + "', image = '" + req.body.products_image + "'WHERE id = '" + req.params.id + "' ;");
   client.query("UPDATE brands SET brand_description = '" + req.body.brand_description + "' WHERE id ='" + req.params.id + "';");
 
-  res.redirect('/products');
+  res.redirect('admin/admin-products');
 });
 
 // Update Product Form Page
-app.get('/product/update/:id', function (req, res) {
+app.get('/admin/product/update/:id', function (req, res) {
   var category = [];
   var brand = [];
   var both = [];
@@ -286,7 +286,7 @@ app.get('/product/update/:id', function (req, res) {
     });
   client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = ' + req.params.id + '; ')
     .then((result) => {
-      res.render('update-products', {
+      res.render('admin/update-products', {
         rows: result.rows[0],
         brand: both
       });
@@ -301,17 +301,17 @@ app.get('/product/update/:id', function (req, res) {
 
 
 // Create Brand Page
-app.get('/brand/create', function (req, res) {
-  res.render('create-brand', {
+app.get('/admin/brand/create', function (req, res) {
+  res.render('/admin/create-brand', {
   });
 });
 
 // Brands List Page
-app.get('/brands', function (req, res) {
+app.get('/admin/brands', function (req, res) {
   client.query('SELECT * FROM brands')
     .then((result) => {
       console.log('results?', result);
-      res.render('brands', result);
+      res.render('admin/brands', result);
     })
     .catch((err) => {
       console.log('error', err);
@@ -329,7 +329,7 @@ app.get('/brands', function (req, res) {
 app.post('/brands', function (req, res) {
   console.log(req.body);
   client.query("INSERT INTO brands (brand_name,brand_description) VALUES ('" + req.body.brand_name + "','" + req.body.brand_description + "')");
-  res.redirect('/brands');
+  res.redirect('admin/brands');
 });
 
 
@@ -337,17 +337,17 @@ app.post('/brands', function (req, res) {
 
 
 // Create Category Page
-app.get('/category/create', (req, res) => {
-  res.render('create-category', {
+app.get('/admin/category/create', (req, res) => {
+  res.render('admin/create-category', {
   });
 });
 
 // Categories List Page
-app.get('/categories', function (req, res) {
+app.get('/admin/categories', function (req, res) {
   client.query('SELECT * FROM products_category')
     .then((result) => {
       console.log('results?', result);
-      res.render('categories', result);
+      res.render('admin/categories', result);
     })
     .catch((err) => {
       console.log('error', err);
@@ -365,18 +365,18 @@ app.get('/categories', function (req, res) {
 app.post('/categories', function (req, res) {
   client.query("INSERT INTO products_category (product_category_name) VALUES ('" + req.body.product_category_name + "')");
 
-  res.redirect('/categories');
+  res.redirect('admin/categories');
 });
 
 
 /*********************Orders***************************/
 
 // Orders List Page
-app.get('/orders', function (req, res) {
+app.get('/admin/orders', function (req, res) {
   client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;')
     .then((result) => {
       console.log('results?', result);
-      res.render('orders', result);
+      res.render('admin/orders', result);
     })
     .catch((err) => {
       console.log('error', err);
@@ -394,11 +394,11 @@ app.get('/orders', function (req, res) {
 
 
 // Customers List Page
-app.get('/customers', function (req, res) {
+app.get('/admin/customers', function (req, res) {
   client.query('SELECT * FROM customers ORDER BY id DESC')
     .then((result) => {
       console.log('results?', result);
-      res.render('customers', result);
+      res.render('admin/customers', result);
     })
     .catch((err) => {
       console.log('error', err);
@@ -413,11 +413,11 @@ app.get('/customers', function (req, res) {
 // });
 
 // Customer Details Page
-app.get('/customers/:id', function (req, res) {
+app.get('/admin/customers/:id', function (req, res) {
   client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customers.id = '" + req.params.id + "' ORDER BY purchase_date DESC;")
     .then((result) => {
       console.log('results?', result);
-      res.render('customer-details', result);
+      res.render('admin/customer-details', result);
     })
     .catch((err) => {
       console.log('error', err);
