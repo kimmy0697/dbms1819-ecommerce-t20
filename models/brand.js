@@ -1,6 +1,5 @@
 var Brand = {
   list: (client, filter, callback) => {
-    console.log(data.rows);
     const brandListQuery = `
       SELECT * FROM brands
       `;
