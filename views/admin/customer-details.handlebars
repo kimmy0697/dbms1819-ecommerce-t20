@@ -1,4 +1,4 @@
-<div class="col-md-9">
+{{!-- <div class="col-md-9">
 	<div class="row">
 		<div class="col-md-12">
 			<p>CUSTOMER DETAILS:</p>
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> --}}
 
 
 <div class="container">
@@ -69,17 +69,92 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<fieldset class="customer-fields">
-							<legend class="customer-legends">
-								<img src="/customer.png">&ensp;<h5>Customer Details</h5>
-							</legend>
-							<div class="container">
-								
-						</fieldset>
-				{{#each rows}}
+						<div class="customer-details">
+							<fieldset class="customer-details-field">
+								<legend class="customer-details-legend">
+									<img src="/customer.png">&ensp;<h5>Customer Details</h5>
+								</legend>
+								<div class="container">
+									<div class="table-responsive">
+										<table class="table table-striped table-hover table-design">
+											<thead>
+												<tr>
+													<th>First Name</th>
+													<th>Middle Name</th>
+													<th>Last Name</th>
+													<th>Email Address</th>
+													<th>State</th>
+													<th>City</th>
+													<th>Street</th>
+													<th>Zipcode</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>{{rows.0.first_name}}</td>
+													<td>{{rows.0.middle_name}}</td>
+													<td>{{rows.0.last_name}}</td>
+													<td>{{rows.0.email}}</td>
+													<td>{{rows.0.state}}</td>
+													<td>{{rows.0.city}}</td>
+													<td>{{rows.0.street}}</td>
+													<td>{{rows.0.zipcode}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="order-details">
+							<fieldset class="order-details-field">
+								<legend class="order-details-legend">
+									<img src="/order.png">&ensp;<h5>Order Details</h5>
+								</legend>
+								<div class="container">
+									<div class="table-responsive">
+										<table class="table table-striped table-hover table-design">
+											<thead>
+												<tr>
+													<th>Ordered Products</th>
+													<th>Quantity</th>
+													<th>Order Date</th>
+												</tr>
+											</thead>
+											{{#each rows}}
+											<tbody>
+												<tr>
+													<td>{{this.product_name}}</td>
+													<td>{{this.quantity}}</td>
+													<td>{{this.purchase_date}}</td>
+												</tr>
+											</tbody>
+											{{/each}}
+										</table>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+
+
+
+
+
+
+{{!-- 				{{#each rows}}
 				<div class="customer-contents">
 					<img src="/customer.png">
-					<div class="customer-details">
+					<div class="customer-contents2">
 						<li><b>Full Name:</b> {{this.last_name}}, {{this.first_name}} {{this.middle_name}}<li>
 						<li><b>Email:</b> {{this.email}}</li>
 						<li><b>Ordered Product:</b> {{this.products_name}}</li>
@@ -95,4 +170,4 @@
 			</div>
 		</fieldset>
 	</div>
-</div>
+</div> --}}
