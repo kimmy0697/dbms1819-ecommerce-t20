@@ -1,0 +1,53 @@
+.products .product-fields {
+  border: 2px solid #400861;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  border-radius: 20px;
+}
+
+.product-legends {
+  margin: auto;
+  margin-bottom: 3%;
+  width: 100%;
+  background: #400861;
+  padding: 20px 20px;
+  border-radius: 15px;
+}
+
+.product-legends button {
+  padding: 20px 20px 20px 20px;
+  border-radius: 20%;
+  background: #e6c;
+}
+
+.product-legends img {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+.product-legends h3 {
+  display: inline-block;
+  color: white;
+}
+
+.product-contents img {
+  display: block;
+  float: left;
+  height: 8%;
+  width: 8%;
+  border-radius: 100%;
+  padding: 10px 10px;
+  border: 2px solid #400861;
+}
+
+.product-contents li {
+  display: block;
+  color: black;
+  font-size: 100%;
+}
+
+.product-contents2 {
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
