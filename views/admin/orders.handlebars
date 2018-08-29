@@ -38,17 +38,21 @@
 			</legend>
 			<div class="container">
 				{{#each rows}}
-				<div class="order-contents">
-					<img src="/orders.png">
-					<div class="order-details">
-						<li><b>Full Name:</b> {{this.last_name}}, {{this.first_name}} {{this.middle_name}}<li>
-						<li><b>Email:</b> {{this.email}}</li>
-						<li><b>Ordered Product:</b> {{this.products_name}}</li>
-						<li><b>Quantity:</b> {{this.quantity}}</li>
-						<li><b>Date:</b> {{this.purchase_date}}</li>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="order-contents">
+							<img src="/orders.png">
+							<div class="order-details">
+								<li><b>Full Name:</b> {{this.last_name}}, {{this.first_name}} {{this.middle_name}}<li>
+								<li><b>Email:</b> {{this.email}}</li>
+								<li><b>Ordered Product:</b> {{this.products_name}}</li>
+								<li><b>Quantity:</b> {{this.quantity}}</li>
+								<li><b>Date:</b> {{this.purchase_date}}</li>
+							</div>
+						</div>
+						{{/each}}
 					</div>
 				</div>
-				{{/each}}
 			</div>
 		</fieldset>
 	</div>
