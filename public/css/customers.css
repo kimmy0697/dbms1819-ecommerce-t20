@@ -37,17 +37,17 @@
 }
 
 .customer-contents img {
-  display: inline-block;
+  display: block;
   float: left;
-  height: 25px;
-  width: 25px;
+  height: 9%;
+  width: 9%;
   border-radius: 100%;
   padding: 13px 13px;
   border: 2px solid #400861;
 }
 
 .customer-contents li {
-  display: inline-block;
+  display: block;
   color: black;
   font-size: 100%;
   padding: 10px 20px;
