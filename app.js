@@ -68,26 +68,6 @@ app.get('/admin/developers', function (req, res) {
 });
 
 app.get('/admin/products', function (req, res) {
-//   Product.list(client, {}, function (products) {
-//     res.render('products', {
-//       products: products
-//     });
-//   });
-// });  
-  client.query('SELECT * FROM Products;', (req, data) => {
-    var list = [];
-
-    for (var i = 0; i < data.rows.length; i++) {
-      list.push(data.rows[i]);
-    }
-    res.render('client/products', {
-      data: list,
-      title: 'Most Popular Shoes'
-    });
-  });
-});
-
-app.get('/admin/products/:id', function (req, res) {
   client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = ' + req.params.id + '; ')
     .then((results) => {
       console.log('results?', results);
