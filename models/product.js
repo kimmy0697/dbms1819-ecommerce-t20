@@ -17,6 +17,7 @@ var Product = {
     `;
     client.query(productQuery, (req, data) => {
       console.log(req);
+      console.log(data.rows[0]);
       var productData = {
         id: data.rows[0].id,
         name: data.rows[0].products_name,

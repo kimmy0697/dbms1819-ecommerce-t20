@@ -133,7 +133,7 @@ app.get('/products', function (req, res) {
 });
 
 // Product Details Page
-app.get('/products/:id', function (req, res) {
+app.get('/products/:id', function (req, res) => {
 //   client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = ' + req.params.id + '; ')
 //     .then((results) => {
 //       console.log('results?', results);
@@ -156,7 +156,7 @@ app.get('/products/:id', function (req, res) {
 //     });
 // });
   Product.getById(client, req.params.id, function (productData) {
-    res.render('products', productData);
+    res.render('client/products', productData);
   });
 });
 
