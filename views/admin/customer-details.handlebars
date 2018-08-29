@@ -58,3 +58,32 @@
 		</div>
 	</div>
 </div>
+
+
+<div class="container">
+	<div class="customers">
+		<fieldset class="customer-fields">
+			<legend class="customer-legends">
+				<img src="/customer-white.png">&ensp;<h3>C U S TO M E R S</h3>
+			</legend>
+			<div class="container">
+				{{#each rows}}
+				<div class="customer-contents">
+					<img src="/customer.png">
+					<div style="margin-left:100px">
+						<li><b>Full Name:</b> {{this.last_name}}, {{this.first_name}} {{this.middle_name}}<li>
+						<li><b>Email:</b> {{this.email}}</li>
+						<li><b>Ordered Product:</b> {{this.products_name}}</li>
+						<li><b>Quantity:</b> {{this.quantity}}</li>
+						<li><b>Date:</b> {{this.purchase_date}}</li>
+						<li><a href="/admin/customers/{{this.id}}">
+								<button type="button" class="btn btn-design"><b>See more details&nbsp;&raquo;</b></button>
+								</a>
+						</li>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</fieldset>
+	</div>
+</div>
