@@ -68,20 +68,18 @@ app.get('/admin/developers', function (req, res) {
 });
 
 app.get('/admin/products', function (req, res) {
+//   Product.list(client, {}, function (products) {
+//     res.render('product',  {
+//       layout: 'admin-layout',
+//       products: products
+//     });
+//   });
+// });
   client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = ' + req.params.id + '; ')
     .then((results) => {
       console.log('results?', results);
-      res.render('admin/admin-products', {
-        name: results.rows[0].products_name,
-        description: results.rows[0].products_description,
-        tagline: results.rows[0].products_tagline,
-        price: results.rows[0].products_price,
-        warranty: results.rows[0].products_warranty,
-        image: results.rows[0].products_image,s
-        brandname: results.rows[0].brand_name,
-        branddescription: results.rows[0].brand_description,
-        category: results.rows[0].category_name,
-        id: results.rows[0].products_id,
+      res.render('admin/products-admin', {
+        rows: results.rows,
         layout: 'admin-layout'
       });
     })
@@ -90,10 +88,32 @@ app.get('/admin/products', function (req, res) {
       res.send('Error!');
     });
 });
-//   Product.getById(client, req.params.id, function (productData) {
-//     res.render('product', productData);
-//   });
+
+// app.get('/admin/products/:id', function (req, res) {
+//   client.query('SELECT products.id AS products_id, products.image AS products_image, products.name AS products_name, products.description AS products_description, products.tagline AS products_tagline, products.price AS products_price, products.warranty AS products_warranty, brands.brand_name AS brand_name, brands.brand_description AS brand_description, products_category.product_category_name AS category_name FROM products INNER JOIN brands ON products.brand_id=brands.id INNER JOIN products_category ON products.category_id=products_category.id WHERE products.id = ' + req.params.id + '; ')
+//     .then((results) => {
+//       console.log('results?', results);
+//       res.render('admin/admin-products', {
+//         name: results.rows[0].products_name,
+//         description: results.rows[0].products_description,
+//         tagline: results.rows[0].products_tagline,
+//         price: results.rows[0].products_price,
+//         warranty: results.rows[0].products_warranty,
+//         image: results.rows[0].products_image,s
+//         brandname: results.rows[0].brand_name,
+//         branddescription: results.rows[0].brand_description,
+//         category: results.rows[0].category_name,
+//         id: results.rows[0].products_id,
+//         layout: 'admin-layout'
+//       });
+//     })
+//     .catch((err) => {
+//       console.log('error', err);
+//       res.send('Error!');
+//     });
 // });
+// });
+
 
 /*********************Products***************************/
 

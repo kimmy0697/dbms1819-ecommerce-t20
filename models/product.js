@@ -35,20 +35,20 @@ var Product = {
 
   list: (client, filter, callback) => {
     const productListQuery = `
-      SELECT
-        products.id AS products_id,
-        products.name AS products_name,
-        products.image AS products_image,
-        products.description AS products_description,
-        products.price AS products_price,
-        products.tagline AS products_tagline,
-        products.warranty AS products_warranty,
-        brands.name AS brand_name,
-        products_category.product_category_name AS category_name
-      FROM products
-      INNER JOIN brands ON products.brand_id = brands.id
-      INNER JOIN products_category ON products.category_id = products_category.id
-    `;
+      SELECT * FROM Products`;
+    //     products.id AS products_id,
+    //     products.name AS products_name,
+    //     products.image AS products_image,
+    //     products.description AS products_description,
+    //     products.price AS products_price,
+    //     products.tagline AS products_tagline,
+    //     products.warranty AS products_warranty,
+    //     brands.name AS brand_name,
+    //     products_category.product_category_name AS category_name
+    //   FROM products
+    //   INNER JOIN brands ON products.brand_id = brands.id
+    //   INNER JOIN products_category ON products.category_id = products_category.id
+    // `;
     client.query(productListQuery, (req, data) => {
       console.log(data.rows);
       callback(data.rows);
