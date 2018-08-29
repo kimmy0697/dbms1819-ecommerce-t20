@@ -25,6 +25,9 @@
 				<a href="/admin/brand/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
 			</legend>
 			<div class="container">
+				<div class="modal-header">
+					<h3>Create Category</h3>
+				</div>				
 				<div class="modal-body">
 					<form method="POST" action="/brands">
 						<div class="form-group">
@@ -34,7 +37,7 @@
 						<div class="form-group">
 							<label for="brand_description"><b>Brand Description</b></label><br>
 							<input type="text" class="form-control" name="brand_description" value="" placeholder="e.g. Adidas Product" required=""><br><hr style="background: white">
-							<input type="submit" style="font-weight: bold;" name="submit" value="Submit" class="btn btn-design" style="float:right">
+							<input type="submit" style="font-weight: bold;" name="submit" value="Create" class="btn btn-design" style="float:right">
 							<a href="/admin/brands"><button type="button" class="btn btn-design" style="float:right"><b>Go back</b></button>
 						</div>
 					</form>

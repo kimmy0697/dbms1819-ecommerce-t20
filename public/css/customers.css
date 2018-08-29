@@ -44,16 +44,17 @@
   border-radius: 100%;
   padding: 13px 13px;
   border: 2px solid #400861;
-  margin-bottom: 50px;
 }
 
 .customer-contents li {
   display: block;
   color: black;
   font-size: 100%;
+  padding: 10px 20px;
+  margin: auto;
 }
 
 .customer-details {
   margin-left: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
