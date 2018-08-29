@@ -68,6 +68,12 @@ app.get('/admin/developers', function (req, res) {
 });
 
 app.get('/admin/products', function (req, res) {
+//   Product.list(client, {}, function (products) {
+//     res.render('products', {
+//       products: products
+//     });
+//   });
+// });  
   client.query('SELECT * FROM Products;', (req, data) => {
     var list = [];
 
@@ -104,7 +110,10 @@ app.get('/admin/products/:id', function (req, res) {
       res.send('Error!');
     });
 });
-
+//   Product.getById(client, req.params.id, function (productData) {
+//     res.render('product', productData);
+//   });
+// });
 
 /*********************Products***************************/
 
