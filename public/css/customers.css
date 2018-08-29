@@ -52,6 +52,7 @@
   font-size: 100%;
 }
 
-.customer-contents a {
-  float: right;
+.customer-details {
+  margin-left: 100px;
+  margin-bottom: 20px;
 }

@@ -46,3 +46,8 @@
   color: black;
   font-size: 100%;
 }
+
+.order-details {
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
