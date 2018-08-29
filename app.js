@@ -161,10 +161,10 @@ app.get('/products/:id', function (req, res) {
       res.send('Error!');
     });
 });
-//   Product.getById(client, req.params.id, function (productData) {
-//     res.render('product', productData);
-//   });
-// });
+  Product.getById(client, req.params.id, function (productData) {
+    res.render('product', productData);
+  });
+});
 
 // Create Product Page
 app.get('/admin/product/create', function (req, res) {
