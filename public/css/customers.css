@@ -32,12 +32,12 @@
 }
 
 .customer-contents {
-  padding:0px;
-  margin: 0px;
+  padding:20px 20px;
+  margin: 20px 20px;
 }
 
 .customer-contents img {
-  display: block;
+  display: inline-block;
   float: left;
   height: 9%;
   width: 9%;
@@ -47,14 +47,9 @@
 }
 
 .customer-contents li {
-  display: block;
+  display: inline-block;
   color: black;
   font-size: 100%;
   padding: 10px 20px;
   margin: auto;
-}
-
-.customer-details {
-  margin-left: 100px;
-  margin-bottom: 100px;
 }

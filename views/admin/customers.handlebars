@@ -55,15 +55,16 @@
 			</legend>
 			<div class="container">
 				{{#each rows}}
-				<div class="customer-contents">
-					<img src="/customer.png">
-					<div class="customer-details">
+				<div class="row">
+					<div class="customer-contents">
+						<img src="/customer.png">
 						<li><b>Full Name:</b> {{this.last_name}}, {{this.first_name}} {{this.middle_name}}<li>
 						<li><b>Email:</b> {{this.email}}</li>
 						<li><a href="/admin/customers/{{this.id}}">
-								<button type="button" class="btn btn-design"><b>See more details&nbsp;&raquo;</b></button>
+									<button type="button" class="btn btn-design"><b>See more details&nbsp;&raquo;</b></button>
 								</a>
 						</li>
+						</div>
 					</div>
 				</div>
 				{{/each}}
