@@ -34,8 +34,8 @@
 .order-contents img {
   display: block;
   float: left;
-  height: 8%;
-  width: 8%;
+  height: 25px;
+  width: 25px;
   border-radius: 100%;
   padding: 10px 10px;
   border: 2px solid #400861;
