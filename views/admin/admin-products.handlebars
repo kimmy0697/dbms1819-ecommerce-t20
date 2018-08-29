@@ -10,6 +10,7 @@
           <table class="table table-striped table-hover table-design">
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Product Name</th>
                 <th>Brand</th>
                 <th>Category</th>
@@ -21,12 +22,13 @@
             {{!-- {{#each rows}} --}}
             <tbody>
               <tr>
-                <td><img src="{{this.products_image}}" style="float:left; height:50px; width:50px;">&ensp;{{this.products_name}}</td>
+                <td><img src="{{this.products_image}}" style="float:left; height:50px; width:50px;"></td>
+                <td>{{this.products_name}}</td>
                 <td>{{this.brand_name}}</td>
                 <td>{{this.category_name}}</td>
                 <td>{{this.products_price}}</td>
                 <td>{{this.products_description}}</td>
-                <td><img src="/action.png" style="height:25px; width:25px;"></td>
+                <td><a href="/admin/product/update/{{this.id}}"><img src="/action.png" style="height:25px; width:25px;"></td>
               </tr>
             </tbody>
             {{!-- {{/each}} --}}
