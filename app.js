@@ -156,7 +156,7 @@ app.get('/products/:id', function (req, res) {
 //     });
 // });
   Product.getById(client, req.params.id, function (productData) {
-    res.render('product', productData);
+    res.render('products', productData);
   });
 });
 
