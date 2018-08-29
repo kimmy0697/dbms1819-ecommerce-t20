@@ -7,7 +7,7 @@ var Product = {
         products.price AS products_price,
         products.tagline AS products_tagline,
         products.warranty AS products_warranty,
-        brands.name AS brand_name,
+        brands.brand_name AS brand_name,
         products_category.product_category_name AS category_name
       FROM products
       INNER JOIN brands ON products.brand_id = brands.id
