@@ -1,3 +1,5 @@
+/******************Customer List Page****************************/
+
 .customers .customer-fields {
   border: 2px solid #400861;
   padding: 20px 20px;
@@ -59,6 +61,11 @@
   margin-bottom: 100px;
 }
 
+/******************Customer Details Page****************************/
+
+
+/*Customer Details*/
+
 .customer-details-field {
   border: 2px solid #400861;
   padding: 20px 20px;
@@ -68,7 +75,7 @@
 
 .customer-details-legend {
   margin: auto;
-  margin-bottom: 3%;
+  margin-bottom: 10px;
   width: 100%;
   padding: 20px 20px;
 }
@@ -84,6 +91,8 @@
   color: #400861;
 }
 
+/*Order Details*/
+
 .order-details-field {
   border: 2px solid #400861;
   padding: 20px 20px;
@@ -93,7 +102,7 @@
 
 .order-details-legend {
   margin: auto;
-  margin-bottom: 3%;
+  margin-bottom: 10px;
   width: 100%;
   padding: 20px 20px;
 }
