@@ -77,7 +77,7 @@ app.get('/admin/products', function (req, res) {
         tagline: results.rows[0].products_tagline,
         price: results.rows[0].products_price,
         warranty: results.rows[0].products_warranty,
-        image: results.rows[0].products_image,
+        image: results.rows[0].products_image,s
         brandname: results.rows[0].brand_name,
         branddescription: results.rows[0].brand_description,
         category: results.rows[0].category_name,
