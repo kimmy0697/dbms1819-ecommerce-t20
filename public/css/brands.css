@@ -1,0 +1,32 @@
+.brands .brand-fields {
+  border: 2px solid #400861;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  border-radius: 20px;
+}
+
+.brand-legends {
+  margin: auto;
+  margin-bottom: 3%;
+  width: 100%;
+  background: #400861;
+  padding: 20px 20px;
+  border-radius: 15px;
+}
+
+.brand-legends button {
+  padding: 20px 20px 20px 20px;
+  border-radius: 20%;
+  background: #e6c;
+}
+
+.brand-legends img {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+.brand-legends h3 {
+  display: inline-block;
+  color: white;
+}

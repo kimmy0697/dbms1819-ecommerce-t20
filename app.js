@@ -57,11 +57,13 @@ app.get('/', function (req, res) {
 
 app.get('/admin', function (req, res) {
   res.render('admin/home', {
+    layout: 'admin-layout'
   });
 });
 
 app.get('/admin/developers', function (req, res) {
   res.render('admin/developers', {
+    layout: 'admin-layout'
   });
 });
 
@@ -79,7 +81,8 @@ app.get('/admin/products', function (req, res) {
         brandname: results.rows[0].brand_name,
         branddescription: results.rows[0].brand_description,
         category: results.rows[0].category_name,
-        id: results.rows[0].products_id
+        id: results.rows[0].products_id,
+        layout: 'admin-layout'
       });
     })
     .catch((err) => {
@@ -162,7 +165,8 @@ app.get('/admin/product/create', function (req, res) {
       console.log(category);
       console.log(both);
       res.render('admin/create-product', {
-        rows: both
+        rows: both,
+        layout: 'admin-layout'
       });
     })
     .catch((err) => {
@@ -288,7 +292,8 @@ app.get('/admin/product/update/:id', function (req, res) {
     .then((result) => {
       res.render('admin/update-products', {
         rows: result.rows[0],
-        brand: both
+        brand: both,
+        layout: 'admin-layout'
       });
     })
     .catch((err) => {
@@ -302,7 +307,8 @@ app.get('/admin/product/update/:id', function (req, res) {
 
 // Create Brand Page
 app.get('/admin/brand/create', function (req, res) {
-  res.render('/admin/create-brand', {
+  res.render('admin/create-brand', {
+    layout: 'admin-layout'
   });
 });
 
@@ -311,7 +317,10 @@ app.get('/admin/brands', function (req, res) {
   client.query('SELECT * FROM brands')
     .then((result) => {
       console.log('results?', result);
-      res.render('admin/brands', result);
+      res.render('admin/brands', {
+        rows: result.rows,
+        layout: 'admin-layout'
+      });
     })
     .catch((err) => {
       console.log('error', err);
@@ -339,6 +348,7 @@ app.post('/brands', function (req, res) {
 // Create Category Page
 app.get('/admin/category/create', (req, res) => {
   res.render('admin/create-category', {
+    layout: 'admin-layout'
   });
 });
 
@@ -347,7 +357,10 @@ app.get('/admin/categories', function (req, res) {
   client.query('SELECT * FROM products_category')
     .then((result) => {
       console.log('results?', result);
-      res.render('admin/categories', result);
+      res.render('admin/categories', {
+        rows: result.rows,
+        layout: 'admin-layout'
+      });
     })
     .catch((err) => {
       console.log('error', err);
@@ -376,7 +389,10 @@ app.get('/admin/orders', function (req, res) {
   client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;')
     .then((result) => {
       console.log('results?', result);
-      res.render('admin/orders', result);
+      res.render('admin/orders', {
+        rows: result.rows,
+        layout: 'admin-layout'
+      });
     })
     .catch((err) => {
       console.log('error', err);
@@ -398,7 +414,10 @@ app.get('/admin/customers', function (req, res) {
   client.query('SELECT * FROM customers ORDER BY id DESC')
     .then((result) => {
       console.log('results?', result);
-      res.render('admin/customers', result);
+      res.render('admin/customers', {
+        rows: result.rows,
+        layout: 'admin-layout'
+      });
     })
     .catch((err) => {
       console.log('error', err);
@@ -417,7 +436,10 @@ app.get('/admin/customers/:id', function (req, res) {
   client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customers.id = '" + req.params.id + "' ORDER BY purchase_date DESC;")
     .then((result) => {
       console.log('results?', result);
-      res.render('admin/customer-details', result);
+      res.render('admin/customer-details', {
+        rows: result.rows,
+        layout: 'admin-layout'
+      });
     })
     .catch((err) => {
       console.log('error', err);

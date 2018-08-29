@@ -3,45 +3,39 @@
 .btn-design {
 
 	background-color: white;
-	border-color: #c61aff;
-	color: #c61aff;
+	border-color: #400861;
+	color: #400861;
 
 }
 
 .btn-design:hover{
 	
-	background-color: #c61aff;
+	background-color: #400861;
 	border-color: white;
 	color: white;
 }
 
 </style>
-<body class="background">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3">
-      <div class="sidenav img-icons">
-        <a href="/admin"><h5>DELISHOES ADMIN</h5></a>
-        <hr>
-        <a href="/admin/developers"><img src="/about.png">&ensp;About Developers</a>
-        <a href="/products"><img src="/products.png">&ensp;Products</a>
-        <a href="/admin/categories"><img src="/category.png">&ensp;Categories</a>
-        <a href="/admin/brands"><img src="/brand.png">&ensp;Brands</a>
-        <a href="/admin/orders"><img src="/order.png">&ensp;Orders</a>
-        <a href="/admin/customers"><img src="/customer.png">&ensp;Customers</a>
-      </div>
-    </div>
-		<div class="col-md-9">
-			<div class="modal-body">
-			<form method="POST" action="/categories">
-				<div class="form-group">
-					<label for="product_category_name">Category Name:</label><br>
-					<input type="text" class="form-control" name="product_category_name" value="" placeholder="e.g. Shoes" required=""><br><br><hr>
-					<input type="submit" name="submit" value="Submit" class="btn btn-design" style="float:right">
-				</div>				
-			</form>
+
+<div class="container">
+	<div class="categories">
+		<fieldset class="category-fields">
+			<legend class="category-legends">
+				<img src="/category-white.png">&ensp;<h3>C A T E G O R I E S</h3>
+				<a href="/admin/category/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
+			</legend>
+			<div class="container">
+				<div class="modal-body">
+					<form method="POST" action="/categories">
+						<div class="form-group">
+							<label for="product_category_name"><b>Category Name</b></label><br>
+							<input type="text" class="form-control" name="product_category_name" value="" placeholder="e.g. Shoes" required=""><br><br><hr style="background: white;">
+							<input style="font-weight:bold;" type="submit" name="submit" value="Submit" class="btn btn-design" style="float:right">
+							<a href="/admin/categories"><button type="button" class="btn btn-design" style="float:right"><b>Go back</b></button>
+						</div>				
+					</form>
+				</div>
 			</div>
-		</div>
+		</fieldset>
 	</div>
 </div>
-</body>

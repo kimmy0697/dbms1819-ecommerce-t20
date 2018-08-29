@@ -1,37 +1,39 @@
-<body class="background">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3">
-      <div class="sidenav img-icons">
-        <a href="/admin"><h5>DELISHOES ADMIN</h5></a>
-        <hr>
-        <a href="/admin/developers"><img src="/about.png">&ensp;About Developers</a>
-        <a href="/products"><img src="/products.png">&ensp;Products</a>
-        <a href="/admin/categories"><img src="/category.png">&ensp;Categories</a>
-        <a href="/admin/brands"><img src="/brand.png">&ensp;Brands</a>
-        <a href="/admin/orders"><img src="/order.png">&ensp;Orders</a>
-        <a href="/admin/customers"><img src="/customer.png">&ensp;Customers</a>
-      </div>
-    </div>
-		<div class="col-md-9">
-			<div class="table-responsive">
-				<table class="table table-striped table-hover table-design">
-					<thead>
-						<tr>
-							<th>Categories</th>
-						</tr>
-					</thead>
-					{{#each rows}}
-					<tbody>
-						<tr>
-							<td>{{this.product_category_name}}</td>
-						</tr>
-					</tbody>
-					{{/each}}
-				</table>
-			</div>
-      <a href="/admin/category/create"><button style="float:right" type="button" class="btn btn-md btn-design">Create Category</button></a>
+{{!-- <div class="container-fluid">
+  <div class="row">
+		<div class="table-responsive">
+			<table class="table table-striped table-hover table-design">
+				<thead>
+					<tr>
+						<th>Categories</th>
+					</tr>
+				</thead>
+				{{#each rows}}
+				<tbody>
+					<tr>
+						<td>{{this.product_category_name}}</td>
+					</tr>
+				</tbody>
+				{{/each}}
+			</table>
 		</div>
+	  <a href="/admin/category/create"><button style="float:right" type="button" class="btn btn-md btn-design">Create Category</button></a>
+  </div>
+</div> --}}
+
+<div class="container">
+	<div class="categories">
+		<fieldset class="category-fields">
+			<legend class="category-legends">
+				<img src="/category-white.png">&ensp;<h3>C A T E G O R I E S</h3>
+				<a href="/admin/category/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
+			</legend>
+			<div class="container">
+				{{#each rows}}
+				<div class="category-contents">
+					<li>{{this.product_category_name}}</li>
+				</div>
+				{{/each}}
+			</div>
+		</fieldset>
 	</div>
 </div>
-</body>

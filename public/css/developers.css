@@ -1,0 +1,65 @@
+.developers .developer-fields {
+  border: 2px solid #400861;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  border-radius: 20px;
+}
+
+.developer-legends {
+  margin: auto;
+  margin-bottom: 3%;
+  width: 100%;
+  background: #400861;
+  padding: 20px 20px;
+  border-radius: 15px;
+}
+
+.developer-legends button {
+  padding: 20px 20px 20px 20px;
+  border-radius: 20%;
+  background: #e6c;
+}
+
+.developer-legends img {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+.developer-legends h3 {
+  display: inline-block;
+  color: white;
+}
+
+.developers h2 {
+  font-family: 'Khand', sans-serif;
+  font-size: 450%;
+  color: #400861;
+  text-align: center;
+}
+
+.developer-contents a {
+  text-align: center;
+  color: #400861;
+  font-family: sans-serif;
+  margin-top: 50px;
+  text-decoration: none;
+}
+
+.developer-contents a:hover {
+  color: #5c00b3;
+}
+
+.developer-contents img:hover {
+  border: 2px solid #5c00b3;
+}
+
+.developer-contents img {
+  height: 250px;
+  width: 250px;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 2px solid #a94dff;
+}

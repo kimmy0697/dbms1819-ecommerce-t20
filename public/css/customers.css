@@ -1,0 +1,57 @@
+.customers .customer-fields {
+  border: 2px solid #400861;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  border-radius: 20px;
+}
+
+.customer-legends {
+  margin: auto;
+  margin-bottom: 3%;
+  width: 100%;
+  background: #400861;
+  padding: 20px 20px;
+  border-radius: 15px;
+}
+
+.customer-legends button {
+  padding: 20px 20px 20px 20px;
+  border-radius: 20%;
+  background: #e6c;
+}
+
+.customer-legends img {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+.customer-legends h3 {
+  display: inline-block;
+  color: white;
+}
+
+.customer-contents {
+  padding:0px;
+  margin: 0px;
+}
+
+.customer-contents img {
+  display: block;
+  float: left;
+  height: 9%;
+  width: 9%;
+  border-radius: 100%;
+  padding: 13px 13px;
+  border: 2px solid #400861;
+}
+
+.customer-contents li {
+  display: block;
+  color: black;
+  font-size: 100%;
+}
+
+.customer-contents a {
+  float: right;
+}

@@ -1,53 +1,55 @@
-<style>
+{{!-- <div class="col-md-9">
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-design">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Purchase Date</th>
+				</tr>
+			</thead>
+			{{#each rows}}
+			<tbody>
+				<tr>
+					<td>{{this.first_name}}</td>
+					<td>{{this.middle_name}}</td>
+					<td>{{this.last_name}}</td>
+					<td>{{this.email}}</td>
+					<td>{{this.products_name}}</td>
+					<td>{{this.quantity}}</td>
+					<td>{{this.purchase_date}}</td>
+				</tr>
+			</tbody>
+			{{/each}}
+		</table>
+	</div>
+</div> --}}
 
 
-
-</style>
-<body class="background">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3">
-      <div class="sidenav img-icons">
-        <a href="/admin"><h5>DELISHOES ADMIN</h5></a>
-        <hr>
-        <a href="/admin/developers"><img src="/about.png">&ensp;About Developers</a>
-        <a href="/products"><img src="/products.png">&ensp;Products</a>
-        <a href="/admin/categories"><img src="/category.png">&ensp;Categories</a>
-        <a href="/admin/brands"><img src="/brand.png">&ensp;Brands</a>
-        <a href="/admin/orders"><img src="/order.png">&ensp;Orders</a>
-        <a href="/admin/customers"><img src="/customer.png">&ensp;Customers</a>
-      </div>
-    </div>
-		<div class="col-md-9">
-			<div class="table-responsive">
-				<table class="table table-striped table-hover table-design">
-					<thead>
-						<tr>
-							<th>First Name</th>
-							<th>Middle Name</th>
-							<th>Last Name</th>
-							<th>Email Address</th>
-							<th>Product</th>
-							<th>Quantity</th>
-							<th>Purchase Date</th>
-						</tr>
-					</thead>
-					{{#each rows}}
-					<tbody>
-						<tr>
-							<td>{{this.first_name}}</td>
-							<td>{{this.middle_name}}</td>
-							<td>{{this.last_name}}</td>
-							<td>{{this.email}}</td>
-							<td>{{this.products_name}}</td>
-							<td>{{this.quantity}}</td>
-							<td>{{this.purchase_date}}</td>
-						</tr>
-					</tbody>
-					{{/each}}
-				</table>
+<div class="container">
+	<div class="orders">
+		<fieldset class="order-fields">
+			<legend class="order-legends">
+				<img src="/order-white.png">&ensp;<h3>O R D E R S</h3>
+			</legend>
+			<div class="container">
+				{{!-- {{#each rows}} --}}
+				<div class="order-contents">
+					<img src="/orders.png">
+					<div style="margin-left:100px">
+						<li><b>Full Name:</b> {{this.last_name}}, {{this.first_name}} {{this.middle_name}}<li>
+						<li><b>Email:</b> {{this.email}}</li>
+						<li><b>Ordered Product:</b> {{this.products_name}}</li>
+						<li><b>Quantity:</b> {{this.quantity}}</li>
+						<li><b>Date:</b> {{this.purchase_date}}</li>
+					</div>
+				</div>
+				{{!-- {{/each}} --}}
 			</div>
-		</div>
+		</fieldset>
 	</div>
 </div>
-</body>

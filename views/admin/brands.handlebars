@@ -1,39 +1,43 @@
-<body class="background">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3">
-      <div class="sidenav img-icons">
-        <a href="/admin"><h5>DELISHOES ADMIN</h5></a>
-        <hr>
-        <a href="/admin/developers"><img src="/about.png">&ensp;About Developers</a>
-        <a href="/products"><img src="/products.png">&ensp;Products</a>
-        <a href="/admin/categories"><img src="/category.png">&ensp;Categories</a>
-        <a href="/admin/brands"><img src="/brand.png">&ensp;Brands</a>
-        <a href="/admin/orders"><img src="/order.png">&ensp;Orders</a>
-        <a href="/admin/customers"><img src="/customer.png">&ensp;Customers</a>
-      </div>
-    </div>
-		<div class="col-md-9">
-			<div class="table-responsive">
-				<table class="table table-striped table-hover table-design">
-					<thead>
-						<tr>			
-							<th>Brand Name</th>
-							<th>Brand Description</th>
-						</tr>
-					</thead>
-					{{#each rows}}
-					<tbody>
-						<tr>
-							<td>{{this.brand_name}}</td>
-							<td>{{this.brand_description}}</td>
-						</tr>
-					</tbody>
-					{{/each}}
-				</table>
-			</div>
-      <a href="/admin/brand/create"><button style="float:right" type="button" class="btn btn-md btn-design">Create Brand</button></a>
+{{!-- <div class="container-fluid">
+  <div class="row">
+		<div class="table-responsive">
+			<table class="table table-striped table-hover table-design">
+				<thead>
+					<tr>			
+						<th>Brand Name</th>
+						<th>Brand Description</th>
+					</tr>
+				</thead>
+				{{#each rows}}
+				<tbody>
+					<tr>
+						<td>{{this.brand_name}}</td>
+						<td>{{this.brand_description}}</td>
+					</tr>
+				</tbody>
+				{{/each}}
+			</table>
 		</div>
+    <a href="/admin/brand/create"><button style="float:right" type="button" class="btn btn-md btn-design">Create Brand</button>
+    </a>
+  </div>
+</div> --}}
+
+<div class="container">
+	<div class="brands">
+		<fieldset class="brand-fields">
+			<legend class="brand-legends">
+				<img src="/brand-white.png">&ensp;<h3>B R A N D S</h3>
+				<a href="/admin/brand/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
+			</legend>
+			<div class="container">
+				{{#each rows}}
+				<div class="brand-contents">
+					<li>Name : {{this.brand_name}}</li>
+					<li>Description : {{this.brand_description}}</li>
+				</div>
+				{{/each}}
+			</div>
+		</fieldset>
 	</div>
 </div>
-</body>

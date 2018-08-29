@@ -1,51 +1,76 @@
 <style>
 
+.btn-design {
 
+	background-color: white;
+	border-color: #400861;
+	color: #400861;
+
+}
+
+.btn-design:hover{
+	
+	background-color: #400861;
+	border-color: white;
+	color: white;
+}
 
 </style>
-<body class="background">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3">
-	    <div class="sidenav img-icons">
-	      <a href="/admin"><h5>DELISHOES ADMIN</h5></a>
-	      <hr>
-	      <a href="/admin/developers"><img src="/about.png">&ensp;About Developers</a>
-	      <a href="/products"><img src="/products.png">&ensp;Products</a>
-	      <a href="/admin/categories"><img src="/category.png">&ensp;Categories</a>
-	      <a href="/admin/brands"><img src="/brand.png">&ensp;Brands</a>
-	      <a href="/admin/orders"><img src="/order.png">&ensp;Orders</a>
-	      <a href="/admin/customers"><img src="/customer.png">&ensp;Customers</a>
-	    </div>
-  	</div>
-		<div class="col-md-9">
-			<div class="table-responsive">
-				<table class="table table-striped table-hover table-design">
-					<thead>
-						<tr>
-							<th>First Name</th>
-							<th>Middle Name</th>
-							<th>Last Name</th>
-							<th>Email Address</th>
-							<th>Customer Details</th>
-						</tr>
-					</thead>
-					{{#each rows}}
-					<tbody>
-						<tr>
-							<td>{{this.first_name}}</td>
-							<td>{{this.middle_name}}</td>
-							<td>{{this.last_name}}</td>
-							<td>{{this.email}}</td>
-							<td>
-								<a href="/admin/customers/{{this.id}}">More details&nbsp;&raquo;</a>
-							</td>
-						</tr>
-					</tbody>
-					{{/each}}
-				</table>
+
+{{!-- <div class="col-md-9">
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-design">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Customer Details</th>
+				</tr>
+			</thead>
+			{{#each rows}}
+			<tbody>
+				<tr>
+					<td>{{this.first_name}}</td>
+					<td>{{this.middle_name}}</td>
+					<td>{{this.last_name}}</td>
+					<td>{{this.email}}</td>
+					<td>
+						<a href="/admin/customers/{{this.id}}"><button type="button" class="btn btn-design"><b>See more details&nbsp;&raquo;</b></button></a>
+					</td>
+				</tr>
+			</tbody>
+			{{/each}}
+		</table>
+	</div>
+</div> --}}
+
+
+<div class="container">
+	<div class="customers">
+		<fieldset class="customer-fields">
+			<legend class="customer-legends">
+				<img src="/customer-white.png">&ensp;<h3>C U S TO M E R S</h3>
+			</legend>
+			<div class="container">
+				{{!-- {{#each rows}} --}}
+				<div class="customer-contents">
+					<img src="/customer.png">
+					<div style="margin-left:100px">
+						<li><b>Full Name:</b> {{this.last_name}}, {{this.first_name}} {{this.middle_name}}<li>
+						<li><b>Email:</b> {{this.email}}</li>
+						<li><b>Ordered Product:</b> {{this.products_name}}</li>
+						<li><b>Quantity:</b> {{this.quantity}}</li>
+						<li><b>Date:</b> {{this.purchase_date}}</li>
+						<li><a href="/admin/customers/{{this.id}}">
+								<button type="button" class="btn btn-design"><b>See more details&nbsp;&raquo;</b></button>
+								</a>
+						</li>
+					</div>
+				</div>
+				{{!-- {{/each}} --}}
 			</div>
-		</div>
+		</fieldset>
 	</div>
 </div>
-</body>

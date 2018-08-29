@@ -1,38 +1,51 @@
-<body class="background">
-
 <!--START: ADMIN INTERFACE-->
-
-  <div class="container-fluid">
+{{!-- <div class="container-fluid">
+  <div class="col-md-12">
     <div class="row">
-      <div class="col-md-3">
-        <div class="sidenav img-icons">
-          <a href="/admin"><h5>DELISHOES ADMIN</h5></a>
-          <hr>
-          <a href="/admin/developers"><img src="/about.png">&ensp;About Developers</a>
-          <a href="/products"><img src="/products.png">&ensp;Products</a>
-          <a href="/admin/categories"><img src="/category.png">&ensp;Categories</a>
-          <a href="/admin/brands"><img src="/brand.png">&ensp;Brands</a>
-          <a href="/admin/orders"><img src="/order.png">&ensp;Orders</a>
-          <a href="/admin/customers"><img src="/customer.png">&ensp;Customers</a>
-        </div>
+      <div class="col-md-12 team-title">
+        <h1 style="padding-top:50px;">ABOUT DEVELOPERS<h1>
+        <h1><b>T E A M  2 0 </b></h1>
       </div>
-      <div class="col-md-7">
-        <div class="row">
-          <div class="col-md-12 team-title">
-            <h1 style="padding-top:50px;">ABOUT DEVELOPERS<h1>
-            <h1><b>T E A M  2 0 </b></h1>
+    </div>
+      <div class="row admins">
+        <div class="col-md-6">
+          <div class="admins">
+            <a href="#" data-toggle="modal" data-target="#modal-1"><img src="/caloy.png">
+              <h3>Hi! I'm Carlo!</h3>
+            </a>
           </div>
         </div>
-          <div class="row admins">
+        <div class="col-md-6">
+          <div class="admins">
+            <a href="#" data-toggle="modal" data-target="#modal-2"><img src="/kimmy.png">
+              <h3>Hi! I'm Kim Leslie!</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> --}}
+
+<div class="container">
+  <div class="developers">
+    <fieldset class="developer-fields">
+      <legend class="developer-legends">
+        <img src="/admin-white.png">&ensp;<h3>A B O U T&emsp;D E V E L O P E R S</h3>
+      </legend>
+      <div class="container">
+        <div class="developer-contents">
+          <h2><b>T E A M  2 0</b></h2>
+          <div class="row">
             <div class="col-md-6">
-              <div class="admins">
+              <div class="developer-contents">
                 <a href="#" data-toggle="modal" data-target="#modal-1"><img src="/caloy.png">
                   <h3>Hi! I'm Carlo!</h3>
                 </a>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="admins">
+              <div class="developer-contents">
                 <a href="#" data-toggle="modal" data-target="#modal-2"><img src="/kimmy.png">
                   <h3>Hi! I'm Kim Leslie!</h3>
                 </a>
@@ -41,8 +54,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </fieldset>
   </div>
+</div>
+
 
 <!--END: ADMIN INTERFACE-->
 
@@ -91,5 +106,3 @@
 </div>
 
 <!--END: MODALS-->
-
-</body>
