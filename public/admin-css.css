@@ -44,6 +44,22 @@
   color: white;
 }
 
+.btn-design-admin {
+
+  background-color: white;
+  border-color: #400861;
+  color: #400861;
+  float: right;
+
+}
+
+.btn-design-admin:hover{
+  
+  background-color: #400861;
+  border-color: white;
+  color: white;
+}
+
 /***************************ADMIN SIDE CSS*************************************/
 
 /*****INTERFACE*****/
