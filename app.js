@@ -68,27 +68,16 @@ app.get('/admin/developers', function (req, res) {
 });
 
 app.get('/admin/products', function (req, res) {
-  client.query(`SELECT
-      products.image AS products_image,
-      products.name AS products_name,
-      products.description AS products_description,
-      products.price AS products_price,
-      brands.brand_name AS brand_name,
-      products_category.product_category_name AS category_name
-    FROM products 
-    INNER JOIN brands ON products.brand_id=brands.id
-    INNER JOIN products_category ON products.category_id=products_category.id
-    WHERE products.id = ` + req.params.id + `; `)
-  .then((results) => {
-    console.log('results?', results);
-    res.render('admin/admin-products', {
-      rows: results.rows,
-      layout: 'admin-layout'
+  client.query('SELECT * FROM Products;', (req, data) => {
+    var list = [];
+
+    for (var i = 0; i < data.rows.length; i++) {
+      list.push(data.rows[i]);
+    }
+    res.render('client/products', {
+      data: list,
+      title: 'Most Popular Shoes'
     });
-  })
-  .catch((err) => {
-    console.log('error', err);
-    res.send('Error');
   });
 });
 
