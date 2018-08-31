@@ -21,7 +21,6 @@
   
   <body id="page-top" class="background-admin">
     <nav class="navbar navbar-expand navbar-dark static-top" style="background-color: #400861">
-      <button type="button" class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle"><img src="/dashboard.png" style="width:23px; height:20px;"></button>
       <a class="navbar-brand mr-1" href="/admin">Admin Dashboard</a>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item no-arrow mx-1" style="float:right;">
@@ -32,6 +31,10 @@
     <!--Start: SideNavBar-->
   <div class="container-fluid">
     <div id="sidenav" class="side-navbar" style="float:left;">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="/admin/developers">
@@ -64,6 +67,7 @@
           </a>
         </li>
       </ul>
+      </div>
     </div>
     <!--END: SideNavBar-->
 
