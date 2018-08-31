@@ -84,7 +84,7 @@ app.get('/admin/products', function (req, res) {
     INNER JOIN products_category ON products.category_id=products_category.id`)
     .then((results) => {
       console.log('results?', results);
-      res.render('admin/products-admin', {
+      res.render('admin/admin-products', {
         rows: results.rows,
         layout: 'admin-layout'
       });
