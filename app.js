@@ -13,7 +13,7 @@ const Product = require('./models/product');
 const Brand = require('./models/brand');
 const Customer = require('./models/customer');
 const Order = require('./models/order');
-const Category = require('./models/category')
+const Category = require('./models/category');
 
 
 /******************Connection to Database***************************/
@@ -68,10 +68,34 @@ app.get('/admin/developers', function (req, res) {
 });
 
 app.get('/admin/products', function (req, res) {
-  res.render('admin/admin-products', {
-    layout: 'admin-layout'
+  client.query(`SELECT
+      products.id AS products_id,
+      products.image AS products_image,
+      products.name AS products_name,
+      products.description AS products_description,
+      products.tagline AS products_tagline,
+      products.price AS products_price,
+      products.warranty AS products_warranty,
+      brands.brand_name AS brand_name,
+      brands.brand_description AS brand_description,
+      products_category.product_category_name AS category_name
+    FROM products 
+    INNER JOIN brands ON products.brand_id=brands.id
+    INNER JOIN products_category ON products.category_id=products_category.id
+    WHERE products.id = ` + req.params.id + `; `);
+  .then((results) => {
+    console.log('results?', results);
+    res.render('admin/admin-products', {
+      rows: results.rows,
+      layout: 'admin-layout'
+    });
+  })
+  .catch((err) => {
+    console.log('error', err);
+    res.send('Error');
   });
 });
+
 
 // app.get('/admin/products', function (req, res) {
 //   Product.list(client, {}, function (products) {
