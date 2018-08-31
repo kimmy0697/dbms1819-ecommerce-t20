@@ -76,7 +76,8 @@ app.get('/admin/products', function (req, res) {
     }
     res.render('admin/products', {
       data: list,
-      title: 'Most Popular Shoes'
+      title: 'Most Popular Shoes',
+      layout:'admin-layout'
     });
   });
 });
