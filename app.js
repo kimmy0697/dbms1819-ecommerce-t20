@@ -74,7 +74,7 @@ app.get('/admin/products', function (req, res) {
     for (var i = 0; i < data.rows.length; i++) {
       list.push(data.rows[i]);
     }
-    res.render('client/products', {
+    res.render('admin/products', {
       data: list,
       title: 'Most Popular Shoes'
     });
