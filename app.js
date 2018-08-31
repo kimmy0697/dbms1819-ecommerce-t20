@@ -82,7 +82,7 @@ app.get('/admin/products', function (req, res) {
     FROM products 
     INNER JOIN brands ON products.brand_id=brands.id
     INNER JOIN products_category ON products.category_id=products_category.id
-    WHERE products.id = ` + req.params.id + `; `);
+    WHERE products.id = ` + req.params.id + `; `)
   .then((results) => {
     console.log('results?', results);
     res.render('admin/admin-products', {
