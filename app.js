@@ -291,7 +291,7 @@ app.post('/products/:id/send', function (req, res) {
               return console.log(error);
             }
             console.log('Message %s sent: %s', info.messageId, info.response);
-            res.redirect('client/products');
+            res.redirect('/products/' + id + '');
           });
         })
         .catch((err) => {
