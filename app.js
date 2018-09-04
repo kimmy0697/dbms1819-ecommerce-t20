@@ -291,7 +291,7 @@ app.post('/products/:id/send', function (req, res) {
               return console.log(error);
             }
             console.log('Message %s sent: %s', info.messageId, info.response);
-            res.redirect('/products/' + id + '');
+            res.redirect('/products');
           });
         })
         .catch((err) => {
@@ -309,7 +309,7 @@ app.post('/updateproduct/:id', function (req, res) {
   client.query("UPDATE products SET name = '" + req.body.products_name + "', description = '" + req.body.products_description + "', tagline = '" + req.body.products_tagline + "', price = '" + req.body.products_price + "', warranty = '" + req.body.products_warranty + "',brand_id = '" + req.body.brand_name + "', category_id = '" + req.body.category_name + "', image = '" + req.body.products_image + "'WHERE id = '" + req.params.id + "' ;");
   client.query("UPDATE brands SET brand_description = '" + req.body.brand_description + "' WHERE id ='" + req.params.id + "';");
 
-  res.redirect('admin/admin-products');
+  res.render('admin/admin-products');
 });
 
 // Update Product Form Page
