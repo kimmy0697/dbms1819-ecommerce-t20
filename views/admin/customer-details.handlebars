@@ -130,7 +130,7 @@
 												<tr>
 													<td>{{this.product_name}}</td>
 													<td>{{this.quantity}}</td>
-													<td>{{this.purchase_date}}</td>
+													<td>{{moment this.purchase_date local=true add='hours' amount='8' format='llll'}}</td>
 												</tr>
 											</tbody>
 											{{/each}}
