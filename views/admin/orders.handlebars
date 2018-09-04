@@ -47,7 +47,7 @@
 								<li><b>Email:</b> {{this.email}}</li>
 								<li><b>Ordered Product:</b> {{this.products_name}}</li>
 								<li><b>Quantity:</b> {{this.quantity}}</li>
-								<li><b>Date:</b> {{this.purchase_date}}</li>
+								<li><b>Date:</b> {{moment this.purchase_date local=true add='hours' amount='8' format='llll'}}</li>
 							</div>
 						</div>
 						{{/each}}
