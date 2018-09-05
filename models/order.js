@@ -6,7 +6,7 @@ var Order = {
         customers.middle_name As middle_name,
         customers.last_name AS last_name,
         customers.email AS email,
-        products.name AS products_name,
+        products.name AS product_name,
         orders.purchase_date AS purchase_date,
         orders.quantity AS quantity
       FROM orders
