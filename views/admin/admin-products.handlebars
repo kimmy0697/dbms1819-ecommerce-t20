@@ -19,15 +19,15 @@
                 <th>Action</th>
               </tr>
             </thead>
-            {{#each products}}
+            {{#each rows}}
             <tbody>
               <tr>
-                <td><img src="{{this.image}}" style="float:left; height:50px; width:50px;"></td>
-                <td>{{this.name}}</td>
+                <td><img src="{{this.products_image}}" style="float:left; height:50px; width:50px;"></td>
+                <td>{{this.products_name}}</td>
                 <td>{{this.brand_name}}</td>
                 <td>{{this.category_name}}</td>
-                <td>{{this.price}}</td>
-                <td>{{this.description}}</td>
+                <td>{{this.products_price}}</td>
+                <td>{{this.products_description}}</td>
                 <td><a href="/admin/products/{{this.id}}"><img src="/action.png" style="height:25px; width:25px;"></td>
               </tr>
             </tbody>

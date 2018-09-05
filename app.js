@@ -204,39 +204,39 @@ app.get('/admin/developers', function (req, res) {
 });
 
 app.get('/admin/products', function (req, res) {
-//   client.query(`SELECT 
-//       products.id AS products_id,
-//       products.image AS products_image,
-//       products.name AS products_name,
-//       products.description AS products_description,
-//       products.tagline AS products_tagline,
-//       products.price AS products_price,
-//       products.warranty AS products_warranty,
-//       brands.brand_name AS brand_name,
-//       brands.brand_description AS brand_description,
-//       products_category.product_category_name AS category_name
-//     FROM products 
-//     INNER JOIN brands ON products.brand_id=brands.id
-//     INNER JOIN products_category ON products.category_id=products_category.id`)
-//     .then((results) => {
-//       console.log('results?', results);
-//       res.render('admin/admin-products', {
-//         rows: results.rows,
-//         layout: 'admin-layout'
-//       });
-//     })
-//     .catch((err) => {
-//       console.log('error', err);
-//       res.send('Error!');
-//     });
-// });
-  Product.list(client, {}, function(products) {
-    res.render('admin/admin-products', {
-      layout: 'admin-layout',
-      products: products
+  client.query(`SELECT 
+      products.id AS products_id,
+      products.image AS products_image,
+      products.name AS products_name,
+      products.description AS products_description,
+      products.tagline AS products_tagline,
+      products.price AS products_price,
+      products.warranty AS products_warranty,
+      brands.brand_name AS brand_name,
+      brands.brand_description AS brand_description,
+      products_category.product_category_name AS category_name
+    FROM products 
+    INNER JOIN brands ON products.brand_id=brands.id
+    INNER JOIN products_category ON products.category_id=products_category.id`)
+    .then((results) => {
+      console.log('results?', results);
+      res.render('admin/admin-products', {
+        rows: results.rows,
+        layout: 'admin-layout'
+      });
+    })
+    .catch((err) => {
+      console.log('error', err);
+      res.send('Error!');
     });
-  });
 });
+//   Product.list(client, {}, function(products) {
+//     res.render('admin/admin-products', {
+//       layout: 'admin-layout',
+//       products: products
+//     });
+//   });
+// });
 
 // Product Details Page
 app.get('/admin/products/:id', function (req, res) {
@@ -413,23 +413,23 @@ app.get('/admin/customers', function (req, res) {
 
 // Customer Details Page
 app.get('/admin/customers/:id', function (req, res) {
-  client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customers.id = '" + req.params.id + "' ORDER BY purchase_date DESC;")
-    .then((result) => {
-      console.log('results?', result);
-      res.render('admin/customer-details', {
-        rows: result.rows,
-        layout: 'admin-layout'
-      });
-    })
-    .catch((err) => {
-      console.log('error', err);
-      res.send('Error!');
-    });
-});
-//   Customer.getById(client, req.params.id, function (customerData) {
-//     res.render('customer-details', customerData);
-//   });
+//   client.query("SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, customers.state AS state, customers.city AS city, customers.street AS street, customers.zipcode AS zipcode, products.name AS product_name, orders.quantity AS quantity, orders.purchase_date AS purchase_date FROM orders INNER JOIN customers ON orders.customer_id=customers.id INNER JOIN products ON orders.product_id=products.id WHERE customers.id = '" + req.params.id + "' ORDER BY purchase_date DESC;")
+//     .then((result) => {
+//       console.log('results?', result);
+//       res.render('admin/customer-details', {
+//         rows: result.rows,
+//         layout: 'admin-layout'
+//       });
+//     })
+//     .catch((err) => {
+//       console.log('error', err);
+//       res.send('Error!');
+//     });
 // });
+  Customer.getById(client, req.params.id, function (customerData) {
+    res.render('admin/customer-details', customerData);
+  });
+});
 
 /*********************Server***************************/
 
