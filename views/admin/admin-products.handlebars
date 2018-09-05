@@ -28,7 +28,7 @@
                 <td>{{this.category_name}}</td>
                 <td>{{this.products_price}}</td>
                 <td>{{this.products_description}}</td>
-                <td><a href="/admin/product/update/{{this.id}}"><img src="/action.png" style="height:25px; width:25px;"></td>
+                <td><a href="/admin/products/{{this.id}}"><img src="/action.png" style="height:25px; width:25px;"></td>
               </tr>
             </tbody>
             {{/each}}
@@ -38,31 +38,3 @@
     </fieldset>
   </div>
 </div>
-
-
-
-{{!-- <div class="products">
-    <fieldset class="product-fields">
-      <legend class="product-legends">
-        <img src="/product-white.png">&ensp;<h3>P R O D U C T S</h3>
-        <a href="/admin/product/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
-      </legend>
-      <div class="container">
-        <h1 class="mt-0 mb-5 text-center">{{title}}</h1>
-        <div class="row mx-4">
-          {{#each data}}
-          <div class="col-lg-4 col-md-4 col-sm-12 mb-4 mx-auto">
-            <div class="card center">
-              <a href="/products/{{this.id}}">
-                <img class="card-img-top" src="{{this.image}}">
-                <div class="text-box">
-                    <h5 class="card-title text-center my-3">{{this.brand}} {{this.name}}</h5>
-                </div>
-              </a>
-            </div>
-          </div>
-          {{/each}}
-        </div>
-      </div>
-    </fieldset>
-  </div> --}}
