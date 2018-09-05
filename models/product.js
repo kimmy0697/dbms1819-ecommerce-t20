@@ -31,7 +31,7 @@ var Product = {
         category: data.rows[0].category_name
       };
       callback(productData);
-    })
+    });
   },
 
   list: (client, filter, callback) => {
@@ -56,6 +56,6 @@ var Product = {
       callback(data.rows);
     });
   }
-}
+};
 
 module.exports = Product;
