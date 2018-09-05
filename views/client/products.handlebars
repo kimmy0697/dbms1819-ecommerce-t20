@@ -42,13 +42,13 @@ a:hover{
 <div class="container">
 	<h1 class="mt-0 mb-5 text-center">{{title}}</h1>
 	<div class="row mx-4">
-		{{#each rows}}
+		{{#each products}}
 		<div class="col-lg-4 col-md-4 col-sm-12 mb-4 mx-auto">
 			<div class="card center">
-				<a href="/products/{{id}}">
-					<img class="card-img-top" src="{{image}}">
+				<a href="/products/{{this.id}}">
+					<img class="card-img-top" src="{{this.image}}">
 					<div class="text-box">
-							<h5 class="card-title text-center my-3">{{brand}} {{name}}</h5>
+							<h5 class="card-title text-center my-3">{{this.brand}} {{this.name}}</h5>
 					</div>
 				</a>
 			</div>
