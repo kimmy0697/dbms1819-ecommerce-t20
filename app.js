@@ -10,6 +10,7 @@ const { Client } = require('pg');
 console.log('config db', config.db);
 const client = new Client(config.db);
 const Product = require('./models/product');
+const AdminProduct = require('./models/admin-product');
 const Brand = require('./models/brand');
 const Customer = require('./models/customer');
 const Order = require('./models/order');
@@ -230,10 +231,10 @@ app.get('/admin/products', function (req, res) {
 //       res.send('Error!');
 //     });
 // });
-  Product.adminList(client, {}, function(products) {
+  Product.list(client, {}, function(products) {
     res.render('admin/admin-products', {
       layout: 'admin-layout',
-      products: products
+      products: adminProducts
     });
   });
 });

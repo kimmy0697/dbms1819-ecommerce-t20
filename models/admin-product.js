@@ -35,12 +35,26 @@ var Product = {
   },
 
   list: (client, filter, callback) => {
-    const productListQuery = 'SELECT * FROM Products';
-    client.query(productListQuery, (req, data) => {
+    const adminProductListQuery = `SELECT
+      products.id AS id,
+      products.image AS image,
+      products.name AS name,
+      products.description AS description,
+      products.tagline AS tagline,
+      products.price AS price,
+      products.warranty AS warranty,
+      brands.brand_name AS brand_name,
+      brands.brand_description AS brand_description,
+      products_category.product_category_name AS category_name,
+    FROM products
+    INNER JOIN brands ON products.brand_id=brands.id
+    INNER JOIN products_category ON products.category_id=products_category.id
+    `;
+    client.query(adminProductListQuery, (req, data) => {
       console.log(data.rows);
       callback(data.rows);
     });
   }
 };
 
-module.exports = Product;
+module.exports = AdminProduct;
