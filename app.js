@@ -371,7 +371,7 @@ app.get('/admin/brands', function (req, res) {
 //     });
 // });
   Brand.list(client, {}, function (brands) {
-    res.render('brands', {
+    res.render('admin/brands', {
       layout: 'admin-layout',
       brands: brands
     });
@@ -412,7 +412,7 @@ app.get('/admin/categories', function (req, res) {
 //     });
 // });
   Category.list(client, {}, function (products_category) {
-    res.render('categories', {
+    res.render('admin/categories', {
       layout: 'admin-layout',
       products_category: products_category
     });
