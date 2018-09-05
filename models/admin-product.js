@@ -1,4 +1,4 @@
-var Product = {
+var AdminProduct = {
   getById: (client, productId, callback) => {
     const productQuery = `SELECT products.id AS products_id,
         products.name AS products_name,
