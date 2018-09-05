@@ -230,7 +230,7 @@ app.get('/admin/products', function (req, res) {
 //       res.send('Error!');
 //     });
 // });
-  Product.list(client, {}, function(products) {
+  Product.adminList(client, {}, function(products) {
     res.render('admin/admin-products', {
       layout: 'admin-layout',
       products: products
