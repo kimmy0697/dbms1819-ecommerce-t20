@@ -231,7 +231,7 @@ app.get('/admin/products', function (req, res) {
 //     });
 // });
   Product.list(client, {}, function(products) {
-    res.render('admin/products', {
+    res.render('admin/admin-products', {
       layout: 'admin-layout',
       products: products
     });
