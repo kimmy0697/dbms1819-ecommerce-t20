@@ -357,19 +357,6 @@ app.get('/admin/brand/create', function (req, res) {
 
 // Brands List Page
 app.get('/admin/brands', function (req, res) {
-//   client.query('SELECT * FROM brands')
-//     .then((result) => {
-//       console.log('results?', result);
-//       res.render('admin/brands', {
-//         rows: result.rows,
-//         layout: 'admin-layout'
-//       });
-//     })
-//     .catch((err) => {
-//       console.log('error', err);
-//       res.send('Error!');
-//     });
-// });
   Brand.list(client, {}, function (brands) {
     res.render('admin/brands', {
       layout: 'admin-layout',
@@ -398,19 +385,6 @@ app.get('/admin/category/create', (req, res) => {
 
 // Categories List Page
 app.get('/admin/categories', function (req, res) {
-//   client.query('SELECT * FROM products_category')
-//     .then((result) => {
-//       console.log('results?', result);
-//       res.render('admin/categories', {
-//         rows: result.rows,
-//         layout: 'admin-layout'
-//       });
-//     })
-//     .catch((err) => {
-//       console.log('error', err);
-//       res.send('Error!');
-//     });
-// });
   Category.list(client, {}, function (products_category) {
     res.render('admin/categories', {
       layout: 'admin-layout',
@@ -431,25 +405,26 @@ app.post('/categories', function (req, res) {
 
 // Orders List Page
 app.get('/admin/orders', function (req, res) {
-  client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;')
-    .then((result) => {
-      console.log('results?', result);
-      res.render('admin/orders', {
-        rows: result.rows,
-        layout: 'admin-layout'
-      });
-    })
-    .catch((err) => {
-      console.log('error', err);
-      res.send('Error!');
-    });
-});
-//   Order.list(client, {}, function (orders) {
-//     res.render('categories', {
-//       orders: orders
+//   client.query('SELECT customers.first_name AS first_name, customers.middle_name AS middle_name, customers.last_name AS last_name, customers.email AS email, products.name AS products_name, orders.purchase_date AS purchase_date, orders.quantity AS quantity FROM orders INNER JOIN products ON orders.product_id=products.id INNER JOIN customers ON orders.customer_id=customers.id ORDER BY purchase_date DESC;')
+//     .then((result) => {
+//       console.log('results?', result);
+//       res.render('admin/orders', {
+//         rows: result.rows,
+//         layout: 'admin-layout'
+//       });
+//     })
+//     .catch((err) => {
+//       console.log('error', err);
+//       res.send('Error!');
 //     });
-//   });
 // });
+  Order.list(client, {}, function (orders) {
+    res.render('admin/orders', {
+      layout: 'admin-layout',
+      orders: orders
+    });
+  });
+});
 
 /*********************Customers***************************/
 
