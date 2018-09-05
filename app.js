@@ -75,7 +75,8 @@ app.get('/products', function (req, res) {
 // });
   Product.list(client, {}, function(products) {
     res.render('client/products', {
-      products: products
+      products: products,
+      title: 'Most Popular Shoes'
     });
   });
 });
