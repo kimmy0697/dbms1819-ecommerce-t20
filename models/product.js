@@ -8,6 +8,7 @@ var Product = {
         products.tagline AS products_tagline,
         products.warranty AS products_warranty,
         brands.brand_name AS brand_name,
+        brands.brand_description AS brand_description,
         products_category.product_category_name AS category_name
       FROM products
       INNER JOIN brands ON products.brand_id = brands.id
@@ -21,7 +22,7 @@ var Product = {
       var productData = {
         id: data.rows[0].id,
         name: data.rows[0].products_name,
-        description: data.rows[0].description,
+        description: data.rows[0].products_description,
         image: data.rows[0].products_image,
         price: data.rows[0].products_price,
         tagline: data.rows[0].products_tagline,
