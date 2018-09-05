@@ -61,18 +61,6 @@ app.get('/', function (req, res) {
 
 // Products List Page
 app.get('/products', function (req, res) {
-//   client.query('SELECT * FROM Products;', (req, data) => {
-//     var list = [];
-
-//     for (var i = 0; i < data.rows.length; i++) {
-//       list.push(data.rows[i]);
-//     }
-//     res.render('client/products', {
-//       data: list,
-//       title: 'Most Popular Shoes'
-//     });
-//   });
-// });
   Product.list(client, {}, function(products) {
     res.render('client/products', {
       title: 'Most Popular Shoes',
@@ -369,25 +357,26 @@ app.get('/admin/brand/create', function (req, res) {
 
 // Brands List Page
 app.get('/admin/brands', function (req, res) {
-  client.query('SELECT * FROM brands')
-    .then((result) => {
-      console.log('results?', result);
-      res.render('admin/brands', {
-        rows: result.rows,
-        layout: 'admin-layout'
-      });
-    })
-    .catch((err) => {
-      console.log('error', err);
-      res.send('Error!');
-    });
-});
-//   Brand.list(client, {}, function (brands) {
-//     res.render('brands', {
-//       brands: brands
+//   client.query('SELECT * FROM brands')
+//     .then((result) => {
+//       console.log('results?', result);
+//       res.render('admin/brands', {
+//         rows: result.rows,
+//         layout: 'admin-layout'
+//       });
+//     })
+//     .catch((err) => {
+//       console.log('error', err);
+//       res.send('Error!');
 //     });
-//   });
 // });
+  Brand.list(client, {}, function (brands) {
+    res.render('brands', {
+      layout: 'admin-layout',
+      brands: brands
+    });
+  });
+});
 
 // Create Brand Form
 app.post('/brands', function (req, res) {
@@ -409,25 +398,26 @@ app.get('/admin/category/create', (req, res) => {
 
 // Categories List Page
 app.get('/admin/categories', function (req, res) {
-  client.query('SELECT * FROM products_category')
-    .then((result) => {
-      console.log('results?', result);
-      res.render('admin/categories', {
-        rows: result.rows,
-        layout: 'admin-layout'
-      });
-    })
-    .catch((err) => {
-      console.log('error', err);
-      res.send('Error!');
-    });
-});
-//   Category.list(client, {}, function (products_category) {
-//     res.render('categories', {
-//       products_category: products_category
+//   client.query('SELECT * FROM products_category')
+//     .then((result) => {
+//       console.log('results?', result);
+//       res.render('admin/categories', {
+//         rows: result.rows,
+//         layout: 'admin-layout'
+//       });
+//     })
+//     .catch((err) => {
+//       console.log('error', err);
+//       res.send('Error!');
 //     });
-//   });
 // });
+  Category.list(client, {}, function (products_category) {
+    res.render('categories', {
+      layout: 'admin-layout',
+      products_category: products_category
+    });
+  });
+});
 
 // Create Category Form
 app.post('/categories', function (req, res) {
