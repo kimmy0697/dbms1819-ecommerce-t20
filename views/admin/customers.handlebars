@@ -17,36 +17,6 @@
 
 </style>
 
-{{!-- <div class="col-md-9">
-	<div class="table-responsive">
-		<table class="table table-striped table-hover table-design">
-			<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Middle Name</th>
-					<th>Last Name</th>
-					<th>Email Address</th>
-					<th>Customer Details</th>
-				</tr>
-			</thead>
-			{{#each rows}}
-			<tbody>
-				<tr>
-					<td>{{this.first_name}}</td>
-					<td>{{this.middle_name}}</td>
-					<td>{{this.last_name}}</td>
-					<td>{{this.email}}</td>
-					<td>
-						<a href="/admin/customers/{{this.id}}"><button type="button" class="btn btn-design"><b>See more details&nbsp;&raquo;</b></button></a>
-					</td>
-				</tr>
-			</tbody>
-			{{/each}}
-		</table>
-	</div>
-</div> --}}
-
-
 <div class="container">
 	<div class="customers">
 		<fieldset class="customer-fields">
@@ -54,7 +24,7 @@
 				<img src="/customer-white.png">&ensp;<h3>C U S TO M E R S</h3>
 			</legend>
 			<div class="container">
-				{{#each rows}}
+				{{#each customers}}
 				<div class="row">
 					<div class="col-md-12">
 						<div class="customer-contents">

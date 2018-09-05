@@ -431,25 +431,26 @@ app.get('/admin/orders', function (req, res) {
 
 // Customers List Page
 app.get('/admin/customers', function (req, res) {
-  client.query('SELECT * FROM customers ORDER BY id DESC')
-    .then((result) => {
-      console.log('results?', result);
-      res.render('admin/customers', {
-        rows: result.rows,
-        layout: 'admin-layout'
-      });
-    })
-    .catch((err) => {
-      console.log('error', err);
-      res.send('Error!');
-    });
-});
-//   Customer.list(client, {}, function (customers) {
-//     res.render('customers', {
-//       customers: customers
+//   client.query('SELECT * FROM customers ORDER BY id DESC')
+//     .then((result) => {
+//       console.log('results?', result);
+//       res.render('admin/customers', {
+//         rows: result.rows,
+//         layout: 'admin-layout'
+//       });
+//     })
+//     .catch((err) => {
+//       console.log('error', err);
+//       res.send('Error!');
 //     });
-//   });
 // });
+  Customer.list(client, {}, function (customers) {
+    res.render('admin/customers', {
+      layout: 'admin-layout',
+      customers: customers
+    });
+  });
+});
 
 // Customer Details Page
 app.get('/admin/customers/:id', function (req, res) {

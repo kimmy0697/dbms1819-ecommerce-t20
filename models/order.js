@@ -14,7 +14,7 @@ var Order = {
       INNER JOIN customers ON orders.customer_id = customers.id
       ORDER BY purchase_date DESC
     `;
-    client.query(orderListQuery, (req, res) => {
+    client.query(orderListQuery, (req, data) => {
       console.log(data.rows);
       callback(data.rows);
     });
