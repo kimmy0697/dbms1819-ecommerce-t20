@@ -61,15 +61,21 @@ app.get('/', function (req, res) {
 
 // Products List Page
 app.get('/products', function (req, res) {
-  client.query('SELECT * FROM Products;', (req, data) => {
-    var list = [];
+//   client.query('SELECT * FROM Products;', (req, data) => {
+//     var list = [];
 
-    for (var i = 0; i < data.rows.length; i++) {
-      list.push(data.rows[i]);
-    }
+//     for (var i = 0; i < data.rows.length; i++) {
+//       list.push(data.rows[i]);
+//     }
+//     res.render('client/products', {
+//       data: list,
+//       title: 'Most Popular Shoes'
+//     });
+//   });
+// });
+  Product.list(client, {}, function(products) {
     res.render('client/products', {
-      data: list,
-      title: 'Most Popular Shoes'
+      products: products
     });
   });
 });
