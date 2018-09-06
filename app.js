@@ -340,6 +340,25 @@ app.get('/admin/brand/create', function (req, res) {
   });
 });
 
+// Create Brand Form
+app.post('/brands', function (req, res) {
+  console.log(req.body);
+  client.query("INSERT INTO brands (brand_name,brand_description) VALUES ('" + req.body.brand_name + "','" + req.body.brand_description + "')")
+  .then((results)=>{
+    res.render('admin/create-brand')
+  })
+  .catch((err) => {
+    res.redirect('/admin/brand/create-error');
+  });
+});
+
+// Error Create Brand
+app.get('/admin/brand/create-error', function (req, res) {
+  res.render('admin/errors/create-brand-error', {
+    layout: 'error-layout'
+  });
+});
+
 // Brands List Page
 app.get('/admin/brands', function (req, res) {
   Brand.list(client, {}, function (brands) {
@@ -349,14 +368,6 @@ app.get('/admin/brands', function (req, res) {
     });
   });
 });
-
-// Create Brand Form
-app.post('/brands', function (req, res) {
-  console.log(req.body);
-  client.query("INSERT INTO brands (brand_name,brand_description) VALUES ('" + req.body.brand_name + "','" + req.body.brand_description + "')");
-  res.redirect('admin/brands');
-});
-
 
 /*********************Categories***************************/
 
