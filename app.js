@@ -195,6 +195,7 @@ app.post('/products/:id/send', function (req, res) {
 app.get('/admin/dashboard', function(req, res) {
   Customer.topCustomersHighestPayment(client,{},function(result){
       res.render('admin/dashboard', {
+      layout: 'admin-layout',
       topCustomersHighestPayment : result
     });
   });
