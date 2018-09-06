@@ -193,10 +193,15 @@ app.post('/products/:id/send', function (req, res) {
 /*********************Admin Products***************************/
 
 app.get('/admin/dashboard', function(req, res) {
+  var topCustomersMostOrder;
+  Customer.topCustomersMostOrder(client, {},function(result){
+    topCustomersMostOrder = result
+  });
   Customer.topCustomersHighestPayment(client,{},function(result){
       res.render('admin/dashboard', {
       layout: 'admin-layout',
-      topCustomersHighestPayment : result
+      topCustomersHighestPayment : result,
+      topCustomersMostOrder : topCustomersMostOrder
     });
   });
 });
