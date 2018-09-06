@@ -19,6 +19,7 @@ const MomentHandler = require('handlebars.moment');
 MomentHandler.registerHelpers(Handlebars);
 const NumeralHelper = require("handlebars.numeral");
 NumeralHelper.registerHelpers(Handlebars);
+const PORT = process.env.PORT || 3000
 
 /******************Connection to Database***************************/
 
@@ -40,7 +41,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-app.set('port', (process.env.PORT || 3000));
+// app.set('port', (process.env.PORT || 3000));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'static1')));
 
@@ -460,6 +461,10 @@ app.get('/admin/customers/:id', function (req, res) {
 
 /*********************Server***************************/
 
-app.listen(app.get('port'), function () {
+// app.listen(app.get('port'), function () {
+//   console.log('Server started at port 3000');
+// });
+
+app.listen(3000, function () {
   console.log('Server started at port 3000');
 });
