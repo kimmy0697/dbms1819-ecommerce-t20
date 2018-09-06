@@ -17,7 +17,9 @@ const Category = require('./models/category');
 const Handlebars = require('handlebars');
 const MomentHandler = require('handlebars.moment');
 MomentHandler.registerHelpers(Handlebars);
-
+const NumeralHelper = require("handlebars.numeral");
+NumeralHelper.registerHelpers(Handlebars);
+// const PORT = process.env.PORT || 3000
 
 /******************Connection to Database***************************/
 
@@ -30,7 +32,6 @@ client.connect()
       console.log('Cannot connect to database');
     };
   });
-
 
 /******************Folder Directories***************************/
 
@@ -190,6 +191,16 @@ app.post('/products/:id/send', function (req, res) {
 
 
 /*********************Admin Products***************************/
+
+app.get('/admin/dashboard', function(req, res) {
+  Customer.topCustomersHighestPayment(client,{},function(result){
+      res.render('admin/dashboard', {
+      layout: 'admin-layout',
+      topCustomersHighestPayment : result
+    });
+  });
+});
+
 
 app.get('/admin', function (req, res) {
   res.render('admin/home', {
@@ -463,3 +474,7 @@ app.get('/admin/customers/:id', function (req, res) {
 app.listen(app.get('port'), function () {
   console.log('Server started at port 3000');
 });
+
+// app.listen(3000, function () {
+//   console.log('Server started at port 3000');
+// });
