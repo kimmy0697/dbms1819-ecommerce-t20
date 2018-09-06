@@ -192,6 +192,15 @@ app.post('/products/:id/send', function (req, res) {
 
 /*********************Admin Products***************************/
 
+app.get('/admin/dashboard', function(req, res) {
+  Customer.topCustomersHighestPayment(client,{},function(result){
+      res.render('admin/dashboard', {
+      topCustomersHighestPayment : result
+    });
+  });
+});
+
+
 app.get('/admin', function (req, res) {
   res.render('admin/home', {
     layout: 'admin-layout'
