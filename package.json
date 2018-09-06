@@ -9,6 +9,7 @@
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
     "handlebars.moment": "^1.0.4",
+    "handlebars.numeral": "^0.2.0",
     "jquery": "^3.3.1",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
