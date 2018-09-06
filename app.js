@@ -17,7 +17,8 @@ const Category = require('./models/category');
 const Handlebars = require('handlebars');
 const MomentHandler = require('handlebars.moment');
 MomentHandler.registerHelpers(Handlebars);
-
+const NumeralHelper = require("handlebars.numeral");
+NumeralHelper.registerHelpers(Handlebars);
 
 /******************Connection to Database***************************/
 
