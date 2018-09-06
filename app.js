@@ -352,7 +352,7 @@ app.post('/brands', function (req, res) {
   });
 });
 
-// Error Create Brand
+// Error Create Brand Page
 app.get('/admin/brand/create-error', function (req, res) {
   res.render('admin/errors/create-brand-error', {
     layout: 'error-layout'
@@ -379,6 +379,25 @@ app.get('/admin/category/create', (req, res) => {
   });
 });
 
+// Create Category Form
+app.post('/categories', function (req, res) {
+  client.query("INSERT INTO products_category (product_category_name) VALUES ('" + req.body.product_category_name + "')")
+  .then((results)=>{
+    res.render('admin/create-category')
+  })
+  .catch((err) => {
+    res.redirect('/admin/category/create-error');
+  });
+});
+
+// Error Create Category Page
+app.get('/admin/category/create-error', (req, res) => {
+  res.render('admin/errors/create-category-error', {
+    layout: 'error-layout'
+  });
+});
+
+
 // Categories List Page
 app.get('/admin/categories', function (req, res) {
   Category.list(client, {}, function (products_category) {
@@ -389,12 +408,6 @@ app.get('/admin/categories', function (req, res) {
   });
 });
 
-// Create Category Form
-app.post('/categories', function (req, res) {
-  client.query("INSERT INTO products_category (product_category_name) VALUES ('" + req.body.product_category_name + "')");
-
-  res.redirect('admin/categories');
-});
 
 
 /*********************Orders***************************/
