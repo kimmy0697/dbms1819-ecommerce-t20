@@ -32,7 +32,6 @@ client.connect()
     };
   });
 
-
 /******************Folder Directories***************************/
 
 const app = express();

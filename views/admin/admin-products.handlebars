@@ -20,16 +20,17 @@
               </tr>
             </thead>
             {{#each rows}}
-            <tbody>
+            <tbody><h6>
               <tr>
                 <td><img src="{{this.products_image}}" style="float:left; height:50px; width:50px;"></td>
                 <td>{{this.products_name}}</td>
                 <td>{{this.brand_name}}</td>
                 <td>{{this.category_name}}</td>
-                <td>₱ {{number this.products_price}}.00</td>
+                <td>₱{{number this.products_price}}.00</td>
                 <td>{{this.products_description}}</td>
                 <td><a href="/admin/products/{{this.id}}"><img src="/action.png" style="height:25px; width:25px;"></td>
               </tr>
+            </h6>
             </tbody>
             {{/each}}
           </table>
