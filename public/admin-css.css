@@ -215,3 +215,7 @@
 .background-admin {
   background-color: #e0e0eb;
 }
+
+.hello2 li:hover {
+  color: red;
+}
