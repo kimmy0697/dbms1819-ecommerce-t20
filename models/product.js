@@ -20,7 +20,7 @@ var Product = {
       console.log(req);
       console.log(data.rows[0]);
       var productData = {
-        id: data.rows[0].id,
+        id: data.rows[0].products_id,
         name: data.rows[0].products_name,
         description: data.rows[0].products_description,
         image: data.rows[0].products_image,
