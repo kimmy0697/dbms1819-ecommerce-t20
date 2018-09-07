@@ -158,7 +158,7 @@ app.post('/products/:id/send', function (req, res) {
             secure: true,
             auth: {
               user: 'team20module1@gmail.com',
-              pass: 'team20-module1'
+              pass: 'kimmylo1006'
             }
           });
           const mailOptions = {
