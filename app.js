@@ -380,7 +380,9 @@ app.post('/brands', function (req, res) {
   console.log(req.body);
   client.query("INSERT INTO brands (brand_name,brand_description) VALUES ('" + req.body.brand_name + "','" + req.body.brand_description + "')")
   .then((results)=>{
-    res.render('admin/create-brand')
+    res.render('admin/create-brand', {
+      layout: 'admin-layout'
+    })
   })
   .catch((err) => {
     res.redirect('/admin/brand/create-error');
