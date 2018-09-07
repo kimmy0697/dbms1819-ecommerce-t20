@@ -57,6 +57,25 @@ app.get('/', function (req, res) {
   });
 });
 
+app.get('/login', function (req, res) {
+  res.render('client/login', {
+  });
+});
+
+app.post('/login', (req,res) => {
+  console.log('login data', req.data);
+  res.render('client/login');
+});
+
+app.get('/signup', function (req, res){
+  res.render('client/signup', {
+  });
+});
+
+app.post('/signup', (req,res) => {
+  console.log('signup data', req.data);
+  res.render('client/signup');
+});
 
 /*********************Client Products***************************/
 
