@@ -387,7 +387,6 @@ app.get('/admin/brands', function (req, res) {
 
 /*********************Categories***************************/
 
-
 // Create Category Page
 app.get('/admin/category/create', (req, res) => {
   res.render('admin/create-category', {
@@ -425,7 +424,6 @@ app.get('/admin/categories', function (req, res) {
 });
 
 
-
 /*********************Orders***************************/
 
 // Orders List Page
@@ -437,6 +435,7 @@ app.get('/admin/orders', function (req, res) {
     });
   });
 });
+
 
 /*********************Customers***************************/
 
@@ -473,6 +472,7 @@ app.get('/admin/customers/:id', function (req, res) {
 //     });
 //   });
 // });
+
 
 /*********************Server***************************/
 
