@@ -7,6 +7,25 @@ var Category = {
       console.log(data.rows);
       callback(data.rows);
     })
+  },
+
+  mostOrderedCategory: (client, filter, callback) => {
+    const query =  `
+      SELECT products_category.product_category_name AS category_name,
+      ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) DESC) AS ROW,
+      SUM(orders.quantity) as total
+      FROM orders
+      INNER JOIN products ON orders.product_id=products.id
+      INNER JOIN categories
+      ON products.category_id=products_category.id
+      GROUP BY category_name
+      ORDER BY SUM(orders.quantity) DESC
+      LIMIT 3;
+    `;
+    client.query(query, (req, result) => {
+      callback(result.rows)
+    });
   }
 };
+
 module.exports = Category;

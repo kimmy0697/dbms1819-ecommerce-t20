@@ -41,6 +41,38 @@ var Product = {
       console.log(data.rows);
       callback(data.rows);
     });
+  },
+
+  mostOrderedProduct: (client, filter, callback) => {
+    const query = `
+      SELECT products.products_name AS products_name,
+      ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) DESC) AS ROW,
+      SUM(orders.quantity) AS total
+      FROM orders
+      INNER JOIN products ON orders.product_id = products.id
+      GROUP BY products_name
+      ORDER BY SUM(orders.quantity) DESC
+      LIMIT 10;
+    `;
+    client.query(query, (req,result) => {
+      callback(result.rows)
+    });
+  },
+
+  leastOrderedProduct: (client, filter, callback) => {
+    const query = `
+      SELECT products.products_name AS products_name,
+      ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) ASC) AS ROW,
+      SUM(orders.quantity) AS total
+      FROM orders
+      INNER JOIN products ON orders.product_id = products.id
+      GROUP BY products_name
+      ORDER BY SUM(orders.quantity) ASC
+      LIMIT 10;
+    `;
+    client.query(query, (req,result) => {
+      callback(result.rows)
+    });
   }
 };
 
