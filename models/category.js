@@ -23,6 +23,7 @@ var Category = {
       LIMIT 3;
     `;
     client.query(query, (req, result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   }

@@ -15,7 +15,7 @@ var Order = {
       ORDER BY purchase_date DESC
     `;
     client.query(orderListQuery, (req, data) => {
-      console.log(data.rows);
+      // console.log(data.rows);
       callback(data.rows);
     });
   },
@@ -40,6 +40,7 @@ var Order = {
       AND purchase_date < CURRENT_DATE;
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -52,6 +53,7 @@ var Order = {
       AND purchase_date < CURRENT_DATE - INTERVAL '1 DAY';
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -64,6 +66,7 @@ var Order = {
       AND purchase_date < CURRENT_DATE - INTERVAL '2 DAYS';
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -76,6 +79,7 @@ var Order = {
       AND purchase_date < CURRENT_DATE - INTERVAL '3 DAYS';
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -88,6 +92,7 @@ var Order = {
       AND purchase_date < CURRENT_DATE - INTERVAL '4 DAYS';
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -100,6 +105,7 @@ var Order = {
       AND purchase_date < CURRENT_DATE - INTERVAL '5 DAYS';
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -112,6 +118,7 @@ var Order = {
       AND purchase_date < CURRENT_DATE - INTERVAL '6 DAYS';
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -126,6 +133,7 @@ var Order = {
       AND CURRENT_DATE + INTERVAL '1 DAYS';
     `;
     client.query(query, (req,result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   },
@@ -140,6 +148,7 @@ var Order = {
       AND CURRENT_DATE + INTERVAL '1 DAYS';
     `;
     client.query(query, (req, result) => {
+      console.log(result.rows);
       callback(result.rows);
     });
   }
