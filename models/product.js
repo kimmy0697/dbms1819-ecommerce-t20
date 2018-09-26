@@ -47,7 +47,7 @@ var Product = {
     const query = `
       SELECT products.products_name AS products_name,
       ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) DESC) AS ROW,
-      SUM(orders.quantity) AS total
+      SUM(orders.quantity) AS TOTAL
       FROM orders
       INNER JOIN products ON orders.product_id = products.id
       GROUP BY products_name
@@ -63,7 +63,7 @@ var Product = {
     const query = `
       SELECT products.products_name AS products_name,
       ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) ASC) AS ROW,
-      SUM(orders.quantity) AS total
+      SUM(orders.quantity) AS TOTAL
       FROM orders
       INNER JOIN products ON orders.product_id = products.id
       GROUP BY products_name

@@ -13,7 +13,7 @@ var Brand = {
     const query =  `
       SELECT brands.brand_name AS brand_name,
       ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) DESC) AS ROW,
-      SUM(orders.quantity) as total
+      SUM(orders.quantity) as TOTAL
       FROM orders
       INNER JOIN products ON orders.product_id=products.id
       INNER JOIN brands

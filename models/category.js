@@ -13,7 +13,7 @@ var Category = {
     const query =  `
       SELECT products_category.product_category_name AS category_name,
       ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) DESC) AS ROW,
-      SUM(orders.quantity) as total
+      SUM(orders.quantity) as TOTAL
       FROM orders
       INNER JOIN products ON orders.product_id=products.id
       INNER JOIN categories

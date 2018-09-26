@@ -419,7 +419,9 @@ app.get('/admin/category/create', (req, res) => {
 app.post('/categories', function (req, res) {
   client.query("INSERT INTO products_category (product_category_name) VALUES ('" + req.body.product_category_name + "')")
   .then((results)=>{
-    res.render('admin/create-category')
+    res.render('admin/create-category', {
+      layout: 'admin-layout'
+    });
   })
   .catch((err) => {
     res.redirect('/admin/category/create-error');
