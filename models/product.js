@@ -45,7 +45,7 @@ var Product = {
 
   mostOrderedProduct: (client, filter, callback) => {
     const query = `
-      SELECT products.products_name AS products_name,
+      SELECT products.name AS products_name,
       ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) DESC) AS ROW,
       SUM(orders.quantity) AS TOTAL
       FROM orders
@@ -62,7 +62,7 @@ var Product = {
 
   leastOrderedProduct: (client, filter, callback) => {
     const query = `
-      SELECT products.products_name AS products_name,
+      SELECT products.name AS products_name,
       ROW_NUMBER() OVER (ORDER BY SUM(orders.quantity) ASC) AS ROW,
       SUM(orders.quantity) AS TOTAL
       FROM orders
