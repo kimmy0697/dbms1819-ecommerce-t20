@@ -49,7 +49,7 @@ hr {
         <a href="/admin/product/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
       </legend>
       <div class="container">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-0 mx-auto">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0 mx-auto">
           <div class="card center">
             <img class="card-img-top" src="{{image}}" alt="{{name}}">
             <div class="card-body">
@@ -58,7 +58,7 @@ hr {
             </div>
           </div>
         </div>
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mb-0 mx-auto">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0 mx-auto">
           <div class="modal-body">
             <h5>{{name}} - {{brandname}} (₱{{number price}}.00)</h5>
             <h6><i>{{category}}</i></h6>
@@ -75,7 +75,7 @@ hr {
           </div>
           <hr>
           <div class="modal-footer">
-            <a href="/product/update/{{id}}"><button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design-admin">Update Product</button></a>&ensp;&ensp;
+            <a href="/product/update/{{this.id}}"><button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design-admin">Update Product</button></a>&ensp;&ensp;
           </div>
         </div>
       </div>
