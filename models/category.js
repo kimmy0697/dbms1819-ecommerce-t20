@@ -16,8 +16,7 @@ var Category = {
       SUM(orders.quantity) as TOTAL
       FROM orders
       INNER JOIN products ON orders.product_id=products.id
-      INNER JOIN categories
-      ON products.category_id=products_category.id
+      INNER JOIN products_category ON products.category_id=products_category.id
       GROUP BY category_name
       ORDER BY SUM(orders.quantity) DESC
       LIMIT 3;
