@@ -212,7 +212,63 @@ app.post('/products/:id/send', function (req, res) {
 /*********************Admin Products***************************/
 
 app.get('/admin/dashboard', function(req, res) {
-  var topCustomersMostOrder;
+  var thisDay;
+  var oneDayAgo;
+  var twoDaysAgo;
+  var threeDaysAgo;
+  var fourDaysAgo;
+  var fiveDaysAgo;
+  var sixDaysAgo;
+  var sevenDaysAgo;
+  var totalSalesLast7days;
+  var totalSalesLast30days;
+  var mostOrderedProduct;
+  var leastOrderedProduct;
+  var mostOrderedBrand;
+  var mostOrderedCategory;
+  // var topCustomersMostOrder;
+  Order.thisDay(client, {},function(result){
+    thisDay = result
+  });
+  Order.oneDayAgo(client, {},function(result){
+    oneDayAgo = result
+  });
+  Order.twoDaysAgo(client, {},function(result){
+    twoDaysAgo = result
+  });
+  Order.threeDaysAgo(client, {},function(result){
+    threeDaysAgo = result
+  });
+  Order.fourDaysAgo(client, {},function(result){
+    fourDaysAgo = result
+  });
+  Order.fiveDaysAgo(client, {},function(result){
+    fiveDaysAgo = result
+  });
+  Order.sixDaysAgo(client, {},function(result){
+    sixDaysAgo = result
+  });
+  Order.sevenDaysAgo(client, {},function(result){
+    sevenDaysAgo = result
+  });
+  Order.totalSalesLast7days(client, {},function(result){
+    totalSalesLast7days = result
+  });
+  Order.totalSalesLast30days(client, {},function(result){
+    totalSalesLast30days = result
+  });
+  Product.mostOrderedProduct(client, {},function(result){
+    mostOrderedProduct = result
+  });
+  Product.leastOrderedProduct(client, {},function(result){
+    leastOrderedProduct = result
+  });
+  Brand.mostOrderedBrand(client, {},function(result){
+    mostOrderedBrand = result
+  });
+  Customer.mostOrderedCategory(client, {},function(result){
+    mostOrderedCategory = result
+  });
   Customer.topCustomersMostOrder(client, {},function(result){
     topCustomersMostOrder = result
   });
@@ -220,11 +276,24 @@ app.get('/admin/dashboard', function(req, res) {
       res.render('admin/dashboard', {
       layout: 'admin-layout',
       topCustomersHighestPayment : result,
+      thisDay: thisDay[0].count,
+      oneDayAgo: oneDayAgo[0].count,
+      twoDaysAgo: twoDaysAgo[0].count,
+      threeDaysAgo: threeDaysAgo[0].count,
+      fourDaysAgo: fourDaysAgo[0].count,
+      fiveDaysAgo: fiveDaysAgo[0].count,
+      sixDaysAgo: sixDaysAgo[0].count,
+      sevenDaysAgo: sevenDaysAgo[0].count,
+      totalSalesLast7days: totalSalesLast7days[0].sum,
+      totalSalesLast30days: totalSalesLast30days[0].sum,
+      mostOrderedProduct: mostOrderedProduct,
+      leastOrderedProduct: leastOrderedProduct,
+      mostOrderedBrand: mostOrderedBrand,
+      mostOrderedCategory: mostOrderedCategory,
       topCustomersMostOrder : topCustomersMostOrder
     });
   });
 });
-
 
 app.get('/admin', function (req, res) {
   res.render('admin/home', {
