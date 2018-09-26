@@ -1,0 +1,84 @@
+<style>
+
+.header1{
+  font-size: 125%;
+  color: black;
+  text-shadow: 300px 300px 300px #f9e6ff;
+  margin-bottom: 5%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card{
+
+  background: linear-gradient(to right, #c61aff, #f9e6ff);
+
+}
+
+.card-body{
+  color: white;
+}
+
+.lbl-text{
+  color:white;
+  font-style: bold;
+  text-transform: capitalize;
+}
+
+.go-back {
+  display: block;
+  float: right;
+  margin-top: 20px;
+}
+
+.go-back a{
+  text-decoration: none !important;
+  color:black;
+}
+
+hr {
+  height: 3px;
+}
+
+</style>
+
+<div class="container">
+  <div class="products">
+    <fieldset class="product-fields">
+      <legend class="product-legends">
+        <img src="/product-white.png">&ensp;<h3>P R O D U C T S</h3>
+        <a href="/admin/product/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
+      </legend>
+      <div class="container">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-0 mx-auto">
+          <div class="card center">
+            <img class="card-img-top" src="{{image}}" alt="{{name}}">
+            <div class="card-body">
+              <h4 class="card-title">{{name}}</h4>
+              <h5 class="card-title">{{brandname}} Shoes</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mb-0 mx-auto">
+          <div class="modal-body">
+            <h5>{{name}} - {{brandname}} (₱{{number price}}.00)</h5>
+            <h6><i>{{category}}</i></h6>
+            <hr>
+            <ul>
+              <li>Name: {{name}}</li>
+              <li>Description: {{description}}</li>
+              <li>Brand Name: {{brandname}}</li>
+              <li>Brand Description: {{branddescription}}</li>
+              <li>Tagline: {{tagline}}</li>
+              <li>Warranty (in years): {{warranty}}</li>
+              <li>Category: {{category}}</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="modal-footer">
+            <a href="/product/update/{{this.id}}"><button type="button" style="float:right; margin-right:20px;" class="btn btn-md btn-design-admin">Update Product</button></a>&ensp;&ensp;
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
