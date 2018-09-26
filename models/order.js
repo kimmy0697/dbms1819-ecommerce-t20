@@ -126,7 +126,7 @@ var Order = {
       AND CURRENT_DATE + INTERVAL '1 DAYS';
     `;
     client.query(query, (req,result) => {
-      callback(result.rows)
+      callback(result.rows);
     });
   },
 
@@ -140,7 +140,7 @@ var Order = {
       AND CURRENT_DATE + INTERVAL '1 DAYS';
     `;
     client.query(query, (req, result) => {
-      callback(result.rows)
+      callback(result.rows);
     });
   }
 };

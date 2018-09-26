@@ -55,7 +55,7 @@ var Product = {
       LIMIT 10;
     `;
     client.query(query, (req,result) => {
-      callback(result.rows)
+      callback(result.rows);
     });
   },
 
@@ -71,7 +71,7 @@ var Product = {
       LIMIT 10;
     `;
     client.query(query, (req,result) => {
-      callback(result.rows)
+      callback(result.rows);
     });
   }
 };

@@ -266,7 +266,7 @@ app.get('/admin/dashboard', function(req, res) {
   Brand.mostOrderedBrand(client, {},function(result){
     mostOrderedBrand = result
   });
-  Customer.mostOrderedCategory(client, {},function(result){
+  Category.mostOrderedCategory(client, {},function(result){
     mostOrderedCategory = result
   });
   Customer.topCustomersMostOrder(client, {},function(result){
