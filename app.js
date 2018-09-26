@@ -128,18 +128,6 @@ app.get('/admin/product/create', function (req, res) {
     });
 });
 
-// Create Product Form Page
-app.post('/insert_products', function (req, res) {
-  client.query("INSERT INTO products (name,description,tagline,price,warranty,brand_id,category_id,image) VALUES ('" + req.body.name + "', '" + req.body.description + "', '" + req.body.tagline + "', '" + req.body.price + "', '" + req.body.warranty + "', '" + req.body.brand_id + "', '" + req.body.category_id + "','" + req.body.image + "')")
-    .then((results) => {
-      console.log('results?', results);
-      res.redirect('admin/admin-products');
-    })
-    .catch((err) => {
-      console.log('error', err);
-      res.send('Error!');
-    });
-});
 
 // Order Product Using Nodemailer
 app.post('/products/:id/send', function (req, res) {
@@ -447,6 +435,19 @@ app.post('/updateproduct/:id', function (req, res) {
   client.query("UPDATE brands SET brand_description = '" + req.body.brand_description + "' WHERE id ='" + req.params.id + "';");
 
   res.redirect('admin/products');
+});
+
+// Create Product Form Page
+app.post('/insert_products', function (req, res) {
+  client.query("INSERT INTO products (name,description,tagline,price,warranty,brand_id,category_id,image) VALUES ('" + req.body.name + "', '" + req.body.description + "', '" + req.body.tagline + "', '" + req.body.price + "', '" + req.body.warranty + "', '" + req.body.brand_id + "', '" + req.body.category_id + "','" + req.body.image + "')")
+    .then((results) => {
+      console.log('results?', results);
+      res.redirect('admin/products');
+    })
+    .catch((err) => {
+      console.log('error', err);
+      res.send('Error!');
+    });
 });
 
 
