@@ -34,9 +34,15 @@
 
 .brand-contents table {
   padding: 5px 5px;
+  table-layout: fixed;
+  text-align: center;
+  background-color: white;
+  color: black;
 }
 
 .brand-contents th {
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #440861;
   color: white;
   font-weight: bold;

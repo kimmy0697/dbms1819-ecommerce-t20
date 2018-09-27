@@ -37,20 +37,21 @@
   text-transform: uppercase;
   font-weight: bold;
   list-style: none;
-  padding: 2px 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  padding: 10px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-left: 2px solid white;
   border-right: 2px solid white;
   border-radius: 10px;
-}
-
-.category-contents li:nth-child(odd) {
-  background-color: #daa1f7;
-  color: white;
-}
-
-.category-contents li:nth-child(even) {
   background-color: white;
-  color: #daa1f7;
+  color: #400861;
+  border-left: 2px solid #400861;
+  border-right: 2px solid #400861;
+}
+
+.category-contents li:hover {
+  background-color: #400861;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  color: white;
 }
