@@ -26,7 +26,7 @@
   border: 3px solid #440861;
 }
 
-.dashboard-table table, thead, tr, th {
+.dashboard-table1 tr {
   background-color: #b30086;
   color: white;
 }
