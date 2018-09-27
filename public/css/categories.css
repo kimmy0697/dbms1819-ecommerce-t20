@@ -32,6 +32,19 @@
   color: white;
 }
 
-.category-contents{
-  
+.category-contents li {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  list-style: none;
+}
+
+.category-contents li:nth-child(odd) {
+  background-color: #730ca7;
+  color: white;
+}
+
+.category-contents li:nth-child(even) {
+  background-color: white;
+  color: #730ca7;
 }

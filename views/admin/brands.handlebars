@@ -6,12 +6,28 @@
 				<a href="/admin/brand/create"><img src="/create.png" style="float:right; width:30px; height:30px; margin-top: 10px;"></a>
 			</legend>
 			<div class="container">
-				{{#each brands}}
+				{{!-- {{#each brands}} --}}
 				<div class="brand-contents">
-					<li>Name : {{this.brand_name}}</li>
-					<li>Description : {{this.brand_description}}</li>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						{{#each brands}}
+						<tbody>
+							<tr>
+								<td>{{this.brand_name}}</td>
+								<td>{{this.brand_description}}</td>
+							</tr>
+						</tbody>
+						{{/each}}
+					</table>
+					{{!-- <li>Name : {{this.brand_name}}</li> --}}
+					{{!-- <li>Description : {{this.brand_description}}</li> --}}
 				</div>
-				{{/each}}
+				{{!-- {{/each}} --}}
 			</div>
 		</fieldset>
 	</div>

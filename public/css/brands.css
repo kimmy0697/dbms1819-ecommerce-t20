@@ -31,3 +31,10 @@
   display: inline-block;
   color: white;
 }
+
+.brand-contents th {
+  background-color: #440861;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
