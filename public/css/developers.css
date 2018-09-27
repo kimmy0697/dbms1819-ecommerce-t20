@@ -64,3 +64,52 @@
   display: block;
   border: 2px solid #a94dff;
 }
+
+.header-design{
+  background-color: #440861;
+}
+
+.header-design h5 {
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.header-design img {
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+}
+
+.body-design {
+  background-color: white;
+  color: black;
+  font-family: sans-serif;
+  padding: 30px 20px 30px 20px;
+}
+
+.body-design li {
+  list-style: none;
+  padding: 5px 0px;
+}
+
+.footer-design {
+  border-top: 2px solid white;
+}
+
+.footer-design button {
+  width: 70%;
+  background-color: white;
+  border-color: #400861;
+  color: #440861;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+}
+
+.footer-design button:hover {
+  background-color: #400861;
+  border: 2px solid white;
+  color: white;
+}

@@ -53,11 +53,12 @@
   text-transform: uppercase;
   text-align: center;
   background-color: #f6e8fd;
-  border-color: #440861;
+  border: 2px solid #440861;
+  vertical-align: middle;
 }
 
 .brand-contents td:nth-child(even) {
   text-align: justify;
   background-color: #f6e8fd;
-  border-color: #440861;
+  border: 2px solid #440861;
 }
