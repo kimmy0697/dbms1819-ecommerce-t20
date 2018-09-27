@@ -21,6 +21,10 @@
   background: #e6c;
 }
 
+.order-legends button {
+  transform: translateY(5px);
+}
+
 .order-legends img {
   display: inline-block;
   height: 50px;

@@ -23,6 +23,10 @@
   background: #e6c;
 }
 
+.customer-legends button:active {
+  transform: translateY(5px);
+}
+
 .customer-legends img {
   display: inline-block;
   height: 50px;

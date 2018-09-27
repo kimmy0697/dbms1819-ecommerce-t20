@@ -21,6 +21,10 @@
   background: #e6c;
 }
 
+.brand-legends button:active {
+  transform: translateY(5px);
+}
+
 .brand-legends img {
   display: inline-block;
   height: 50px;

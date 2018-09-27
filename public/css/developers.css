@@ -21,6 +21,10 @@
   background: #e6c;
 }
 
+.developer-legends button:active {
+  transform: translateY(5px);
+}
+
 .developer-legends img {
   display: inline-block;
   height: 50px;
@@ -112,4 +116,8 @@
   background-color: #400861;
   border: 2px solid white;
   color: white;
+}
+
+.footer-design button:active {
+  transform: translateY(5px);
 }

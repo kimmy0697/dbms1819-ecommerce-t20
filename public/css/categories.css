@@ -21,6 +21,10 @@
   background: #e6c;
 }
 
+.category-legends button:active {
+  transform: translateY(5px);
+}
+
 .category-legends img {
   display: inline-block;
   height: 50px;
