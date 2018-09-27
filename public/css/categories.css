@@ -38,20 +38,17 @@
   font-weight: bold;
   list-style: none;
   padding: 10px 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
+  margin-bottom: 20px;
   border-radius: 10px;
-  background-color: white;
+  background-color: #f6e8fd;
   color: #400861;
-  border-left: 2px solid #400861;
-  border-right: 2px solid #400861;
+  border-left: 5px solid #400861;
+  border-right: 5px solid #400861;
 }
 
 .category-contents li:hover {
   background-color: #400861;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
   color: white;
 }
