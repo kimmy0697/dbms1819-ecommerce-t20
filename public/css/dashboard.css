@@ -1,6 +1,13 @@
 .dashboard-title h3 {
   color: #440861;
   padding: 20px 10px;
+  display: inline-block;
+}
+
+.dashboard-title img {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
 }
 
 .dashboard-header {
