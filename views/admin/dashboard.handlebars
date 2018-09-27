@@ -2,7 +2,6 @@
   <div class="jumbotron mt-2">
     <div class="dashboard-title">
       <h3 align="center">DELISHOES DASHBOARD</h3>
-      <hr style="border: 2px solid white">
     </div>
     <div class="row">
       <div class="col-md-5" style="margin: 0 40px">
@@ -43,8 +42,8 @@
             <tbody>
             {{#each topCustomersHighestPayment}}
               <tr>
-                <td align="left">{{this.first_name}}  {{this.last_name}}</td>
-                <td align="left">Php {{number this.sum}}.00</td>
+                <td>{{this.first_name}}  {{this.last_name}}</td>
+                <td>Php {{number this.sum}}.00</td>
               </tr>
             {{/each}}
             </tbody>
@@ -52,7 +51,6 @@
         </div>
       </div>
     </div>
-    <hr style="border: 2px solid white">
     <div class="row">
       <div class="col-md-5" style="margin: 0 40px">
         <div class="dashboard-header">
@@ -101,7 +99,6 @@
         </div>
       </div>
     </div>
-    <hr style="border: 2px solid white">
     <div class="row">
       <div class="col-md-5" style="margin: 0 40px">
         <div class="dashboard-header">
@@ -150,7 +147,6 @@
         </div>
       </div>
     </div>
-    <hr style="border: 2px solid white">
     <div class="row">
       <div class="col-md-5" style="margin: 0 40px">
         <div class="dashboard-header">
