@@ -1,0 +1,9 @@
+.dashboard-header {
+  background-color: #440861;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.dashboard-header h5 {
+  color: white;
+}
