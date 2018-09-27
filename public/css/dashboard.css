@@ -26,25 +26,20 @@
   border: 3px solid #440861;
 }
 
-.dashboard-table1 tr {
+.dashboard-table1 {
   background-color: #b30086;
   color: white;
 }
 
-.dashboard-table table, thead, tr {
+.dashboard-table-tr {
   background-color: white;
   color: black;
 }
 
-.dashboard-table table, tbody, tr {
-  background-color: white;
-  color: black;
-}
-
-.dashboard-table table, thead, tr:hover {
+.dashboard-table-tr:hover {
   background-color: #f6e8fd;
 }
 
-.dashboard-table table, tbody, tr:hover {
+.dashboard-table-tr:hover {
   background-color: #f6e8fd;
 }

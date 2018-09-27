@@ -18,7 +18,7 @@
             </thead>
             <tbody>
             {{#each topCustomersMostOrder}}
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>{{this.first_name}}  {{this.last_name}}</td>
                 <td>{{this.count}}</td>
               </tr>
@@ -41,7 +41,7 @@
             </thead>
             <tbody>
             {{#each topCustomersHighestPayment}}
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>{{this.first_name}}  {{this.last_name}}</td>
                 <td>Php {{number this.sum}}.00</td>
               </tr>
@@ -66,7 +66,7 @@
             </thead>
             <tbody>
             {{#each mostOrderedProduct}}
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>{{this.products_name}}</td>
                 <td>{{this.total}}</td>
               </tr>
@@ -89,7 +89,7 @@
             </thead>
             <tbody>
             {{#each leastOrderedProduct}}
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>{{this.products_name}}</td>
                 <td>{{this.total}}</td>
               </tr>
@@ -114,7 +114,7 @@
             </thead>
             <tbody>
             {{#each mostOrderedBrand}}
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>{{this.brand_name}}</td>
                 <td>{{this.total}}</td>
               </tr>
@@ -137,7 +137,7 @@
             </thead>
             <tbody>
             {{#each mostOrderedCategory}}
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>{{this.category_name}}</td>
                 <td>{{this.total}}</td>
               </tr>
@@ -161,7 +161,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>Php {{number totalSalesLast7days}}.00</td>
                 <td>Php {{number totalSalesLast30days}}.00</td>
               </tr>
@@ -181,7 +181,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="dashboard-table-tr">
                 <td>This day: {{thisDay}} order/s acquired.</td>
               </tr>
               <tr>
