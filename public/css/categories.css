@@ -37,14 +37,20 @@
   text-transform: uppercase;
   font-weight: bold;
   list-style: none;
+  padding: 2px 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-radius: 10px;
 }
 
 .category-contents li:nth-child(odd) {
-  background-color: #730ca7;
+  background-color: #daa1f7;
   color: white;
 }
 
 .category-contents li:nth-child(even) {
   background-color: white;
-  color: #730ca7;
+  color: #daa1f7;
 }
