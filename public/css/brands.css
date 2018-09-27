@@ -48,6 +48,16 @@
   text-transform: uppercase;
 }
 
-.brand-contents td {
+
+.brand-contents td:nth-child(odd) {
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #f6e8fd;
+  border-color: #440861;
+}
+
+.brand-contents td:nth-child(even) {
   text-align: justify;
+  background-color: #f6e8fd;
+  border-color: #440861;
 }
