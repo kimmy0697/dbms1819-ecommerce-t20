@@ -17,11 +17,9 @@ const Category = require('./models/category');
 const Handlebars = require('handlebars');
 const MomentHandler = require('handlebars.moment');
 MomentHandler.registerHelpers(Handlebars);
+const PORT = process.env.PORT || 4000
 const NumeralHelper = require("handlebars.numeral");
 NumeralHelper.registerHelpers(Handlebars);
-// const PORT = process.env.PORT || 3000
-
-
 const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 const session = require('express-session');
@@ -50,6 +48,10 @@ client.connect()
 /******************Folder Directories***************************/
 
 const app = express();
+var role;
+
+app.use(session({ secret: 'tengakomalaki', resave: false, saveUninitialized: false }));
+
 
 // tell express which folder is a static/public folder
 app.set('views', path.join(__dirname, 'views'));
@@ -178,7 +180,7 @@ app.get('/products', function (req, res) {
 });
 
 // Product Details Page
-app.get('/products/:id', function (req, res) {
+app.get('/products/:id',isCustomer, function (req, res) {
   Product.getById(client, req.params.id, function (productData) {
     res.render('client/product-details', productData);
   });
@@ -673,10 +675,10 @@ app.get('/admin/customers/:id', function (req, res) {
 
 /*********************Server***************************/
 
-app.listen(app.get('port'), function () {
-  console.log('Server started at port 3000');
-});
-
-// app.listen(3000, function () {
+// app.listen(app.get('port'), function () {
 //   console.log('Server started at port 3000');
 // });
+
+app.listen(4000, function () {
+  console.log('Server started at port 4000');
+});
