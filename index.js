@@ -163,7 +163,7 @@ app.get('/signup', function (req, res){
 });
 
 app.post('/signup', (req,res) => {
-  client,query("INSERT INTO customers(first_name, middle_name, last_name, state, city, street, zipcode, password, user_type) VALUES ('" + req.body.fname + "','" + req.body.mname + "','" + req.body.lname + "','" + req.body.state + "','" + req.body.city + "','" + req.body.street + "','" + req.body.zipcode + "','" + req.body.password + "','" + req.body.user_type + "');");
+  client.query("INSERT INTO customers(first_name, middle_name, last_name, state, city, street, zipcode, email, password, user_type) VALUES ('" + req.body.fname + "','" + req.body.mname + "','" + req.body.lname + "','" + req.body.state + "','" + req.body.city + "','" + req.body.street + "','" + req.body.zipcode + "','" + req.body.email + "','" + req.body.password + "','" + req.body.user_type + "');");
   res.redirect('/login');
 });
 
