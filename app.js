@@ -178,7 +178,7 @@ app.get('/products', function (req, res) {
 });
 
 // Product Details Page
-app.get('/products/:id', isCustomer, function (req, res) {
+app.get('/products/:id', function (req, res) {
   Product.getById(client, req.params.id, function (productData) {
     res.render('client/product-details', productData);
   });
