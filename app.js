@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const config = require('./config.js');
 const { Client } = require('pg');
-console.log('config db', config.db);
-const client = new Client(config.db);
+// console.log('config db', config.db);
+// const client = new Client(config.db);
 const Product = require('./models/product');
 const Brand = require('./models/brand');
 const Customer = require('./models/customer');
@@ -21,7 +21,21 @@ const NumeralHelper = require("handlebars.numeral");
 NumeralHelper.registerHelpers(Handlebars);
 // const PORT = process.env.PORT || 3000
 
+
+const passport = require('passport');
+const Strategy = require('passport-local').Strategy;
+const session = require('express-session');
+
 /******************Connection to Database***************************/
+
+const client = new Client({
+  database: 'dd8kc2u4cu7i9d',
+  user: 'ffvgqavajynjjs',
+  password: 'fcd02fa73b5ebb0764264b3f00ddf5e09d6240e9ea64c7b3d5852eb8c74b1a45',
+  host: 'ec2-23-21-216-174.compute-1.amazonaws.com',
+  port: 5432,
+  ssl: true
+});
 
 client.connect()
   .then(function () {
@@ -49,6 +63,68 @@ app.use(express.static(path.join(__dirname, 'static1')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(passport.initialize()); 
+app.use(passport.session());
+
+//Authentication and Session--------------------------------------------
+passport.use(new Strategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},
+  function(email, password, cb) {
+    Customer.getByEmail(client,email, function(user) {
+      if (!user) { return cb(null, false); }
+    
+      return cb(null, user);
+    });
+  })
+);
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user.id);
+});
+
+passport.deserializeUser(function(id, cb) {
+  Customer.getById(client,id, function (user) {
+    cb(null, user);
+  });
+});
+
+function isAdmin(req, res, next) {
+   if (req.isAuthenticated()) {
+  Customer.getCustomerData(client,{id: req.user.id}, function(user){
+    role = user[0].user_type;
+    console.log('role:',role);
+    if (role == 'admin') {
+        return next();
+    }
+    else{
+      res.send('cannot access!');
+    }
+  });
+  }
+  else{
+res.redirect('/login');
+}
+}
+function isCustomer(req, res, next) {
+   if (req.isAuthenticated()) {
+  Customer.getCustomerData(client,{id: req.user.id}, function(user){
+    role = user[0].user_type;
+    console.log('role:',role);
+    if (role == 'customer') {
+        return next();
+    }
+    else{
+      res.send('cannot access!');
+    }
+  });
+  }
+  else{
+res.redirect('/login');
+}
+}
+
 
 /*********************Home***************************/
 
@@ -62,10 +138,22 @@ app.get('/login', function (req, res) {
   });
 });
 
-app.post('/login', (req,res) => {
-  console.log('login data', req.data);
-  res.render('client/login');
-});
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+  Customer.getById(client, req.user.id, function(user){
+    role = user.user_type;
+    req.session.user = user;
+      console.log(req.session.user);
+    console.log('role:',role);
+    if (role == 'customer'){
+        res.redirect('/')
+    }
+    else if (role == 'admin'){
+        res.redirect('/admin')
+    }
+     });
+  });
 
 app.get('/signup', function (req, res){
   res.render('client/signup', {
@@ -73,8 +161,8 @@ app.get('/signup', function (req, res){
 });
 
 app.post('/signup', (req,res) => {
-  console.log('signup data', req.data);
-  res.render('client/signup');
+  client,query("INSERT INTO customers(first_name, middle_name, last_name, state, city, street, zipcode, password, user_type) VALUES ('" + req.body.fname + "','" + req.body.mname + "','" + req.body.lname + "','" + req.body.state + "','" + req.body.city + "','" + req.body.street + "','" + req.body.zipcode + "','" + req.body.password + "','" + req.body.user_type + "');");
+  res.redirect('/login');
 });
 
 /*********************Client Products***************************/
@@ -90,7 +178,7 @@ app.get('/products', function (req, res) {
 });
 
 // Product Details Page
-app.get('/products/:id', function (req, res) {
+app.get('/products/:id', isCustomer, function (req, res) {
   Product.getById(client, req.params.id, function (productData) {
     res.render('client/product-details', productData);
   });
@@ -283,7 +371,7 @@ app.get('/admin/dashboard', function(req, res) {
   });
 });
 
-app.get('/admin', function (req, res) {
+app.get('/admin', isAdmin, function (req, res) {
   res.render('admin/home', {
     layout: 'admin-layout'
   });
@@ -495,7 +583,7 @@ app.get('/admin/brands', function (req, res) {
 /*********************Categories***************************/
 
 // Create Category Page
-app.get('/admin/category/create', (req, res) => {
+app.get('/admin/category/create', function (req, res) {
   res.render('admin/create-category', {
     layout: 'admin-layout'
   });
@@ -574,7 +662,7 @@ app.get('/admin/customers/:id', function (req, res) {
       res.send('Error!');
     });
 });
-//   Customer.getById(client, req.params.id, function (customerData) {
+//   Customer.getByCustomerId(client, req.params.id, function (customerData) {
 //     res.render('admin/customer-details', {
 //       customerData,
 //       layout: 'admin-layout'

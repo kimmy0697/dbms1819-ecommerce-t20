@@ -1,5 +1,29 @@
 var Customer = {
-  getById: (client, customerId, callback) => {
+    getByEmail: (client,email,callback) => {
+    const query =  `
+          select * from customers where email = '${email}'
+      `;
+      client.query(query,(req,result)=>{
+        callback(result.rows[0]);
+      });
+    },
+    getCustomerData: (client,id,callback) => {
+      const query =  `
+          select * from customers where id = '${id.id}'
+      `;
+      client.query(query,(req,result)=>{
+        callback(result.rows);
+      });
+    },
+    getById: (client,id,callback) => {
+      const query =  `
+          SELECT * FROM customers WHERE id = '${id}'
+      `;
+      client.query(query,(req,result)=>{
+        callback(result.rows[0]);
+      });
+    },
+    getByCustomerId: (client, customerId, callback) => {
     const customerQuery = `SELECT
         customers.first_name AS first_name,
         customers.middle_name AS middle_name,
