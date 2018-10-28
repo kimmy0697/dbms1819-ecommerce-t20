@@ -675,10 +675,10 @@ app.get('/admin/customers/:id', function (req, res) {
 
 /*********************Server***************************/
 
-// app.listen(app.get('port'), function () {
-//   console.log('Server started at port 3000');
-// });
-
-app.listen(4000, function () {
-  console.log('Server started at port 4000');
+app.listen(app.get('port'), function () {
+  console.log('Server started at port 3000');
 });
+
+// app.listen(4000, function () {
+//   console.log('Server started at port 4000');
+// });
